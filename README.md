@@ -13,7 +13,7 @@ of particles is achieved.
 - Visuals: As the particle continues in its life, its size and transparency (alpha) will decrease. These values will also decrease as the camera gets further away. The color of the 
 particles is dependent on a cosine palette, but can also be altered by linearly interpolating the colors in the future.
 
-- Shape Emitters: You can specify how the particle system generates particles by changing the shape of the emitter. 
+- Shape Emitters: You can specify how the particle system generates particles by changing the shape of the emitter. The shape of the emitter will distribute particles uniformly across different 2D and 3D shapes using warping functions.
 
 - Trajectory: You can specify the shape of the trajectory (spread) of the particles. Do you want the particles to spread in a cone shape or go up vertically?
 
