@@ -4,6 +4,7 @@ The goal of this project is to make a custom gun creation tool that simulates bu
 that are generated, updated, and rendered using your GPU.
 
 ## Demo : https://helenl9098.github.io/GPU-Particle-System/
+Controls: Drag to rotate the camera around the origin. Right click and drag to translate the camera.
 
 ## Features & Progress
 - Particle System(s) that generates particles on the GPU, updates them through transform feedback, and renders the results. The particle generator keeps track of the current life of each particle. If the particle's life is greater than its max life, the particle will reborn. 
