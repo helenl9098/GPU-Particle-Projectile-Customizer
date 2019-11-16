@@ -8,6 +8,10 @@ uniform mat4 u_ViewProj;
 uniform float u_TimeDelta;
 uniform float u_TotalTime;
 
+uniform float u_SphereCollider;
+uniform vec4 u_SphereColliderPos;
+
+
 uniform vec4 u_Emission;
 uniform float u_BulletNum;
 
@@ -18,6 +22,8 @@ uniform float u_BulletSize;
 
 uniform vec3 u_Gravity;
 uniform vec3 u_Origin;
+
+
 
 
 in vec3 i_Position;
@@ -102,6 +108,11 @@ vec3 squareToDiskUniform(vec2 s)
     return vec3(u, 0.5, v);
   }
 
+  vec3 reflection(vec3 incidentVec, vec3 normal)
+{
+  return incidentVec - 2.0 * dot(incidentVec, normal) * normal;
+}
+
   void main() {
 
     // change the value of gravity depending on whether or not it's turned off
@@ -110,8 +121,23 @@ vec3 squareToDiskUniform(vec2 s)
       gravity[1] = 0.0;
     }
 
+    vec3 sphere_center = vec3(u_SphereColliderPos);
+    float sphere_radius = u_SphereColliderPos[3];
+
+    vec2 rand_sphere = random2D(vec2(float(gl_VertexID) / 1000.0,
+                          float(gl_VertexID) / 1000.0), 
+                          vec2(13.0, 13.0));
+
     // particle exceed life time. Spawn another one.
     if (i_Age >= i_Life) {
+
+
+  /*
+  *
+  * INITIALIZE PARTICLE
+  *
+  *
+  */  
 
     vec3 seed = vec3(0, 0, 0);
     vec2 seed2 = vec2(0, 0);
@@ -142,22 +168,34 @@ vec3 squareToDiskUniform(vec2 s)
 
     // sphere
     if (u_Emission[0] == 0.0) {
-      velocity = normalize(squareToSphereUniform(rand2)) * 1.5;
+      velocity = normalize(squareToSphereUniform(rand2)) * 3.5;
+      if (u_Emission[2] == 1.0) {
+        velocity = 2.0 *normalize(squareToSphereUniform(rand2));
+      }
     }
 
     // cone
     if (u_Emission[0] == 1.0) {
-      velocity = normalize(squareToDiskUniform(rand2) + vec3(2.5, 0, 0)) * 1.5;
+      velocity = normalize(squareToDiskUniform(rand2) + vec3(2.5, 0, 0)) * 3.5;
+      if (u_Emission[2] == 1.0) {
+        velocity = 2.0 *normalize(squareToDiskUniform(rand2) + vec3(2.5, 0, 0));
+      }
     } 
 
     //straight up
     if (u_Emission[0] == 2.0) {
-      velocity = vec3(1, 0, 0);
+      velocity = vec3(1, 0, 0) * 3.5;
+      if (u_Emission[2] == 1.0) {
+        velocity = 2.0 *vec3(1, 0, 0);
+      }
     } 
 
     // square cone
     if (u_Emission[0] == 3.0) {
-      velocity = vec3(1.f, rand3.x * 1.2 - 0.6, rand3.y* 1.2 - 0.6);
+      velocity = normalize(vec3(1.f, rand3.x * 1.2 - 0.6, rand3.y* 1.2 - 0.6)) * 3.5;
+      if (u_Emission[2] == 1.0) {
+        velocity = 2.0 *normalize(vec3(1.f, rand3.x * 1.2 - 0.6, rand3.y* 1.2 - 0.6));
+      }
     } 
 
     // outline
@@ -166,7 +204,11 @@ vec3 squareToDiskUniform(vec2 s)
       float y = cos (theta);
       float x = 3.0;
       float z = sin (theta);
-      velocity = vec3(x, y, z);
+      velocity = normalize(vec3(x, y, z)) * 3.5;
+
+      if (u_Emission[2] == 1.0) {
+        velocity = 2.0 *normalize(vec3(x, y, z));
+      }
     } 
 
 
@@ -203,6 +245,7 @@ vec3 squareToDiskUniform(vec2 s)
       }
     }
 
+    // ============ BULLET GENERATION ===============
     // random value to get different bullets spread
     vec3 velocity_seed = vec3(u_SpreadSeed, u_SpreadSeed, u_SpreadSeed);
     float spread = u_Spread;
@@ -215,8 +258,9 @@ vec3 squareToDiskUniform(vec2 s)
     random_bullet = floor(random_bullet);
 
 
-    vec3 current_bullet_velocity = vec3(2, 2, 0.0);
+    //vec3 current_bullet_velocity = vec3(2, 2, 0.0);
 
+    // generates random velocity from spread of bullet
     vec3 random_velocity = random3D(vec3(random_bullet, random_bullet, random_bullet) , 
                                     velocity_seed);
 
@@ -224,41 +268,112 @@ vec3 squareToDiskUniform(vec2 s)
     random_velocity.x = ((random_velocity.x * spread) + 1.0) * 1.5;
     random_velocity.z = (((random_velocity.z * 2.0 - 1.0) * spread)) * 1.5;
     random_velocity.y = (((random_velocity.y * 2.0 - 1.0) * spread)) * 1.5;
-    current_bullet_velocity = random_velocity;
+    vec3 current_bullet_velocity = random_velocity;
 
 
-    // moves back and forth
-    //v_Position += vec3(sin(u_TotalTime * 0.0005) * 5.0, 0.0, 0.0);
+    // ===========================================
+    // MAKES A SPHERE
+    if (rand_sphere.x > 0.90) {
 
-    if (u_Emission[2] == 1.0) {
-      // moves the system in a ballistic projectile 
-      vec3 original_position = v_Position + vec3(-5, 0, 0);
-      float t = mod(u_TotalTime, 3000.0) * 0.002; // will eventually be replaced with collision test
-      v_Position += vec3(-5, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;
+          vec2 rand_warp = random2D(vec2(float(gl_VertexID) / 1000.0,
+                               float(gl_VertexID) / 1000.0), 
+                                vec2(13.0, 3.0));
+
+          v_Position = normalize(squareToSphereUniform(rand_warp)) * sphere_radius + sphere_center;
+          v_Velocity = vec3(0, 0, 0); 
+
+    } else {
+        if (u_Emission[2] == 1.0) {
+          // moves the system in a ballistic projectile 
+          vec3 original_position = v_Position + vec3(-5, 0, 0);
+          float t = mod(u_TotalTime, 3000.0) * 0.002; // will eventually be replaced with collision test
+          vec3 center = vec3(4.0, 0.0, 0.0);
+          
+          vec3 tempPos = v_Position + vec3(-6, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;
+          float distanceToSphere = distance(tempPos, center);
+    
+              v_Position = tempPos;
+    
+             // if (distanceToSphere < sphere_radius) {
+                //vec3 vel = 3.0 * normalize(reflection(current_bullet_velocity, tempPos - center));
+                //v_Position += tempPos + (tempPos - center) * t + 0.5 * gravity * t * t;
+               //   v_Position = tempPos;
+                  //velocity = 
+              //} 
+    
+            }
+    
+            /* Generate final velocity vector. */
+        v_Velocity = velocity; 
     }
 
     v_Age = 0.0;
     v_Life = i_Life;
 
-    /* Generate final velocity vector. */
-    v_Velocity = velocity; 
 
+  } 
+  else {
+  
+  /*
+  *
+  * UPDATE PARTICLE!!!
+  *
+  *
+  */  
+  
 
-  } else {
+  // this is if the particle is forming the sphere
+    if (rand_sphere.x > 0.90) {
+      v_Age = -0.1;
+      gravity = vec3(0.0, 0.0, 0.0);
+      v_Velocity = i_Velocity;
+      v_Position = i_Position; 
+      v_Life = -0.2;
+    }
+
+    // this is if particle is part of the beam or projectile
+    else {
+      v_Life = i_Life;
+      v_Age = i_Age + u_TimeDelta;
+
+      float distanceToSphere = distance(i_Position, sphere_center);
+
+      // this is if the particle is inside the sphere
+      if (distanceToSphere < sphere_radius) {
+        // this should be the normal of the sphere
+        //vec3 vel = length(i_Velocity) * normalize(i_Position - sphere_center);
+        vec3 random_reflection_noise_seed = vec3(5.0, 5.0, 5.0);
+        vec3 random_reflection_noise = random3D(i_Position * u_TimeDelta, random_reflection_noise_seed);
+        random_reflection_noise *= 2.0;
+        random_reflection_noise -= vec3(1.0, 1.0, 1.0);
+
+        vec3 vel = length(i_Velocity) * normalize(random_reflection_noise + normalize(reflect(i_Velocity + gravity * 2.0 * u_TimeDelta, i_Position - sphere_center)));
+        //vec3 vel = vec3(-1.0, 1.0, -1.0);
+        v_Velocity = vel + gravity * 2.0 * u_TimeDelta;
+        v_Position = i_Position  + v_Velocity * u_TimeDelta;
+
+      }
+      else {
+        v_Velocity = i_Velocity + gravity * 2.0 * u_TimeDelta;
+        v_Position = i_Position  + v_Velocity * u_TimeDelta;
+      }
+    }
     
-    /* Update parameters*/
-    v_Position = i_Position + i_Velocity * u_TimeDelta;
-
-    v_Age = i_Age + u_TimeDelta;
-    v_Life = i_Life;
 
     // random force
-    vec3 rand_force = random3D(vec3(float(gl_VertexID) / 1000.0,
-                                    float(gl_VertexID) / 1000.0,
-                                    float(gl_VertexID) / 1000.0), 
-                                    vec3(4.0, 4.0, 4.0));
+    //vec3 rand_force = random3D(vec3(float(gl_VertexID) / 1000.0,
+    //                                float(gl_VertexID) / 1000.0,
+    //                                float(gl_VertexID) / 1000.0), 
+    //                                vec3(4.0, 4.0, 4.0));
 
-    //v_Velocity = i_Velocity + u_Gravity * 2.0 * u_TimeDelta + (vec3(3.0, 0.0, 0.0) + rand_force) * u_TimeDelta;
-    v_Velocity = i_Velocity + gravity * 2.0 * u_TimeDelta;
+
+  
+
+    //if (distanceToSphere < sphere_radius) {
+    //   vec3 vel = 1.0 * normalize(reflection(i_Velocity, i_Position - sphere_center));
+    //   v_Velocity = vel + gravity * 2.0 * u_TimeDelta;
+    //   v_Position = i_Position  + v_Velocity * u_TimeDelta;
+      
+    // } 
   }
 }

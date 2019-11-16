@@ -5,6 +5,7 @@ import * as DAT from 'dat-gui';
 import OpenGLRenderer from './rendering/gl/OpenGLRenderer';
 import Camera from './Camera';
 import {setGL} from './globals';
+import Square from './geometry/Square';
 import ShaderProgram, {Shader} from './rendering/gl/ShaderProgram';
 import {gl} from './globals';
 
@@ -14,7 +15,7 @@ const controls = {
   num_particles : 50000,
   birth_rate : 10.1, /* birth rate */
   min_life : 1.01,
-  max_life : 1.40, /* life range */
+  max_life : 1.70, /* life range */
   trajectory:  'sphere',
   emitter: 'sphere',
   bullet_num: 7,
@@ -23,11 +24,18 @@ const controls = {
   gravity_value: 0.10,
   spread_seed: 0.0,
   spread: 0.2,
-  bullet_size: 0.1
+  bullet_size: 0.1,
+  sphere_collider: false,
+  sphere_collider_x: 0.02,
+  sphere_collider_y: 0.02,
+  sphere_collider_z: 0.02,
+  sphere_collider_radius: 4.01
 
 };
 
 let time: number = 0;
+let square: Square;
+let attrPos: number;  
 
 function processKeyPresses() {
     // Use this if you wish
@@ -104,6 +112,32 @@ gl.bindVertexArray(null);
 gl.bindBuffer(gl.ARRAY_BUFFER, null);
 }
 
+  /* Creates an OpenGL program object*/
+  function createGLProgram(shader_list, transform_feedback_varyings) {
+    var program = gl.createProgram();
+    for (var i = 0; i < shader_list.length; i++) {
+      var shader = shader_list[i];
+      gl.attachShader(program, shader);
+    }
+
+  /* Specify varyings that we want to be captured in the transform
+  feedback buffer. */
+  if (transform_feedback_varyings != null) {
+    gl.transformFeedbackVaryings(
+      program,
+      transform_feedback_varyings,
+      gl.INTERLEAVED_ATTRIBS)
+  }
+
+  gl.linkProgram(program);
+  var link_status = gl.getProgramParameter(program, gl.LINK_STATUS);
+  if (!link_status) {
+    var error_message = gl.getProgramInfoLog(program);
+    throw "Could not link program.\n" + error_message;
+  }
+  return program;
+}
+
 function main() {
   window.addEventListener('keypress', function (e) {
     switch(e.key) {
@@ -132,10 +166,12 @@ function main() {
 
   var folder_basics = gui.addFolder('Basics');
   //var folder_beam_properties = gui.addFolder('Beam Properties');
+  var folder_collider = gui.addFolder('Collider');
   var folder_projectile_properties = gui.addFolder('Projectile Properties');
   folder_basics.open();
   //folder_beam_properties.open();
   folder_projectile_properties.open();
+
 
 
   var emitter_controller = folder_basics.add(controls, 'emitter', [ 'sphere', 'point', 'disk', 'square' ] );
@@ -154,6 +190,12 @@ function main() {
   var spread_seed_controller =  folder_projectile_properties.add(controls, 'spread_seed', 0, 1000).step(0.01);
   var spread_controller =  folder_projectile_properties.add(controls, 'spread', 0.01, 0.7).step(0.01);
   var bullet_size_controller =  folder_projectile_properties.add(controls, 'bullet_size', 0.01, 0.4).step(0.01);
+  var collider_controller = folder_collider.add(controls, 'sphere_collider');
+  var collider_x_controller =  folder_collider.add(controls, 'sphere_collider_x', -10.1, 10.1).step(0.001);
+  var collider_y_controller =  folder_collider.add(controls, 'sphere_collider_y', -10.1, 10.1).step(0.001);
+  var collider_z_controller =  folder_collider.add(controls, 'sphere_collider_z', -10.1, 10.1).step(0.001);
+  var collider_radius_controller =  folder_collider.add(controls, 'sphere_collider_radius', 0.01, 10.1).step(0.001);
+
 
   // chnanging bullet particle number
   bullet_num_controller.onChange(function(value) {
@@ -266,19 +308,15 @@ function main() {
 
   setGL(gl);
 
+  // create a square
+  square = new Square(vec3.fromValues(0, 0, 0));
+  square.create();
+
+
   // initialize camera
   const camera = new Camera(vec3.fromValues(0, 0, -1), vec3.fromValues(0, 0, 0));
   camera.setAspectRatio(canvas.width / canvas.height);
   camera.updateProjectionMatrix();
-
-
-  // intial state of the particles
-  var state =
-  init(
-   controls.num_particles,
-   controls.birth_rate,
-   controls.min_life, controls.max_life,
-   [0.0, -controls.gravity_value, 0.0]); /* gravity */
 
 
   // call render loop
@@ -288,47 +326,8 @@ function main() {
   gl.clearColor(0.0 / 255.0, 0.0 / 255.0, 0.0 / 255.0, 1);
   gl.enable(gl.DEPTH_TEST);
 
-/* Creates an OpenGL program object*/
-  function createGLProgram(shader_list, transform_feedback_varyings) {
-    var program = gl.createProgram();
-    for (var i = 0; i < shader_list.length; i++) {
-      var shader = shader_list[i];
-      gl.attachShader(program, shader);
-    }
 
-  /* ]]Specify varyings that we want to be captured in the transform
-  feedback buffer. */
-  if (transform_feedback_varyings != null) {
-    gl.transformFeedbackVaryings(
-      program,
-      transform_feedback_varyings,
-      gl.INTERLEAVED_ATTRIBS)
-  }
-
-  gl.linkProgram(program);
-  var link_status = gl.getProgramParameter(program, gl.LINK_STATUS);
-  if (!link_status) {
-    var error_message = gl.getProgramInfoLog(program);
-    throw "Could not link program.\n" + error_message;
-  }
-  return program;
-}
-
-
-/* Main initialization Function */
- function init(
-  num_particles,
-  particle_birth_rate,
-  min_age,
-  max_age, 
-  gravity) {
-
-  /* Do some parameter validation */
-  if (max_age < min_age) {
-    throw "Invalid min-max age range.";
-  }
- 
-  /* Create programs for updating and rendering the particle system. */
+ /* Create programs for updating and rendering the particle system. */
   var update_program = createGLProgram(
     [
     new Shader(gl.VERTEX_SHADER, require('./shaders/particle-update-vert.glsl')).shader,
@@ -346,6 +345,16 @@ function main() {
     new Shader(gl.FRAGMENT_SHADER, require('./shaders/particle-render-frag.glsl')).shader
     ],
     null);
+  var raycast_program = createGLProgram(
+    [
+    new Shader(gl.VERTEX_SHADER, require('./shaders/flat-vert.glsl')).shader,
+    new Shader(gl.FRAGMENT_SHADER, require('./shaders/flat-frag.glsl')).shader
+    ], null);
+  attrPos = gl.getAttribLocation(raycast_program, "vs_Pos");
+
+
+
+
   
   /* Capture attribute locations from program objects. */
   var update_attrib_locations = {
@@ -440,7 +449,7 @@ function main() {
   
   /* Populate buffers with some initial data. */
   var initial_data =
-    new Float32Array(initialParticleData(num_particles, min_age, max_age));
+    new Float32Array(initialParticleData(controls.num_particles, controls.min_life, controls.max_life));
     gl.bindBuffer(gl.ARRAY_BUFFER, buffers[0]);
     gl.bufferData(gl.ARRAY_BUFFER, initial_data, gl.STREAM_DRAW);
     gl.bindBuffer(gl.ARRAY_BUFFER, buffers[1]);
@@ -458,7 +467,29 @@ function main() {
   gl.enable( gl.DEPTH_TEST );
   gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
 
+    // intial state of the particles
+  var state =
+  init(
+   controls.num_particles,
+   controls.birth_rate,
+   controls.min_life, controls.max_life,
+   [0.0, -controls.gravity_value, 0.0]); /* gravity */
+
   
+
+/* Main initialization Function */
+ function init(
+  num_particles,
+  particle_birth_rate,
+  min_age,
+  max_age, 
+  gravity) {
+
+  /* Do some parameter validation */
+  if (max_age < min_age) {
+    throw "Invalid min-max age range.";
+  }
+
     return {
       particle_sys_buffers: buffers,
       particle_sys_vaos: vaos,
@@ -466,6 +497,7 @@ function main() {
       write: 1,
       particle_update_program: update_program,
       particle_render_program: render_program,
+      raycast_flat_program: raycast_program,
       num_particles: initial_data.length / 8,
       old_timestamp: 0.0,
       total_time: 0.0,
@@ -479,8 +511,11 @@ function main() {
 
 
 
+
   /* render (tick) loop */
   function render(gl, state, timestamp_millis) {
+
+
     camera.update();
     stats.begin();
     var num_part = state.born_particles;
@@ -503,8 +538,50 @@ function main() {
 
     state.old_timestamp = timestamp_millis;
 
+
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-  
+
+    gl.useProgram(state.raycast_flat_program);
+    
+    if (attrPos != -1 && square.bindPos()) {
+       gl.enableVertexAttribArray(attrPos);
+       gl.vertexAttribPointer(attrPos, 4, gl.FLOAT, false, 0, 0);
+    }
+    
+
+    square.bindIdx();
+    gl.drawElements(square.drawMode(), square.elemCount(), gl.UNSIGNED_INT, 0);
+
+    if (attrPos != -1) {gl.disableVertexAttribArray(attrPos);}
+
+
+
+    /* camera position */
+    gl.uniform3f(
+      gl.getUniformLocation(state.raycast_flat_program, "u_CamPos"),
+      camera.position[0], camera.position[1], camera.position[2]);
+
+    /* camera up vector */
+    gl.uniform3f(
+      gl.getUniformLocation(state.raycast_flat_program, "u_Up"),
+      camera.controls.up[0], camera.controls.up[1], camera.controls.up[2]);
+
+    /* camera ref vector */
+    gl.uniform3f(
+      gl.getUniformLocation(state.raycast_flat_program, "u_Ref"),
+    camera.controls.center[0], camera.controls.center[1], camera.controls.center[2]);
+
+    /* canvas dimensions vector */
+    gl.uniform2f(
+      gl.getUniformLocation(state.raycast_flat_program, "u_Dimensions"),
+    canvas.width, canvas.height);
+
+
+  //}
+  /* Set up VAOs */
+  for (var i = 0; i < vao_desc.length; i++) {
+    setupParticleBufferVAO(vao_desc[i].buffers, vao_desc[i].vao);
+  }
     gl.useProgram(state.particle_render_program);
 
     /* 
@@ -527,6 +604,22 @@ function main() {
       gl.getUniformLocation(state.particle_render_program, "u_CamPos"),
       camera.position[0], camera.position[1], camera.position[2]);
 
+    /* camera up vector */
+    gl.uniform3f(
+      gl.getUniformLocation(state.particle_render_program, "u_Up"),
+      camera.controls.up[0], camera.controls.up[1], camera.controls.up[2]);
+
+    /* camera ref vector */
+    gl.uniform3f(
+      gl.getUniformLocation(state.particle_render_program, "u_Ref"),
+    camera.controls.center[0], camera.controls.center[1], camera.controls.center[2]);
+
+    /* canvas dimensions vector */
+    gl.uniform2f(
+      gl.getUniformLocation(state.particle_render_program, "u_Dimensions"),
+    canvas.width, canvas.height);
+
+
     gl.useProgram(state.particle_update_program);
 
     /* uniforms */
@@ -538,6 +631,11 @@ function main() {
     gl.uniform1f(
       gl.getUniformLocation(state.particle_update_program, "u_TimeDelta"),
       time_delta / 1000.0);
+
+    gl.uniform1f(
+      gl.getUniformLocation(state.particle_update_program, "u_SphereCollider"),
+    controls.sphere_collider);
+
     gl.uniform1f(
       gl.getUniformLocation(state.particle_update_program, "u_TotalTime"),
       state.total_time);
@@ -573,6 +671,14 @@ function main() {
       state.origin[2]);
     
     state.total_time += time_delta;
+
+
+    gl.uniform4f(
+      gl.getUniformLocation(state.particle_update_program, "u_SphereColliderPos"),
+    controls.sphere_collider_x,
+    controls.sphere_collider_y, 
+    controls.sphere_collider_z, 
+    controls.sphere_collider_radius);
     
 
     /*
@@ -596,6 +702,8 @@ function main() {
     gl.bindVertexArray(state.particle_sys_vaos[state.read + 2]);
     gl.useProgram(state.particle_render_program);
     gl.drawArrays(gl.POINTS, 0, num_part);
+
+
   
     var tmp = state.read;
     state.read = state.write;

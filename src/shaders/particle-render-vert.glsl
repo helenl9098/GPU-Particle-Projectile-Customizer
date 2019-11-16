@@ -13,6 +13,7 @@ in vec3 i_Velocity;
 out vec3 v_Position;
 out float v_Age;
 out float v_Life;
+out vec3 v_Velocity;
 
 
 void main() {
@@ -24,7 +25,11 @@ void main() {
   gl_Position =  u_ViewProj * vec4(i_Position, 1.0);
 
   float distanceToCamera = distance(i_Position, u_CamPos);
-  gl_PointSize = (0.5 + 3.0 * (1.0 - 1.6 * i_Age/i_Life)) / ( distanceToCamera / 10.0);
+  gl_PointSize = (0.5 + 4.0 * (1.0 - 1.6 * i_Age/i_Life)) / ( distanceToCamera / 10.0);
   
-
+  // points on sphere
+  if (v_Age == -0.1) {
+    gl_PointSize = (0.5 + 4.0 * (1.0 - 1.6 * i_Age/i_Life)) / ( distanceToCamera / 10.0);
+  
+  }
 }
