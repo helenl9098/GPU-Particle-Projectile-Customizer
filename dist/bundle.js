@@ -119,6 +119,57 @@ function equals(a, b) {
 
 /***/ }),
 /* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return gl; });
+/* harmony export (immutable) */ __webpack_exports__["b"] = setGL;
+var gl;
+function setGL(_gl) {
+    gl = _gl;
+}
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__gl_matrix_common_js__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__gl_matrix_mat2_js__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gl_matrix_mat2d_js__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__gl_matrix_mat3_js__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4_js__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gl_matrix_quat_js__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gl_matrix_quat2_js__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gl_matrix_vec2_js__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec3_js__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__gl_matrix_vec4_js__ = __webpack_require__(9);
+/* unused harmony reexport glMatrix */
+/* unused harmony reexport mat2 */
+/* unused harmony reexport mat2d */
+/* unused harmony reexport mat3 */
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4_js__; });
+/* unused harmony reexport quat */
+/* unused harmony reexport quat2 */
+/* unused harmony reexport vec2 */
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec3_js__; });
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_9__gl_matrix_vec4_js__; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = invert;
@@ -178,45 +229,7 @@ function invert(out, a) {
 };
 
 /***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__gl_matrix_common_js__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__gl_matrix_mat2_js__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gl_matrix_mat2d_js__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__gl_matrix_mat3_js__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gl_matrix_quat_js__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gl_matrix_quat2_js__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gl_matrix_vec2_js__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec3_js__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__gl_matrix_vec4_js__ = __webpack_require__(9);
-/* unused harmony reexport glMatrix */
-/* unused harmony reexport mat2 */
-/* unused harmony reexport mat2d */
-/* unused harmony reexport mat3 */
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4_js__; });
-/* unused harmony reexport quat */
-/* unused harmony reexport quat2 */
-/* unused harmony reexport vec2 */
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec3_js__; });
-/* unused harmony reexport vec4 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = normalize;
@@ -242,19 +255,6 @@ function normalize(out, a) {
     }
     return out
 }
-
-/***/ }),
-/* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return gl; });
-/* harmony export (immutable) */ __webpack_exports__["b"] = setGL;
-var gl;
-function setGL(_gl) {
-    gl = _gl;
-}
-
 
 /***/ }),
 /* 5 */
@@ -3468,7 +3468,7 @@ function str(a) {
  * @returns {quat} a new quaternion
  * @function
  */
-var clone = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["b" /* clone */];
+var clone = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["clone"];
 
 /**
  * Creates a new quat initialized with the given values
@@ -3480,7 +3480,7 @@ var clone = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["b" /* clone */];
  * @returns {quat} a new quaternion
  * @function
  */
-var fromValues = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["g" /* fromValues */];
+var fromValues = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["fromValues"];
 
 /**
  * Copy the values from one quat to another
@@ -3490,7 +3490,7 @@ var fromValues = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["g" /* fromValues */];
  * @returns {quat} out
  * @function
  */
-var copy = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["c" /* copy */];
+var copy = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["copy"];
 
 /**
  * Set the components of a quat to the given values
@@ -3503,7 +3503,7 @@ var copy = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["c" /* copy */];
  * @returns {quat} out
  * @function
  */
-var set = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["l" /* set */];
+var set = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["set"];
 
 /**
  * Adds two quat's
@@ -3514,7 +3514,7 @@ var set = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["l" /* set */];
  * @returns {quat} out
  * @function
  */
-var add = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["a" /* add */];
+var add = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["add"];
 
 /**
  * Alias for {@link quat.multiply}
@@ -3531,7 +3531,7 @@ var mul = multiply;
  * @returns {quat} out
  * @function
  */
-var scale = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["k" /* scale */];
+var scale = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["scale"];
 
 /**
  * Calculates the dot product of two quat's
@@ -3541,7 +3541,7 @@ var scale = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["k" /* scale */];
  * @returns {Number} dot product of a and b
  * @function
  */
-var dot = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["d" /* dot */];
+var dot = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["dot"];
 
 /**
  * Performs a linear interpolation between two quat's
@@ -3553,7 +3553,7 @@ var dot = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["d" /* dot */];
  * @returns {quat} out
  * @function
  */
-var lerp = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["i" /* lerp */];
+var lerp = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["lerp"];
 
 /**
  * Calculates the length of a quat
@@ -3561,7 +3561,7 @@ var lerp = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["i" /* lerp */];
  * @param {quat} a vector to calculate length of
  * @returns {Number} length of a
  */
-var length = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["h" /* length */];
+var length = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["length"];
 
 /**
  * Alias for {@link quat.length}
@@ -3576,7 +3576,7 @@ var len = length;
  * @returns {Number} squared length of a
  * @function
  */
-var squaredLength = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["m" /* squaredLength */];
+var squaredLength = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["squaredLength"];
 
 /**
  * Alias for {@link quat.squaredLength}
@@ -3592,7 +3592,7 @@ var sqrLen = squaredLength;
  * @returns {quat} out
  * @function
  */
-var normalize = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["j" /* normalize */];
+var normalize = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["normalize"];
 
 /**
  * Returns whether or not the quaternions have exactly the same elements in the same position (when compared with ===)
@@ -3601,7 +3601,7 @@ var normalize = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["j" /* normalize */];
  * @param {quat} b The second quaternion.
  * @returns {Boolean} True if the vectors are equal, false otherwise.
  */
-var exactEquals = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["f" /* exactEquals */];
+var exactEquals = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["exactEquals"];
 
 /**
  * Returns whether or not the quaternions have approximately the same elements in the same position.
@@ -3610,7 +3610,7 @@ var exactEquals = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["f" /* exactEquals */];
  * @param {quat} b The second vector.
  * @returns {Boolean} True if the vectors are equal, false otherwise.
  */
-var equals = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["e" /* equals */];
+var equals = __WEBPACK_IMPORTED_MODULE_3__vec4_js__["equals"];
 
 /**
  * Sets a quaternion to represent the shortest rotation from one
@@ -4554,45 +4554,46 @@ var forEach = function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export create */
-/* harmony export (immutable) */ __webpack_exports__["b"] = clone;
-/* harmony export (immutable) */ __webpack_exports__["g"] = fromValues;
-/* harmony export (immutable) */ __webpack_exports__["c"] = copy;
-/* harmony export (immutable) */ __webpack_exports__["l"] = set;
-/* harmony export (immutable) */ __webpack_exports__["a"] = add;
-/* unused harmony export subtract */
-/* unused harmony export multiply */
-/* unused harmony export divide */
-/* unused harmony export ceil */
-/* unused harmony export floor */
-/* unused harmony export min */
-/* unused harmony export max */
-/* unused harmony export round */
-/* harmony export (immutable) */ __webpack_exports__["k"] = scale;
-/* unused harmony export scaleAndAdd */
-/* unused harmony export distance */
-/* unused harmony export squaredDistance */
-/* harmony export (immutable) */ __webpack_exports__["h"] = length;
-/* harmony export (immutable) */ __webpack_exports__["m"] = squaredLength;
-/* unused harmony export negate */
-/* unused harmony export inverse */
-/* harmony export (immutable) */ __webpack_exports__["j"] = normalize;
-/* harmony export (immutable) */ __webpack_exports__["d"] = dot;
-/* harmony export (immutable) */ __webpack_exports__["i"] = lerp;
-/* unused harmony export random */
-/* unused harmony export transformMat4 */
-/* unused harmony export transformQuat */
-/* unused harmony export str */
-/* harmony export (immutable) */ __webpack_exports__["f"] = exactEquals;
-/* harmony export (immutable) */ __webpack_exports__["e"] = equals;
-/* unused harmony export sub */
-/* unused harmony export mul */
-/* unused harmony export div */
-/* unused harmony export dist */
-/* unused harmony export sqrDist */
-/* unused harmony export len */
-/* unused harmony export sqrLen */
-/* unused harmony export forEach */
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["create"] = create;
+/* harmony export (immutable) */ __webpack_exports__["clone"] = clone;
+/* harmony export (immutable) */ __webpack_exports__["fromValues"] = fromValues;
+/* harmony export (immutable) */ __webpack_exports__["copy"] = copy;
+/* harmony export (immutable) */ __webpack_exports__["set"] = set;
+/* harmony export (immutable) */ __webpack_exports__["add"] = add;
+/* harmony export (immutable) */ __webpack_exports__["subtract"] = subtract;
+/* harmony export (immutable) */ __webpack_exports__["multiply"] = multiply;
+/* harmony export (immutable) */ __webpack_exports__["divide"] = divide;
+/* harmony export (immutable) */ __webpack_exports__["ceil"] = ceil;
+/* harmony export (immutable) */ __webpack_exports__["floor"] = floor;
+/* harmony export (immutable) */ __webpack_exports__["min"] = min;
+/* harmony export (immutable) */ __webpack_exports__["max"] = max;
+/* harmony export (immutable) */ __webpack_exports__["round"] = round;
+/* harmony export (immutable) */ __webpack_exports__["scale"] = scale;
+/* harmony export (immutable) */ __webpack_exports__["scaleAndAdd"] = scaleAndAdd;
+/* harmony export (immutable) */ __webpack_exports__["distance"] = distance;
+/* harmony export (immutable) */ __webpack_exports__["squaredDistance"] = squaredDistance;
+/* harmony export (immutable) */ __webpack_exports__["length"] = length;
+/* harmony export (immutable) */ __webpack_exports__["squaredLength"] = squaredLength;
+/* harmony export (immutable) */ __webpack_exports__["negate"] = negate;
+/* harmony export (immutable) */ __webpack_exports__["inverse"] = inverse;
+/* harmony export (immutable) */ __webpack_exports__["normalize"] = normalize;
+/* harmony export (immutable) */ __webpack_exports__["dot"] = dot;
+/* harmony export (immutable) */ __webpack_exports__["lerp"] = lerp;
+/* harmony export (immutable) */ __webpack_exports__["random"] = random;
+/* harmony export (immutable) */ __webpack_exports__["transformMat4"] = transformMat4;
+/* harmony export (immutable) */ __webpack_exports__["transformQuat"] = transformQuat;
+/* harmony export (immutable) */ __webpack_exports__["str"] = str;
+/* harmony export (immutable) */ __webpack_exports__["exactEquals"] = exactEquals;
+/* harmony export (immutable) */ __webpack_exports__["equals"] = equals;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sub", function() { return sub; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mul", function() { return mul; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "div", function() { return div; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dist", function() { return dist; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sqrDist", function() { return sqrDist; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "len", function() { return len; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sqrLen", function() { return sqrLen; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forEach", function() { return forEach; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_js__ = __webpack_require__(0);
 
 
@@ -5900,8 +5901,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_dat_gui__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_dat_gui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_dat_gui__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Camera__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__globals__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__rendering_gl_ShaderProgram__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__globals__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__geometry_Square__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__ = __webpack_require__(66);
+
 
 
 
@@ -5915,7 +5918,7 @@ const controls = {
     num_particles: 50000,
     birth_rate: 10.1,
     min_life: 1.01,
-    max_life: 1.40,
+    max_life: 1.70,
     trajectory: 'sphere',
     emitter: 'sphere',
     bullet_num: 7,
@@ -5924,9 +5927,16 @@ const controls = {
     gravity_value: 0.10,
     spread_seed: 0.0,
     spread: 0.2,
-    bullet_size: 0.1
+    bullet_size: 0.1,
+    sphere_collider: false,
+    sphere_collider_x: 0.02,
+    sphere_collider_y: 0.02,
+    sphere_collider_z: 0.02,
+    sphere_collider_radius: 4.01
 };
 let time = 0;
+let square;
+let attrPos;
 function processKeyPresses() {
     // Use this if you wish
 }
@@ -5982,6 +5992,26 @@ function setupParticleBufferVAO(buffers, vao) {
     __WEBPACK_IMPORTED_MODULE_4__globals__["a" /* gl */].bindVertexArray(null);
     __WEBPACK_IMPORTED_MODULE_4__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_4__globals__["a" /* gl */].ARRAY_BUFFER, null);
 }
+/* Creates an OpenGL program object*/
+function createGLProgram(shader_list, transform_feedback_varyings) {
+    var program = __WEBPACK_IMPORTED_MODULE_4__globals__["a" /* gl */].createProgram();
+    for (var i = 0; i < shader_list.length; i++) {
+        var shader = shader_list[i];
+        __WEBPACK_IMPORTED_MODULE_4__globals__["a" /* gl */].attachShader(program, shader);
+    }
+    /* Specify varyings that we want to be captured in the transform
+    feedback buffer. */
+    if (transform_feedback_varyings != null) {
+        __WEBPACK_IMPORTED_MODULE_4__globals__["a" /* gl */].transformFeedbackVaryings(program, transform_feedback_varyings, __WEBPACK_IMPORTED_MODULE_4__globals__["a" /* gl */].INTERLEAVED_ATTRIBS);
+    }
+    __WEBPACK_IMPORTED_MODULE_4__globals__["a" /* gl */].linkProgram(program);
+    var link_status = __WEBPACK_IMPORTED_MODULE_4__globals__["a" /* gl */].getProgramParameter(program, __WEBPACK_IMPORTED_MODULE_4__globals__["a" /* gl */].LINK_STATUS);
+    if (!link_status) {
+        var error_message = __WEBPACK_IMPORTED_MODULE_4__globals__["a" /* gl */].getProgramInfoLog(program);
+        throw "Could not link program.\n" + error_message;
+    }
+    return program;
+}
 function main() {
     window.addEventListener('keypress', function (e) {
         switch (e.key) {
@@ -6006,6 +6036,7 @@ function main() {
     const gui = new __WEBPACK_IMPORTED_MODULE_2_dat_gui__["GUI"]();
     var folder_basics = gui.addFolder('Basics');
     //var folder_beam_properties = gui.addFolder('Beam Properties');
+    var folder_collider = gui.addFolder('Collider');
     var folder_projectile_properties = gui.addFolder('Projectile Properties');
     folder_basics.open();
     //folder_beam_properties.open();
@@ -6023,6 +6054,11 @@ function main() {
     var spread_seed_controller = folder_projectile_properties.add(controls, 'spread_seed', 0, 1000).step(0.01);
     var spread_controller = folder_projectile_properties.add(controls, 'spread', 0.01, 0.7).step(0.01);
     var bullet_size_controller = folder_projectile_properties.add(controls, 'bullet_size', 0.01, 0.4).step(0.01);
+    var collider_controller = folder_collider.add(controls, 'sphere_collider');
+    var collider_x_controller = folder_collider.add(controls, 'sphere_collider_x', -10.1, 10.1).step(0.001);
+    var collider_y_controller = folder_collider.add(controls, 'sphere_collider_y', -10.1, 10.1).step(0.001);
+    var collider_z_controller = folder_collider.add(controls, 'sphere_collider_z', -10.1, 10.1).step(0.001);
+    var collider_radius_controller = folder_collider.add(controls, 'sphere_collider_radius', 0.01, 10.1).step(0.001);
     // chnanging bullet particle number
     bullet_num_controller.onChange(function (value) {
         controls.num_particles = controls.bullet_num * controls.particles_per_bullet;
@@ -6106,159 +6142,147 @@ function main() {
         alert('WebGL 2 not supported!');
     }
     Object(__WEBPACK_IMPORTED_MODULE_4__globals__["b" /* setGL */])(gl);
+    // create a square
+    square = new __WEBPACK_IMPORTED_MODULE_5__geometry_Square__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 0));
+    square.create();
     // initialize camera
     const camera = new __WEBPACK_IMPORTED_MODULE_3__Camera__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, -1), __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 0));
     camera.setAspectRatio(canvas.width / canvas.height);
     camera.updateProjectionMatrix();
-    // intial state of the particles
-    var state = init(controls.num_particles, controls.birth_rate, controls.min_life, controls.max_life, [0.0, -controls.gravity_value, 0.0]); /* gravity */
     // call render loop
     window.requestAnimationFrame(function (ts) { render(gl, state, ts); });
     gl.clearColor(0.0 / 255.0, 0.0 / 255.0, 0.0 / 255.0, 1);
     gl.enable(gl.DEPTH_TEST);
-    /* Creates an OpenGL program object*/
-    function createGLProgram(shader_list, transform_feedback_varyings) {
-        var program = gl.createProgram();
-        for (var i = 0; i < shader_list.length; i++) {
-            var shader = shader_list[i];
-            gl.attachShader(program, shader);
+    /* Create programs for updating and rendering the particle system. */
+    var update_program = createGLProgram([
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(67)).shader,
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(68)).shader
+    ], [
+        "v_Position",
+        "v_Age",
+        "v_Life",
+        "v_Velocity",
+    ]);
+    var render_program = createGLProgram([
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(69)).shader,
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(70)).shader
+    ], null);
+    var raycast_program = createGLProgram([
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(71)).shader,
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(72)).shader
+    ], null);
+    attrPos = gl.getAttribLocation(raycast_program, "vs_Pos");
+    /* Capture attribute locations from program objects. */
+    var update_attrib_locations = {
+        i_Position: {
+            location: gl.getAttribLocation(update_program, "i_Position"),
+            num_components: 3,
+            type: gl.FLOAT
+        },
+        i_Age: {
+            location: gl.getAttribLocation(update_program, "i_Age"),
+            num_components: 1,
+            type: gl.FLOAT
+        },
+        i_Life: {
+            location: gl.getAttribLocation(update_program, "i_Life"),
+            num_components: 1,
+            type: gl.FLOAT
+        },
+        i_Velocity: {
+            location: gl.getAttribLocation(update_program, "i_Velocity"),
+            num_components: 3,
+            type: gl.FLOAT
         }
-        /* ]]Specify varyings that we want to be captured in the transform
-        feedback buffer. */
-        if (transform_feedback_varyings != null) {
-            gl.transformFeedbackVaryings(program, transform_feedback_varyings, gl.INTERLEAVED_ATTRIBS);
+    };
+    var render_attrib_locations = {
+        i_Position: {
+            location: gl.getAttribLocation(render_program, "i_Position"),
+            num_components: 3,
+            type: gl.FLOAT
+            // }
+        },
+        i_Age: {
+            location: gl.getAttribLocation(render_program, "i_Age"),
+            num_components: 1,
+            type: gl.FLOAT
+        },
+        i_Life: {
+            location: gl.getAttribLocation(render_program, "i_Life"),
+            num_components: 1,
+            type: gl.FLOAT
         }
-        gl.linkProgram(program);
-        var link_status = gl.getProgramParameter(program, gl.LINK_STATUS);
-        if (!link_status) {
-            var error_message = gl.getProgramInfoLog(program);
-            throw "Could not link program.\n" + error_message;
-        }
-        return program;
+    };
+    /* particle data buffer */
+    var buffers = [
+        gl.createBuffer(),
+        gl.createBuffer()
+    ];
+    /* We'll have 4 VAOs... */
+    var vaos = [
+        gl.createVertexArray(),
+        gl.createVertexArray(),
+        gl.createVertexArray(),
+        gl.createVertexArray() /* for rendering buffer 2 */
+    ];
+    /* this has information about buffers and bindings for each VAO. */
+    var vao_desc = [
+        {
+            vao: vaos[0],
+            buffers: [{
+                    buffer_object: buffers[0],
+                    stride: 4 * 8,
+                    attribs: update_attrib_locations
+                }]
+        },
+        {
+            vao: vaos[1],
+            buffers: [{
+                    buffer_object: buffers[1],
+                    stride: 4 * 8,
+                    attribs: update_attrib_locations
+                }]
+        },
+        {
+            vao: vaos[2],
+            buffers: [{
+                    buffer_object: buffers[0],
+                    stride: 4 * 8,
+                    attribs: render_attrib_locations
+                }],
+        },
+        {
+            vao: vaos[3],
+            buffers: [{
+                    buffer_object: buffers[1],
+                    stride: 4 * 8,
+                    attribs: render_attrib_locations
+                }],
+        },
+    ];
+    /* Populate buffers with some initial data. */
+    var initial_data = new Float32Array(initialParticleData(controls.num_particles, controls.min_life, controls.max_life));
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffers[0]);
+    gl.bufferData(gl.ARRAY_BUFFER, initial_data, gl.STREAM_DRAW);
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffers[1]);
+    gl.bufferData(gl.ARRAY_BUFFER, initial_data, gl.STREAM_DRAW);
+    /* Set up VAOs */
+    for (var i = 0; i < vao_desc.length; i++) {
+        setupParticleBufferVAO(vao_desc[i].buffers, vao_desc[i].vao);
     }
+    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    /* Set up blending */
+    gl.enable(gl.BLEND);
+    gl.enable(gl.DEPTH_TEST);
+    gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    // intial state of the particles
+    var state = init(controls.num_particles, controls.birth_rate, controls.min_life, controls.max_life, [0.0, -controls.gravity_value, 0.0]); /* gravity */
     /* Main initialization Function */
     function init(num_particles, particle_birth_rate, min_age, max_age, gravity) {
         /* Do some parameter validation */
         if (max_age < min_age) {
             throw "Invalid min-max age range.";
         }
-        /* Create programs for updating and rendering the particle system. */
-        var update_program = createGLProgram([
-            new __WEBPACK_IMPORTED_MODULE_5__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(65)).shader,
-            new __WEBPACK_IMPORTED_MODULE_5__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(66)).shader
-        ], [
-            "v_Position",
-            "v_Age",
-            "v_Life",
-            "v_Velocity",
-        ]);
-        var render_program = createGLProgram([
-            new __WEBPACK_IMPORTED_MODULE_5__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(67)).shader,
-            new __WEBPACK_IMPORTED_MODULE_5__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(68)).shader
-        ], null);
-        /* Capture attribute locations from program objects. */
-        var update_attrib_locations = {
-            i_Position: {
-                location: gl.getAttribLocation(update_program, "i_Position"),
-                num_components: 3,
-                type: gl.FLOAT
-            },
-            i_Age: {
-                location: gl.getAttribLocation(update_program, "i_Age"),
-                num_components: 1,
-                type: gl.FLOAT
-            },
-            i_Life: {
-                location: gl.getAttribLocation(update_program, "i_Life"),
-                num_components: 1,
-                type: gl.FLOAT
-            },
-            i_Velocity: {
-                location: gl.getAttribLocation(update_program, "i_Velocity"),
-                num_components: 3,
-                type: gl.FLOAT
-            }
-        };
-        var render_attrib_locations = {
-            i_Position: {
-                location: gl.getAttribLocation(render_program, "i_Position"),
-                num_components: 3,
-                type: gl.FLOAT
-                // }
-            },
-            i_Age: {
-                location: gl.getAttribLocation(render_program, "i_Age"),
-                num_components: 1,
-                type: gl.FLOAT
-            },
-            i_Life: {
-                location: gl.getAttribLocation(render_program, "i_Life"),
-                num_components: 1,
-                type: gl.FLOAT
-            }
-        };
-        /* particle data buffer */
-        var buffers = [
-            gl.createBuffer(),
-            gl.createBuffer()
-        ];
-        /* We'll have 4 VAOs... */
-        var vaos = [
-            gl.createVertexArray(),
-            gl.createVertexArray(),
-            gl.createVertexArray(),
-            gl.createVertexArray() /* for rendering buffer 2 */
-        ];
-        /* this has information about buffers and bindings for each VAO. */
-        var vao_desc = [
-            {
-                vao: vaos[0],
-                buffers: [{
-                        buffer_object: buffers[0],
-                        stride: 4 * 8,
-                        attribs: update_attrib_locations
-                    }]
-            },
-            {
-                vao: vaos[1],
-                buffers: [{
-                        buffer_object: buffers[1],
-                        stride: 4 * 8,
-                        attribs: update_attrib_locations
-                    }]
-            },
-            {
-                vao: vaos[2],
-                buffers: [{
-                        buffer_object: buffers[0],
-                        stride: 4 * 8,
-                        attribs: render_attrib_locations
-                    }],
-            },
-            {
-                vao: vaos[3],
-                buffers: [{
-                        buffer_object: buffers[1],
-                        stride: 4 * 8,
-                        attribs: render_attrib_locations
-                    }],
-            },
-        ];
-        /* Populate buffers with some initial data. */
-        var initial_data = new Float32Array(initialParticleData(num_particles, min_age, max_age));
-        gl.bindBuffer(gl.ARRAY_BUFFER, buffers[0]);
-        gl.bufferData(gl.ARRAY_BUFFER, initial_data, gl.STREAM_DRAW);
-        gl.bindBuffer(gl.ARRAY_BUFFER, buffers[1]);
-        gl.bufferData(gl.ARRAY_BUFFER, initial_data, gl.STREAM_DRAW);
-        /* Set up VAOs */
-        for (var i = 0; i < vao_desc.length; i++) {
-            setupParticleBufferVAO(vao_desc[i].buffers, vao_desc[i].vao);
-        }
-        gl.clearColor(0.0, 0.0, 0.0, 1.0);
-        /* Set up blending */
-        gl.enable(gl.BLEND);
-        gl.enable(gl.DEPTH_TEST);
-        gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
         return {
             particle_sys_buffers: buffers,
             particle_sys_vaos: vaos,
@@ -6266,6 +6290,7 @@ function main() {
             write: 1,
             particle_update_program: update_program,
             particle_render_program: render_program,
+            raycast_flat_program: raycast_program,
             num_particles: initial_data.length / 8,
             old_timestamp: 0.0,
             total_time: 0.0,
@@ -6294,6 +6319,29 @@ function main() {
         }
         state.old_timestamp = timestamp_millis;
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        gl.useProgram(state.raycast_flat_program);
+        if (attrPos != -1 && square.bindPos()) {
+            gl.enableVertexAttribArray(attrPos);
+            gl.vertexAttribPointer(attrPos, 4, gl.FLOAT, false, 0, 0);
+        }
+        square.bindIdx();
+        gl.drawElements(square.drawMode(), square.elemCount(), gl.UNSIGNED_INT, 0);
+        if (attrPos != -1) {
+            gl.disableVertexAttribArray(attrPos);
+        }
+        /* camera position */
+        gl.uniform3f(gl.getUniformLocation(state.raycast_flat_program, "u_CamPos"), camera.position[0], camera.position[1], camera.position[2]);
+        /* camera up vector */
+        gl.uniform3f(gl.getUniformLocation(state.raycast_flat_program, "u_Up"), camera.controls.up[0], camera.controls.up[1], camera.controls.up[2]);
+        /* camera ref vector */
+        gl.uniform3f(gl.getUniformLocation(state.raycast_flat_program, "u_Ref"), camera.controls.center[0], camera.controls.center[1], camera.controls.center[2]);
+        /* canvas dimensions vector */
+        gl.uniform2f(gl.getUniformLocation(state.raycast_flat_program, "u_Dimensions"), canvas.width, canvas.height);
+        //}
+        /* Set up VAOs */
+        for (var i = 0; i < vao_desc.length; i++) {
+            setupParticleBufferVAO(vao_desc[i].buffers, vao_desc[i].vao);
+        }
         gl.useProgram(state.particle_render_program);
         /*
         ========================
@@ -6306,10 +6354,17 @@ function main() {
         gl.uniformMatrix4fv(gl.getUniformLocation(state.particle_render_program, "u_ViewProj"), false, viewProj);
         /* camera position */
         gl.uniform3f(gl.getUniformLocation(state.particle_render_program, "u_CamPos"), camera.position[0], camera.position[1], camera.position[2]);
+        /* camera up vector */
+        gl.uniform3f(gl.getUniformLocation(state.particle_render_program, "u_Up"), camera.controls.up[0], camera.controls.up[1], camera.controls.up[2]);
+        /* camera ref vector */
+        gl.uniform3f(gl.getUniformLocation(state.particle_render_program, "u_Ref"), camera.controls.center[0], camera.controls.center[1], camera.controls.center[2]);
+        /* canvas dimensions vector */
+        gl.uniform2f(gl.getUniformLocation(state.particle_render_program, "u_Dimensions"), canvas.width, canvas.height);
         gl.useProgram(state.particle_update_program);
         /* uniforms */
         gl.uniformMatrix4fv(gl.getUniformLocation(state.particle_update_program, "u_ViewProj"), false, viewProj);
         gl.uniform1f(gl.getUniformLocation(state.particle_update_program, "u_TimeDelta"), time_delta / 1000.0);
+        gl.uniform1f(gl.getUniformLocation(state.particle_update_program, "u_SphereCollider"), controls.sphere_collider);
         gl.uniform1f(gl.getUniformLocation(state.particle_update_program, "u_TotalTime"), state.total_time);
         gl.uniform4f(gl.getUniformLocation(state.particle_update_program, "u_Emission"), emission[0], emission[1], emission[2], emission[3]);
         gl.uniform1f(gl.getUniformLocation(state.particle_update_program, "u_BulletNum"), controls.bullet_num);
@@ -6319,6 +6374,7 @@ function main() {
         gl.uniform3f(gl.getUniformLocation(state.particle_update_program, "u_Gravity"), 0.0, -controls.gravity_value, 0.0);
         gl.uniform3f(gl.getUniformLocation(state.particle_update_program, "u_Origin"), state.origin[0], state.origin[1], state.origin[2]);
         state.total_time += time_delta;
+        gl.uniform4f(gl.getUniformLocation(state.particle_update_program, "u_SphereColliderPos"), controls.sphere_collider_x, controls.sphere_collider_y, controls.sphere_collider_z, controls.sphere_collider_radius);
         /*
         ==================
         TRANSFORM FEEDBACK SETUP
@@ -13831,10 +13887,10 @@ function createViewController(options) {
 module.exports = createTurntableController
 
 var filterVector = __webpack_require__(10)
-var invert44     = __webpack_require__(1)
+var invert44     = __webpack_require__(3)
 var rotateM      = __webpack_require__(36)
 var cross        = __webpack_require__(12)
-var normalize3   = __webpack_require__(3)
+var normalize3   = __webpack_require__(4)
 var dot3         = __webpack_require__(13)
 
 function len3(x, y, z) {
@@ -14525,7 +14581,7 @@ module.exports = createOrbitController
 var filterVector  = __webpack_require__(10)
 var lookAt        = __webpack_require__(14)
 var mat4FromQuat  = __webpack_require__(38)
-var invert44      = __webpack_require__(1)
+var invert44      = __webpack_require__(3)
 var quatFromFrame = __webpack_require__(39)
 
 function len3(x,y,z) {
@@ -15020,14 +15076,14 @@ function quatFromFrame(
 
 var bsearch   = __webpack_require__(11)
 var m4interp  = __webpack_require__(41)
-var invert44  = __webpack_require__(1)
+var invert44  = __webpack_require__(3)
 var rotateX   = __webpack_require__(53)
 var rotateY   = __webpack_require__(54)
 var rotateZ   = __webpack_require__(55)
 var lookAt    = __webpack_require__(14)
 var translate = __webpack_require__(16)
 var scale     = __webpack_require__(18)
-var normalize = __webpack_require__(3)
+var normalize = __webpack_require__(4)
 
 var DEFAULT_CENTER = [0,0,0]
 
@@ -15494,11 +15550,11 @@ var normalize = __webpack_require__(47)
 var create = __webpack_require__(17)
 var clone = __webpack_require__(48)
 var determinant = __webpack_require__(19)
-var invert = __webpack_require__(1)
+var invert = __webpack_require__(3)
 var transpose = __webpack_require__(49)
 var vec3 = {
     length: __webpack_require__(50),
-    normalize: __webpack_require__(3),
+    normalize: __webpack_require__(4),
     dot: __webpack_require__(13),
     cross: __webpack_require__(12)
 }
@@ -16478,7 +16534,92 @@ module.exports = true;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globals__ = __webpack_require__(1);
+
+
+
+class Square extends __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__["a" /* default */] {
+    constructor(center) {
+        super(); // Call the constructor of the super class. This is required.
+        this.center = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec4 */].fromValues(center[0], center[1], center[2], 1);
+    }
+    create() {
+        this.indices = new Uint32Array([0, 1, 2,
+            0, 2, 3]);
+        this.positions = new Float32Array([-1, -1, 0.999, 1,
+            1, -1, 0.999, 1,
+            1, 1, 0.999, 1,
+            -1, 1, 0.999, 1]);
+        this.generateIdx();
+        this.generatePos();
+        this.count = this.indices.length;
+        __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ELEMENT_ARRAY_BUFFER, this.bufIdx);
+        __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bufferData(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ELEMENT_ARRAY_BUFFER, this.indices, __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].STATIC_DRAW);
+        __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ARRAY_BUFFER, this.bufPos);
+        __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].bufferData(__WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].ARRAY_BUFFER, this.positions, __WEBPACK_IMPORTED_MODULE_2__globals__["a" /* gl */].STATIC_DRAW);
+        console.log(`Created square`);
+    }
+}
+;
+/* harmony default export */ __webpack_exports__["a"] = (Square);
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(1);
+
+class Drawable {
+    constructor() {
+        this.count = 0;
+        this.idxBound = false;
+        this.posBound = false;
+    }
+    destory() {
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].deleteBuffer(this.bufIdx);
+        __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].deleteBuffer(this.bufPos);
+    }
+    generateIdx() {
+        this.idxBound = true;
+        this.bufIdx = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].createBuffer();
+    }
+    generatePos() {
+        this.posBound = true;
+        this.bufPos = __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].createBuffer();
+    }
+    bindIdx() {
+        if (this.idxBound) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].ELEMENT_ARRAY_BUFFER, this.bufIdx);
+        }
+        return this.idxBound;
+    }
+    bindPos() {
+        if (this.posBound) {
+            __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].bindBuffer(__WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].ARRAY_BUFFER, this.bufPos);
+        }
+        return this.posBound;
+    }
+    elemCount() {
+        return this.count;
+    }
+    drawMode() {
+        return __WEBPACK_IMPORTED_MODULE_0__globals__["a" /* gl */].TRIANGLES;
+    }
+}
+;
+/* harmony default export */ __webpack_exports__["a"] = (Drawable);
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(1);
 //import Drawable from './Drawable';
 
 var activeProgram = null;
@@ -16550,28 +16691,40 @@ class ShaderProgram {
 
 
 /***/ }),
-/* 65 */
-/***/ (function(module, exports) {
-
-module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\n#define M_PI 3.1415926535897932384626433832795\r\n\r\nuniform mat4 u_ViewProj;\r\n\r\nuniform float u_TimeDelta;\r\nuniform float u_TotalTime;\r\n\r\nuniform vec4 u_Emission;\r\nuniform float u_BulletNum;\r\n\r\nuniform float u_SpreadSeed;\r\nuniform float u_Spread;\r\n\r\nuniform float u_BulletSize;\r\n\r\nuniform vec3 u_Gravity;\r\nuniform vec3 u_Origin;\r\n\r\n\r\nin vec3 i_Position;\r\nin float i_Age; // in seconds\r\nin float i_Life;\r\nin vec3 i_Velocity;\r\n\r\n\r\nout vec3 v_Position;\r\nout vec3 v_Velocity;\r\nout float v_Age;\r\nout float v_Life;\r\n\r\nfloat random( vec3 p , vec3 seed) {\r\n  return fract(sin(dot(p + seed, vec3(987.654, 123.456, 531.975))) * 85734.3545);\r\n}\r\n\r\nvec3 random3D(vec3 p , vec3 seed) {\r\n  return fract(sin(vec3(dot(p + seed, vec3(311.7, 127.1, 135.0)), dot(p + seed, vec3(269.5, 183.3, 10.0)), dot(p + seed, vec3(86.5, 279.3, 103.0)))) * 85734.3545);\r\n}\r\n\r\nvec2 random2D( vec2 p , vec2 seed) {\r\n  return fract(sin(vec2(dot(p + seed, vec2(311.7, 127.1)), dot(p + seed, vec2(269.5, 183.3)))) * 85734.3545);\r\n}\r\n\r\nvec3 squareToSphereUniform(vec2 s)\r\n{\r\n  float z = 1.0 - 2.0 * s.x;\r\n  float x = cos(2.0 * M_PI * s.y) * sqrt(1.0 - z * z);\r\n  float y = sin(2.0 * M_PI * s.y) * sqrt(1.0 - z * z);\r\n  return vec3(x, y, z);\r\n}\r\n\r\nvec3 squareToDiskUniform(vec2 s)\r\n{\r\n    // maps sample x to radius, and sample y to angle\r\n    float x = pow(s.x, 0.5) * cos(radians(s.y * 360.0));\r\n    float y = pow(s.x, 0.5) * sin(radians(s.y * 360.0));\r\n    return vec3(0, x , y);\r\n\r\n  }\r\n\r\n  vec3 squareToDiskConcentric(vec2 s)\r\n  {\r\n    if (s.x == 0.0 && s.y == 0.0) {\r\n      return vec3(0, 0.5, 0);\r\n    }\r\n\r\n    float phi = 0.0;\r\n    float a = 2.0 * s.x - 1.0;\r\n    float b = 2.0 * s.y - 1.0;\r\n    float r;\r\n\r\n    if (a > -b) {\r\n      if (a > b) {\r\n        phi = (M_PI / 4.0) * (b / a);\r\n        r = a;\r\n      }\r\n      else {\r\n        r = b;\r\n        phi = (M_PI / 4.0) * (2.0 - (a / b));\r\n      }\r\n    }\r\n    else {\r\n      if (a < b) {\r\n        r = -a;\r\n        phi = (M_PI / 4.0) * (4.0 + (b / a));\r\n      }\r\n      else {\r\n        r = -b;\r\n        if (b != 0.0) {\r\n          phi = (M_PI / 4.0) * (6.0 - (a / b));\r\n        }\r\n        else {\r\n          phi = 0.0;\r\n        }\r\n      }\r\n    }\r\n\r\n    float u = r * cos(phi);\r\n    float v = r * sin(phi);\r\n    return vec3(u, 0.5, v);\r\n  }\r\n\r\n  void main() {\r\n\r\n    // change the value of gravity depending on whether or not it's turned off\r\n    vec3 gravity = u_Gravity;\r\n    if (u_Emission[3] == 1.0) {\r\n      gravity[1] = 0.0;\r\n    }\r\n\r\n    // particle exceed life time. Spawn another one.\r\n    if (i_Age >= i_Life) {\r\n\r\n    vec3 seed = vec3(0, 0, 0);\r\n    vec2 seed2 = vec2(0, 0);\r\n    vec2 seed3 = vec2(10, 10);\r\n\r\n    vec2 rand = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                              float(gl_VertexID) / 1000.0), \r\n                             vec2(3.0, 3.0));\r\n\r\n\r\n    vec2 rand2 = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                                seed2);\r\n    vec2 rand_origin_disk = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                                          float(gl_VertexID) / 1000.0), \r\n                                          seed3);\r\n\r\n\r\n    vec3 rand3 = random3D(vec3(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                               seed);\r\n\r\n\r\n    // ============ Particle Trajectory =================\r\n\r\n    vec3 velocity = vec3(0, 1, 0);\r\n\r\n    // sphere\r\n    if (u_Emission[0] == 0.0) {\r\n      velocity = normalize(squareToSphereUniform(rand2)) * 1.5;\r\n    }\r\n\r\n    // cone\r\n    if (u_Emission[0] == 1.0) {\r\n      velocity = normalize(squareToDiskUniform(rand2) + vec3(2.5, 0, 0)) * 1.5;\r\n    } \r\n\r\n    //straight up\r\n    if (u_Emission[0] == 2.0) {\r\n      velocity = vec3(1, 0, 0);\r\n    } \r\n\r\n    // square cone\r\n    if (u_Emission[0] == 3.0) {\r\n      velocity = vec3(1.f, rand3.x * 1.2 - 0.6, rand3.y* 1.2 - 0.6);\r\n    } \r\n\r\n    // outline\r\n    if (u_Emission[0] == 4.0) {\r\n      float theta = radians(rand3.z * 359.0);\r\n      float y = cos (theta);\r\n      float x = 3.0;\r\n      float z = sin (theta);\r\n      velocity = vec3(x, y, z);\r\n    } \r\n\r\n\r\n    // ============ BASE SHAPE EMITTERS ===============\r\n\r\n    v_Position = u_Origin;\r\n\r\n    // sphere emitter \r\n    if (u_Emission[1] == 0.0) {\r\n      v_Position = squareToSphereUniform(rand_origin_disk);\r\n      if (u_Emission[2] == 1.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    //regular/point emitter\r\n    if (u_Emission[1] == 1.0) {\r\n      v_Position = u_Origin;\r\n    }\r\n\r\n    //disk\r\n    if (u_Emission[1] == 2.0) {\r\n      v_Position = squareToDiskUniform(rand_origin_disk);\r\n      if (u_Emission[2] == 1.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    //square\r\n    if (u_Emission[1] == 3.0) {\r\n      v_Position = vec3(0, rand_origin_disk.x, rand_origin_disk.y) * 2.0 - vec3(0.0, 1.0, 1.0);\r\n      if (u_Emission[2] == 1.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    // random value to get different bullets spread\r\n    vec3 velocity_seed = vec3(u_SpreadSeed, u_SpreadSeed, u_SpreadSeed);\r\n    float spread = u_Spread;\r\n\r\n    float random_bullet = random(vec3(float(gl_VertexID) / 1000.0,\r\n                                float(gl_VertexID) / 1000.0,\r\n                                float(gl_VertexID) / 1000.0), \r\n                                vec3(30.0, 30.0, 30.0));\r\n    random_bullet *= u_BulletNum;\r\n    random_bullet = floor(random_bullet);\r\n\r\n\r\n    vec3 current_bullet_velocity = vec3(2, 2, 0.0);\r\n\r\n    vec3 random_velocity = random3D(vec3(random_bullet, random_bullet, random_bullet) , \r\n                                    velocity_seed);\r\n\r\n\r\n    random_velocity.x = ((random_velocity.x * spread) + 1.0) * 1.5;\r\n    random_velocity.z = (((random_velocity.z * 2.0 - 1.0) * spread)) * 1.5;\r\n    random_velocity.y = (((random_velocity.y * 2.0 - 1.0) * spread)) * 1.5;\r\n    current_bullet_velocity = random_velocity;\r\n\r\n\r\n    // moves back and forth\r\n    //v_Position += vec3(sin(u_TotalTime * 0.0005) * 5.0, 0.0, 0.0);\r\n\r\n    if (u_Emission[2] == 1.0) {\r\n      // moves the system in a ballistic projectile \r\n      vec3 original_position = v_Position + vec3(-5, 0, 0);\r\n      float t = mod(u_TotalTime, 3000.0) * 0.002; // will eventually be replaced with collision test\r\n      v_Position += vec3(-5, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;\r\n    }\r\n\r\n    v_Age = 0.0;\r\n    v_Life = i_Life;\r\n\r\n    /* Generate final velocity vector. */\r\n    v_Velocity = velocity; \r\n\r\n\r\n  } else {\r\n    \r\n    /* Update parameters*/\r\n    v_Position = i_Position + i_Velocity * u_TimeDelta;\r\n\r\n    v_Age = i_Age + u_TimeDelta;\r\n    v_Life = i_Life;\r\n\r\n    // random force\r\n    vec3 rand_force = random3D(vec3(float(gl_VertexID) / 1000.0,\r\n                                    float(gl_VertexID) / 1000.0,\r\n                                    float(gl_VertexID) / 1000.0), \r\n                                    vec3(4.0, 4.0, 4.0));\r\n\r\n    //v_Velocity = i_Velocity + u_Gravity * 2.0 * u_TimeDelta + (vec3(3.0, 0.0, 0.0) + rand_force) * u_TimeDelta;\r\n    v_Velocity = i_Velocity + gravity * 2.0 * u_TimeDelta;\r\n  }\r\n}\r\n"
-
-/***/ }),
-/* 66 */
-/***/ (function(module, exports) {
-
-module.exports = "#version 300 es\r\n\r\nprecision mediump float;\r\n\r\nin float v_Age;\r\n\r\nvoid main() \r\n{ \r\n\tdiscard; \r\n}\r\n    "
-
-/***/ }),
 /* 67 */
 /***/ (function(module, exports) {
 
-module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\nuniform mat4 u_ViewProj;\r\nuniform vec3 u_CamPos;\r\n\r\nin vec3 i_Position;\r\nin float i_Age;\r\nin float i_Life;\r\nin vec3 i_Velocity;\r\n\r\n\r\nout vec3 v_Position;\r\nout float v_Age;\r\nout float v_Life;\r\n\r\n\r\nvoid main() {\r\n  v_Position = i_Position;\r\n\r\n  v_Age = i_Age;\r\n  v_Life = i_Life;\r\n\r\n  gl_Position =  u_ViewProj * vec4(i_Position, 1.0);\r\n\r\n  float distanceToCamera = distance(i_Position, u_CamPos);\r\n  gl_PointSize = (0.5 + 3.0 * (1.0 - 1.6 * i_Age/i_Life)) / ( distanceToCamera / 10.0);\r\n  \r\n\r\n}"
+module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\n#define M_PI 3.1415926535897932384626433832795\r\n\r\nuniform mat4 u_ViewProj;\r\n\r\nuniform float u_TimeDelta;\r\nuniform float u_TotalTime;\r\n\r\nuniform float u_SphereCollider;\r\nuniform vec4 u_SphereColliderPos;\r\n\r\n\r\nuniform vec4 u_Emission;\r\nuniform float u_BulletNum;\r\n\r\nuniform float u_SpreadSeed;\r\nuniform float u_Spread;\r\n\r\nuniform float u_BulletSize;\r\n\r\nuniform vec3 u_Gravity;\r\nuniform vec3 u_Origin;\r\n\r\n\r\n\r\n\r\nin vec3 i_Position;\r\nin float i_Age; // in seconds\r\nin float i_Life;\r\nin vec3 i_Velocity;\r\n\r\n\r\nout vec3 v_Position;\r\nout vec3 v_Velocity;\r\nout float v_Age;\r\nout float v_Life;\r\n\r\nfloat random( vec3 p , vec3 seed) {\r\n  return fract(sin(dot(p + seed, vec3(987.654, 123.456, 531.975))) * 85734.3545);\r\n}\r\n\r\nvec3 random3D(vec3 p , vec3 seed) {\r\n  return fract(sin(vec3(dot(p + seed, vec3(311.7, 127.1, 135.0)), dot(p + seed, vec3(269.5, 183.3, 10.0)), dot(p + seed, vec3(86.5, 279.3, 103.0)))) * 85734.3545);\r\n}\r\n\r\nvec2 random2D( vec2 p , vec2 seed) {\r\n  return fract(sin(vec2(dot(p + seed, vec2(311.7, 127.1)), dot(p + seed, vec2(269.5, 183.3)))) * 85734.3545);\r\n}\r\n\r\nvec3 squareToSphereUniform(vec2 s)\r\n{\r\n  float z = 1.0 - 2.0 * s.x;\r\n  float x = cos(2.0 * M_PI * s.y) * sqrt(1.0 - z * z);\r\n  float y = sin(2.0 * M_PI * s.y) * sqrt(1.0 - z * z);\r\n  return vec3(x, y, z);\r\n}\r\n\r\nvec3 squareToDiskUniform(vec2 s)\r\n{\r\n    // maps sample x to radius, and sample y to angle\r\n    float x = pow(s.x, 0.5) * cos(radians(s.y * 360.0));\r\n    float y = pow(s.x, 0.5) * sin(radians(s.y * 360.0));\r\n    return vec3(0, x , y);\r\n\r\n  }\r\n\r\n  vec3 squareToDiskConcentric(vec2 s)\r\n  {\r\n    if (s.x == 0.0 && s.y == 0.0) {\r\n      return vec3(0, 0.5, 0);\r\n    }\r\n\r\n    float phi = 0.0;\r\n    float a = 2.0 * s.x - 1.0;\r\n    float b = 2.0 * s.y - 1.0;\r\n    float r;\r\n\r\n    if (a > -b) {\r\n      if (a > b) {\r\n        phi = (M_PI / 4.0) * (b / a);\r\n        r = a;\r\n      }\r\n      else {\r\n        r = b;\r\n        phi = (M_PI / 4.0) * (2.0 - (a / b));\r\n      }\r\n    }\r\n    else {\r\n      if (a < b) {\r\n        r = -a;\r\n        phi = (M_PI / 4.0) * (4.0 + (b / a));\r\n      }\r\n      else {\r\n        r = -b;\r\n        if (b != 0.0) {\r\n          phi = (M_PI / 4.0) * (6.0 - (a / b));\r\n        }\r\n        else {\r\n          phi = 0.0;\r\n        }\r\n      }\r\n    }\r\n\r\n    float u = r * cos(phi);\r\n    float v = r * sin(phi);\r\n    return vec3(u, 0.5, v);\r\n  }\r\n\r\n  vec3 reflection(vec3 incidentVec, vec3 normal)\r\n{\r\n  return incidentVec - 2.0 * dot(incidentVec, normal) * normal;\r\n}\r\n\r\n  void main() {\r\n\r\n    // change the value of gravity depending on whether or not it's turned off\r\n    vec3 gravity = u_Gravity;\r\n    if (u_Emission[3] == 1.0) {\r\n      gravity[1] = 0.0;\r\n    }\r\n\r\n    vec3 sphere_center = vec3(u_SphereColliderPos);\r\n    float sphere_radius = u_SphereColliderPos[3];\r\n\r\n    vec2 rand_sphere = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                          float(gl_VertexID) / 1000.0), \r\n                          vec2(13.0, 13.0));\r\n\r\n    // particle exceed life time. Spawn another one.\r\n    if (i_Age >= i_Life) {\r\n\r\n\r\n  /*\r\n  *\r\n  * INITIALIZE PARTICLE\r\n  *\r\n  *\r\n  */  \r\n\r\n    vec3 seed = vec3(0, 0, 0);\r\n    vec2 seed2 = vec2(0, 0);\r\n    vec2 seed3 = vec2(10, 10);\r\n\r\n    vec2 rand = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                              float(gl_VertexID) / 1000.0), \r\n                             vec2(3.0, 3.0));\r\n\r\n\r\n    vec2 rand2 = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                                seed2);\r\n    vec2 rand_origin_disk = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                                          float(gl_VertexID) / 1000.0), \r\n                                          seed3);\r\n\r\n\r\n    vec3 rand3 = random3D(vec3(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                               seed);\r\n\r\n\r\n    // ============ Particle Trajectory =================\r\n\r\n    vec3 velocity = vec3(0, 1, 0);\r\n\r\n    // sphere\r\n    if (u_Emission[0] == 0.0) {\r\n      velocity = normalize(squareToSphereUniform(rand2)) * 3.5;\r\n      if (u_Emission[2] == 1.0) {\r\n        velocity = 2.0 *normalize(squareToSphereUniform(rand2));\r\n      }\r\n    }\r\n\r\n    // cone\r\n    if (u_Emission[0] == 1.0) {\r\n      velocity = normalize(squareToDiskUniform(rand2) + vec3(2.5, 0, 0)) * 3.5;\r\n      if (u_Emission[2] == 1.0) {\r\n        velocity = 2.0 *normalize(squareToDiskUniform(rand2) + vec3(2.5, 0, 0));\r\n      }\r\n    } \r\n\r\n    //straight up\r\n    if (u_Emission[0] == 2.0) {\r\n      velocity = vec3(1, 0, 0) * 3.5;\r\n      if (u_Emission[2] == 1.0) {\r\n        velocity = 2.0 *vec3(1, 0, 0);\r\n      }\r\n    } \r\n\r\n    // square cone\r\n    if (u_Emission[0] == 3.0) {\r\n      velocity = normalize(vec3(1.f, rand3.x * 1.2 - 0.6, rand3.y* 1.2 - 0.6)) * 3.5;\r\n      if (u_Emission[2] == 1.0) {\r\n        velocity = 2.0 *normalize(vec3(1.f, rand3.x * 1.2 - 0.6, rand3.y* 1.2 - 0.6));\r\n      }\r\n    } \r\n\r\n    // outline\r\n    if (u_Emission[0] == 4.0) {\r\n      float theta = radians(rand3.z * 359.0);\r\n      float y = cos (theta);\r\n      float x = 3.0;\r\n      float z = sin (theta);\r\n      velocity = normalize(vec3(x, y, z)) * 3.5;\r\n\r\n      if (u_Emission[2] == 1.0) {\r\n        velocity = 2.0 *normalize(vec3(x, y, z));\r\n      }\r\n    } \r\n\r\n\r\n    // ============ BASE SHAPE EMITTERS ===============\r\n\r\n    v_Position = u_Origin;\r\n\r\n    // sphere emitter \r\n    if (u_Emission[1] == 0.0) {\r\n      v_Position = squareToSphereUniform(rand_origin_disk);\r\n      if (u_Emission[2] == 1.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    //regular/point emitter\r\n    if (u_Emission[1] == 1.0) {\r\n      v_Position = u_Origin;\r\n    }\r\n\r\n    //disk\r\n    if (u_Emission[1] == 2.0) {\r\n      v_Position = squareToDiskUniform(rand_origin_disk);\r\n      if (u_Emission[2] == 1.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    //square\r\n    if (u_Emission[1] == 3.0) {\r\n      v_Position = vec3(0, rand_origin_disk.x, rand_origin_disk.y) * 2.0 - vec3(0.0, 1.0, 1.0);\r\n      if (u_Emission[2] == 1.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    // ============ BULLET GENERATION ===============\r\n    // random value to get different bullets spread\r\n    vec3 velocity_seed = vec3(u_SpreadSeed, u_SpreadSeed, u_SpreadSeed);\r\n    float spread = u_Spread;\r\n\r\n    float random_bullet = random(vec3(float(gl_VertexID) / 1000.0,\r\n                                float(gl_VertexID) / 1000.0,\r\n                                float(gl_VertexID) / 1000.0), \r\n                                vec3(30.0, 30.0, 30.0));\r\n    random_bullet *= u_BulletNum;\r\n    random_bullet = floor(random_bullet);\r\n\r\n\r\n    //vec3 current_bullet_velocity = vec3(2, 2, 0.0);\r\n\r\n    // generates random velocity from spread of bullet\r\n    vec3 random_velocity = random3D(vec3(random_bullet, random_bullet, random_bullet) , \r\n                                    velocity_seed);\r\n\r\n\r\n    random_velocity.x = ((random_velocity.x * spread) + 1.0) * 1.5;\r\n    random_velocity.z = (((random_velocity.z * 2.0 - 1.0) * spread)) * 1.5;\r\n    random_velocity.y = (((random_velocity.y * 2.0 - 1.0) * spread)) * 1.5;\r\n    vec3 current_bullet_velocity = random_velocity;\r\n\r\n\r\n    // ===========================================\r\n    // MAKES A SPHERE\r\n    if (rand_sphere.x > 0.90) {\r\n\r\n          vec2 rand_warp = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                                vec2(13.0, 3.0));\r\n\r\n          v_Position = normalize(squareToSphereUniform(rand_warp)) * sphere_radius + sphere_center;\r\n          v_Velocity = vec3(0, 0, 0); \r\n\r\n    } else {\r\n        if (u_Emission[2] == 1.0) {\r\n          // moves the system in a ballistic projectile \r\n          vec3 original_position = v_Position + vec3(-5, 0, 0);\r\n          float t = mod(u_TotalTime, 3000.0) * 0.002; // will eventually be replaced with collision test\r\n          vec3 center = vec3(4.0, 0.0, 0.0);\r\n          \r\n          vec3 tempPos = v_Position + vec3(-6, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;\r\n          float distanceToSphere = distance(tempPos, center);\r\n    \r\n              v_Position = tempPos;\r\n    \r\n             // if (distanceToSphere < sphere_radius) {\r\n                //vec3 vel = 3.0 * normalize(reflection(current_bullet_velocity, tempPos - center));\r\n                //v_Position += tempPos + (tempPos - center) * t + 0.5 * gravity * t * t;\r\n               //   v_Position = tempPos;\r\n                  //velocity = \r\n              //} \r\n    \r\n            }\r\n    \r\n            /* Generate final velocity vector. */\r\n        v_Velocity = velocity; \r\n    }\r\n\r\n    v_Age = 0.0;\r\n    v_Life = i_Life;\r\n\r\n\r\n  } \r\n  else {\r\n  \r\n  /*\r\n  *\r\n  * UPDATE PARTICLE!!!\r\n  *\r\n  *\r\n  */  \r\n  \r\n\r\n  // this is if the particle is forming the sphere\r\n    if (rand_sphere.x > 0.90) {\r\n      v_Age = -0.1;\r\n      gravity = vec3(0.0, 0.0, 0.0);\r\n      v_Velocity = i_Velocity;\r\n      v_Position = i_Position; \r\n      v_Life = -0.2;\r\n    }\r\n\r\n    // this is if particle is part of the beam or projectile\r\n    else {\r\n      v_Life = i_Life;\r\n      v_Age = i_Age + u_TimeDelta;\r\n\r\n      float distanceToSphere = distance(i_Position, sphere_center);\r\n\r\n      // this is if the particle is inside the sphere\r\n      if (distanceToSphere < sphere_radius) {\r\n        // this should be the normal of the sphere\r\n        //vec3 vel = length(i_Velocity) * normalize(i_Position - sphere_center);\r\n        vec3 random_reflection_noise_seed = vec3(5.0, 5.0, 5.0);\r\n        vec3 random_reflection_noise = random3D(i_Position * u_TimeDelta, random_reflection_noise_seed);\r\n        random_reflection_noise *= 2.0;\r\n        random_reflection_noise -= vec3(1.0, 1.0, 1.0);\r\n\r\n        vec3 vel = length(i_Velocity) * normalize(random_reflection_noise + normalize(reflect(i_Velocity + gravity * 2.0 * u_TimeDelta, i_Position - sphere_center)));\r\n        //vec3 vel = vec3(-1.0, 1.0, -1.0);\r\n        v_Velocity = vel + gravity * 2.0 * u_TimeDelta;\r\n        v_Position = i_Position  + v_Velocity * u_TimeDelta;\r\n\r\n      }\r\n      else {\r\n        v_Velocity = i_Velocity + gravity * 2.0 * u_TimeDelta;\r\n        v_Position = i_Position  + v_Velocity * u_TimeDelta;\r\n      }\r\n    }\r\n    \r\n\r\n    // random force\r\n    //vec3 rand_force = random3D(vec3(float(gl_VertexID) / 1000.0,\r\n    //                                float(gl_VertexID) / 1000.0,\r\n    //                                float(gl_VertexID) / 1000.0), \r\n    //                                vec3(4.0, 4.0, 4.0));\r\n\r\n\r\n  \r\n\r\n    //if (distanceToSphere < sphere_radius) {\r\n    //   vec3 vel = 1.0 * normalize(reflection(i_Velocity, i_Position - sphere_center));\r\n    //   v_Velocity = vel + gravity * 2.0 * u_TimeDelta;\r\n    //   v_Position = i_Position  + v_Velocity * u_TimeDelta;\r\n      \r\n    // } \r\n  }\r\n}\r\n"
 
 /***/ }),
 /* 68 */
 /***/ (function(module, exports) {
 
-module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\nuniform vec3 u_CamPos;\r\n\r\nin float v_Age;\r\nin float v_Life;\r\nin vec3 v_Position;\r\n\r\nout vec4 o_FragColor;\r\n\r\n/* From http://iquilezles.org/www/articles/palettes/palettes.htm */\r\nvec3 palette( in float t, in vec3 a, in vec3 b, in vec3 c, in vec3 d )\r\n{  return a + b*cos( 6.28318*(c*t+d) ); }\r\n\r\nvoid main() {\r\n  float t =  v_Age /v_Life;\r\n  float distanceToCamera = distance(v_Position, u_CamPos);\r\n  o_FragColor = vec4( palette(t,\r\n            vec3(0.5,0.5,0.5),\r\n            vec3(0.5,0.5,0.5),\r\n            vec3(0.5,  0.7,1.0),\r\n            vec3(0.0,0.15,0.20)), (1.0 -  t) / ( distanceToCamera / 10.0));\r\n\r\n}"
+module.exports = "#version 300 es\r\n\r\nprecision mediump float;\r\n\r\nin float v_Age;\r\n\r\nvoid main() \r\n{ \r\n\tdiscard; \r\n}\r\n    "
+
+/***/ }),
+/* 69 */
+/***/ (function(module, exports) {
+
+module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\nuniform mat4 u_ViewProj;\r\nuniform vec3 u_CamPos;\r\n\r\nin vec3 i_Position;\r\nin float i_Age;\r\nin float i_Life;\r\nin vec3 i_Velocity;\r\n\r\n\r\nout vec3 v_Position;\r\nout float v_Age;\r\nout float v_Life;\r\nout vec3 v_Velocity;\r\n\r\n\r\nvoid main() {\r\n  v_Position = i_Position;\r\n\r\n  v_Age = i_Age;\r\n  v_Life = i_Life;\r\n\r\n  gl_Position =  u_ViewProj * vec4(i_Position, 1.0);\r\n\r\n  float distanceToCamera = distance(i_Position, u_CamPos);\r\n  gl_PointSize = (0.5 + 4.0 * (1.0 - 1.6 * i_Age/i_Life)) / ( distanceToCamera / 10.0);\r\n  \r\n  // points on sphere\r\n  if (v_Age == -0.1) {\r\n    gl_PointSize = (0.5 + 4.0 * (1.0 - 1.6 * i_Age/i_Life)) / ( distanceToCamera / 10.0);\r\n  \r\n  }\r\n}"
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports) {
+
+module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\nuniform vec3 u_CamPos;\r\n\r\nuniform vec3 u_Ref, u_Up;\r\nuniform vec2 u_Dimensions;\r\n\r\nin float v_Age;\r\nin float v_Life;\r\nin vec3 v_Position;\r\nin vec3 v_Velocity;\r\n\r\nout vec4 o_FragColor;\r\n\r\n/* From http://iquilezles.org/www/articles/palettes/palettes.htm */\r\nvec3 palette( in float t, in vec3 a, in vec3 b, in vec3 c, in vec3 d )\r\n{  return a + b*cos( 6.28318*(c*t+d) ); }\r\n\r\n// this is a helper function for raycasting\r\nvec3 getRayDirection() {\r\n\r\n  float fovy = 45.0;\r\n  vec3 look = normalize(u_Ref - u_CamPos);\r\n  vec3 right = normalize(cross(look, u_Up));\r\n  vec3 up = cross(right, look);\r\n\r\n  float tan_fovy = tan(radians(fovy / 2.0));\r\n  float len = length(u_Ref - u_CamPos);\r\n  float aspect = u_Dimensions.x / float(u_Dimensions.y);\r\n\r\n  vec3 v = up * len * tan_fovy;\r\n  vec3 h = right * len * aspect * tan_fovy;\r\n\r\n  vec2 fragCoords = gl_FragCoord.xy / u_Dimensions;\r\n  vec3 p = u_Ref + fragCoords.x * h + fragCoords.y * v;\r\n  vec3 dir = normalize(p - u_CamPos);\r\n\r\n  return dir;\r\n\r\n}\r\n\r\nfloat hit_sphere(vec3 center, float radius, vec3 dir){\r\n    vec3 oc = u_CamPos - center;\r\n    float a = dot(dir, dir);\r\n    float b = 2.0 * dot(oc, dir);\r\n    float c = dot(oc,oc) - radius*radius;\r\n    float discriminant = b*b - 4.0*a*c;\r\n    if(discriminant < 0.0){\r\n        return -1.0;\r\n    }\r\n    else{\r\n        return (-b - sqrt(discriminant)) / (2.0*a);\r\n    }\r\n}\r\n\r\n\r\nvoid main() {\r\n  // vec3 dir = getRayDirection();\r\n  // float x = hit_sphere(vec3(3.0, 0, 0), 1.0, dir);\r\n  // vec3 intersection_point = u_CamPos + x * dir;\r\n\r\n  // float distToSphere = distance(intersection_point, u_CamPos);\r\n  float distanceToCamera = distance(v_Position, u_CamPos);\r\n  // if (distToSphere < distanceToCamera) {\r\n\r\n  // o_FragColor = vec4(0.0, 1.0, 0.0, 1.0);\r\n  // } \r\n  // else {\r\n  \t float t =  v_Age /v_Life;\r\n  \t \r\n  \t o_FragColor = vec4( palette(t,\r\n            vec3(0.5,0.5,0.5),\r\n            vec3(0.5,0.5,0.5),\r\n            vec3(0.5,  0.7,1.0),\r\n            vec3(0.0,0.15,0.20)), (1.0 -  t) / ( distanceToCamera / 10.0));\r\n\r\n      // renders the sphere a different color\r\n      if (v_Age == -0.1) {\r\n        o_FragColor = vec4(0, 1, 0, 1);\r\n      }\r\n\r\n  //}\r\n \r\n}"
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports) {
+
+module.exports = "#version 300 es\nprecision highp float;\n\n// The vertex shader used to render the background of the scene\nuniform vec3 u_CamPos;\n\nin vec4 vs_Pos;\nout vec2 fs_Pos;\n\nvoid main() {\n  fs_Pos = vs_Pos.xy;\n  gl_Position = vs_Pos;\n}\n"
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports) {
+
+module.exports = "#version 300 es\nprecision highp float;\n\nuniform vec3 u_CamPos;\n\nuniform vec3 u_Ref, u_Up;\nuniform vec2 u_Dimensions;\nuniform float u_Time;\n\nin vec2 fs_Pos;\nout vec4 out_Col;\n\n// this is a helper function for raycasting\nvec3 getRayDirection() {\n\n  float fovy = 45.0;\n  vec3 look = normalize(u_Ref - u_CamPos);\n  vec3 right = normalize(cross(look, u_Up));\n  vec3 up = cross(right, look);\n\n  float tan_fovy = tan(radians(fovy / 2.0));\n  float len = length(u_Ref - u_CamPos);\n  float aspect = u_Dimensions.x / float(u_Dimensions.y);\n\n  vec3 v = up * len * tan_fovy;\n  vec3 h = right * len * aspect * tan_fovy;\n\n  vec3 p = u_Ref + fs_Pos.x * h + fs_Pos.y * v;\n  vec3 dir = normalize(p - u_CamPos);\n\n  return dir;\n\n}\n\nbool hit_sphere(vec3 center, float radius, vec3 dir){\n    vec3 oc = u_CamPos - center;\n    float a = dot(dir, dir);\n    float b = 2.0 * dot(oc, dir);\n    float c = dot(oc,oc) - radius*radius;\n    float discriminant = b*b - 4.0*a*c;\n    return (discriminant>0.0);\n}\n\nvoid main() {\n  vec3 dir = getRayDirection();\n  if (hit_sphere(vec3(3.0, 0, 0), 1.0, dir)){\n    out_Col = vec4(0.0, 0.0, 0.0, 1.0);\n  }\n  else {\n    out_Col = vec4(0.0, 0.0, 0.0, 1.0);\n  }\n  \n  out_Col =  0.4 * vec4((dir + vec3(1.0, 1.0, 1.0)), 1.0);\n  //out_Col = vec4(0.5 * (fs_Pos + vec2(1.0)), 0.5 * (sin(u_Time * 3.14159 * 0.01) + 1.0), 1.0);\n}\n"
 
 /***/ })
 /******/ ]);
