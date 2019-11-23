@@ -5,6 +5,7 @@ uniform vec3 u_CamPos;
 
 uniform vec3 u_Ref, u_Up;
 uniform vec2 u_Dimensions;
+uniform float u_SphereCollider;
 
 in float v_Age;
 in float v_Life;
@@ -76,8 +77,12 @@ void main() {
             vec3(0.0,0.15,0.20)), (1.0 -  t) / ( distanceToCamera / 10.0));
 
       // renders the sphere a different color
-      if (v_Age == -0.1) {
+      if (v_Age == -0.1 && u_SphereCollider == 1.0) {
         o_FragColor = vec4(0, 1, 0, 1);
+      }
+      else if (v_Life == -0.2 && u_SphereCollider == 0.0) {
+
+        o_FragColor = vec4(0, 0, 0, 0);
       }
 
   //}

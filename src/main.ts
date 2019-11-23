@@ -29,7 +29,9 @@ const controls = {
   sphere_collider_x: 0.02,
   sphere_collider_y: 0.02,
   sphere_collider_z: 0.02,
-  sphere_collider_radius: 4.01
+  sphere_collider_radius: 4.01,
+  spray_rate: 'constant',
+  spray_seed: 0.0,
 
 };
 
@@ -168,6 +170,9 @@ function main() {
   //var folder_beam_properties = gui.addFolder('Beam Properties');
   var folder_collider = gui.addFolder('Collider');
   var folder_projectile_properties = gui.addFolder('Projectile Properties');
+  var folder_spray_properties = gui.addFolder('Spray Properties');
+
+  folder_spray_properties.open();
   folder_basics.open();
   //folder_beam_properties.open();
   folder_projectile_properties.open();
@@ -177,9 +182,10 @@ function main() {
   var emitter_controller = folder_basics.add(controls, 'emitter', [ 'sphere', 'point', 'disk', 'square' ] );
   var trajectory_controller = folder_basics.add(controls, 'trajectory', [ 'sphere', 'cone', 'straight', 'square-cone', 'cone-outline' ] );
   var bullet_num_controller = folder_projectile_properties.add(controls, 'bullet_num', 1, 10).step(1);
-
-
-  var type_controller = folder_basics.add(controls, 'gun_type', [ 'beam', 'projectile' ] );
+  var spray_rate_controller = folder_spray_properties.add(controls, 'spray_rate', [ 'constant', 'random'] );
+  var spray_seed_controller =  folder_spray_properties.add(controls, 'spray_seed', 0, 1000).step(0.01);
+  
+  var type_controller = folder_basics.add(controls, 'gun_type', [ 'beam', 'projectile', 'spray' ] );
   //var bullet_particle_num_controller = folder_projectile_properties.add(controls, 'particles_per_bullet', 10000, 1000000).step(10000);
   var birth_rate_controller = folder_basics.add(controls, 'birth_rate', 1.3, 20.1).step(0.1);
   //var min_life_controller = folder_basics.add(controls, 'min_life', 0.01, 3.0).step(0.1);
@@ -206,9 +212,34 @@ function main() {
     state.birth_rate = value;
   });
 
+  var spray_constant = [0, 0, 0, 0]; 
+  spray_rate_controller.onChange(function(value) {
+    switch(value) {
+
+      case 'constant' :
+      spray_constant[0] = 0;
+      break;
+
+      case 'random' :
+      spray_constant[0] = 1;
+      break;
+
+      case 'continuous random' :
+      spray_constant[0] = 2;
+      break;
+
+
+      default: 
+      spray_constant[0] = 0;
+
+    }
+
+
+  });
+
 
   // changing emission
-  var emission = [0, 0, 0, 0];
+  var emission = [0, 0, 0.0, 0];
   trajectory_controller.onChange(function(value) {
     switch(value) {
       case 'sphere':
@@ -274,6 +305,12 @@ function main() {
       //folder_beam_properties.close();
       folder_projectile_properties.open();
       emission[2] = 1;
+      break;
+
+      case 'spray':
+      //folder_beam_properties.close();
+      folder_projectile_properties.open();
+      emission[2] = 2;
       break;
 
       default: 
@@ -466,6 +503,8 @@ function main() {
   gl.enable(gl.BLEND);
   gl.enable( gl.DEPTH_TEST );
   gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+  //gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+  //gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
 
     // intial state of the particles
   var state =
@@ -620,6 +659,11 @@ function main() {
     canvas.width, canvas.height);
 
 
+    gl.uniform1f(
+      gl.getUniformLocation(state.particle_render_program, "u_SphereCollider"),
+    controls.sphere_collider);
+
+
     gl.useProgram(state.particle_update_program);
 
     /* uniforms */
@@ -643,6 +687,10 @@ function main() {
     gl.uniform4f(
       gl.getUniformLocation(state.particle_update_program, "u_Emission"),
       emission[0], emission[1], emission[2], emission[3]);
+
+    gl.uniform4f(
+      gl.getUniformLocation(state.particle_update_program, "u_Spray_Constants"),
+      spray_constant[0], controls.spray_seed, spray_constant[2], spray_constant[3]);
   
     gl.uniform1f(
       gl.getUniformLocation(state.particle_update_program, "u_BulletNum"),
