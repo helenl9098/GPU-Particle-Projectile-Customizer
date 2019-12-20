@@ -52,3 +52,13 @@ far the bullets deviate from going straight in the x axis. The larger the spread
   
 - Visuals: There is now a raytraced background so there are pretty colors when you rotate the camera. Was tired of staring at the black void :) 
 
+
+------------------------------
+
+
+## Final Features
+
+- Added in First person camera: Toggle on and off by pressing F. In first person mode, you can move around using WASD. 
+Note: if you press f and the particle systems disappear, it might mean that your camera is spun around. Move your mouse to look around and find the particle system again. 
+
+- Added in collision detection. Now if projectiles hit the collider, the collider will trun red in places that collided with a certain density of particles. The collider will retain these red spots even if you move it around or resize it. To reset the collision visuals, just turn the collider on and off again.  
