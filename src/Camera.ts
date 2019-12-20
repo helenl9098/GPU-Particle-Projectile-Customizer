@@ -1,4 +1,6 @@
 var CameraControls = require('3d-view-controls');
+var createCamera = require('first-person-camera');
+
 import {vec3, mat4} from 'gl-matrix';
 
 class Camera {
@@ -44,7 +46,7 @@ class Camera {
   }
 
   update() {
-    this.controls.tick();
+   this.controls.tick();
 
     vec3.add(this.target, this.position, this.direction);
     this.position = vec3.fromValues(this.controls.eye[0], this.controls.eye[1], this.controls.eye[2]);

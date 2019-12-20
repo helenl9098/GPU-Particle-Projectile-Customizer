@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "dist/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 20);
+/******/ 	return __webpack_require__(__webpack_require__.s = 41);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -119,57 +119,6 @@ function equals(a, b) {
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return gl; });
-/* harmony export (immutable) */ __webpack_exports__["b"] = setGL;
-var gl;
-function setGL(_gl) {
-    gl = _gl;
-}
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__gl_matrix_common_js__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__gl_matrix_mat2_js__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gl_matrix_mat2d_js__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__gl_matrix_mat3_js__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gl_matrix_quat_js__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gl_matrix_quat2_js__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gl_matrix_vec2_js__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec3_js__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__gl_matrix_vec4_js__ = __webpack_require__(9);
-/* unused harmony reexport glMatrix */
-/* unused harmony reexport mat2 */
-/* unused harmony reexport mat2d */
-/* unused harmony reexport mat3 */
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4_js__; });
-/* unused harmony reexport quat */
-/* unused harmony reexport quat2 */
-/* unused harmony reexport vec2 */
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec3_js__; });
-/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_9__gl_matrix_vec4_js__; });
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = invert;
@@ -229,7 +178,7 @@ function invert(out, a) {
 };
 
 /***/ }),
-/* 4 */
+/* 2 */
 /***/ (function(module, exports) {
 
 module.exports = normalize;
@@ -257,7 +206,391 @@ function normalize(out, a) {
 }
 
 /***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return gl; });
+/* harmony export (immutable) */ __webpack_exports__["b"] = setGL;
+var gl;
+function setGL(_gl) {
+    gl = _gl;
+}
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__gl_matrix_common_js__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__gl_matrix_mat2_js__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__gl_matrix_mat2d_js__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__gl_matrix_mat3_js__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4_js__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__gl_matrix_quat_js__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__gl_matrix_quat2_js__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__gl_matrix_vec2_js__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec3_js__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__gl_matrix_vec4_js__ = __webpack_require__(18);
+/* unused harmony reexport glMatrix */
+/* unused harmony reexport mat2 */
+/* unused harmony reexport mat2d */
+/* unused harmony reexport mat3 */
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_4__gl_matrix_mat4_js__; });
+/* unused harmony reexport quat */
+/* unused harmony reexport quat2 */
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_7__gl_matrix_vec2_js__; });
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_8__gl_matrix_vec3_js__; });
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_9__gl_matrix_vec4_js__; });
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***/ }),
 /* 5 */
+/***/ (function(module, exports) {
+
+module.exports = dot;
+
+/**
+ * Calculates the dot product of two vec3's
+ *
+ * @param {vec3} a the first operand
+ * @param {vec3} b the second operand
+ * @returns {Number} dot product of a and b
+ */
+function dot(a, b) {
+    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
+}
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = cross;
+
+/**
+ * Computes the cross product of two vec3's
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the first operand
+ * @param {vec3} b the second operand
+ * @returns {vec3} out
+ */
+function cross(out, a, b) {
+    var ax = a[0], ay = a[1], az = a[2],
+        bx = b[0], by = b[1], bz = b[2]
+
+    out[0] = ay * bz - az * by
+    out[1] = az * bx - ax * bz
+    out[2] = ax * by - ay * bx
+    return out
+}
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var identity = __webpack_require__(8);
+
+module.exports = lookAt;
+
+/**
+ * Generates a look-at matrix with the given eye position, focal point, and up axis
+ *
+ * @param {mat4} out mat4 frustum matrix will be written into
+ * @param {vec3} eye Position of the viewer
+ * @param {vec3} center Point the viewer is looking at
+ * @param {vec3} up vec3 pointing up
+ * @returns {mat4} out
+ */
+function lookAt(out, eye, center, up) {
+    var x0, x1, x2, y0, y1, y2, z0, z1, z2, len,
+        eyex = eye[0],
+        eyey = eye[1],
+        eyez = eye[2],
+        upx = up[0],
+        upy = up[1],
+        upz = up[2],
+        centerx = center[0],
+        centery = center[1],
+        centerz = center[2];
+
+    if (Math.abs(eyex - centerx) < 0.000001 &&
+        Math.abs(eyey - centery) < 0.000001 &&
+        Math.abs(eyez - centerz) < 0.000001) {
+        return identity(out);
+    }
+
+    z0 = eyex - centerx;
+    z1 = eyey - centery;
+    z2 = eyez - centerz;
+
+    len = 1 / Math.sqrt(z0 * z0 + z1 * z1 + z2 * z2);
+    z0 *= len;
+    z1 *= len;
+    z2 *= len;
+
+    x0 = upy * z2 - upz * z1;
+    x1 = upz * z0 - upx * z2;
+    x2 = upx * z1 - upy * z0;
+    len = Math.sqrt(x0 * x0 + x1 * x1 + x2 * x2);
+    if (!len) {
+        x0 = 0;
+        x1 = 0;
+        x2 = 0;
+    } else {
+        len = 1 / len;
+        x0 *= len;
+        x1 *= len;
+        x2 *= len;
+    }
+
+    y0 = z1 * x2 - z2 * x1;
+    y1 = z2 * x0 - z0 * x2;
+    y2 = z0 * x1 - z1 * x0;
+
+    len = Math.sqrt(y0 * y0 + y1 * y1 + y2 * y2);
+    if (!len) {
+        y0 = 0;
+        y1 = 0;
+        y2 = 0;
+    } else {
+        len = 1 / len;
+        y0 *= len;
+        y1 *= len;
+        y2 *= len;
+    }
+
+    out[0] = x0;
+    out[1] = y0;
+    out[2] = z0;
+    out[3] = 0;
+    out[4] = x1;
+    out[5] = y1;
+    out[6] = z1;
+    out[7] = 0;
+    out[8] = x2;
+    out[9] = y2;
+    out[10] = z2;
+    out[11] = 0;
+    out[12] = -(x0 * eyex + x1 * eyey + x2 * eyez);
+    out[13] = -(y0 * eyex + y1 * eyey + y2 * eyez);
+    out[14] = -(z0 * eyex + z1 * eyey + z2 * eyez);
+    out[15] = 1;
+
+    return out;
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = identity;
+
+/**
+ * Set a mat4 to the identity matrix
+ *
+ * @param {mat4} out the receiving matrix
+ * @returns {mat4} out
+ */
+function identity(out) {
+    out[0] = 1;
+    out[1] = 0;
+    out[2] = 0;
+    out[3] = 0;
+    out[4] = 0;
+    out[5] = 1;
+    out[6] = 0;
+    out[7] = 0;
+    out[8] = 0;
+    out[9] = 0;
+    out[10] = 1;
+    out[11] = 0;
+    out[12] = 0;
+    out[13] = 0;
+    out[14] = 0;
+    out[15] = 1;
+    return out;
+};
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = translate;
+
+/**
+ * Translate a mat4 by the given vector
+ *
+ * @param {mat4} out the receiving matrix
+ * @param {mat4} a the matrix to translate
+ * @param {vec3} v vector to translate by
+ * @returns {mat4} out
+ */
+function translate(out, a, v) {
+    var x = v[0], y = v[1], z = v[2],
+        a00, a01, a02, a03,
+        a10, a11, a12, a13,
+        a20, a21, a22, a23;
+
+    if (a === out) {
+        out[12] = a[0] * x + a[4] * y + a[8] * z + a[12];
+        out[13] = a[1] * x + a[5] * y + a[9] * z + a[13];
+        out[14] = a[2] * x + a[6] * y + a[10] * z + a[14];
+        out[15] = a[3] * x + a[7] * y + a[11] * z + a[15];
+    } else {
+        a00 = a[0]; a01 = a[1]; a02 = a[2]; a03 = a[3];
+        a10 = a[4]; a11 = a[5]; a12 = a[6]; a13 = a[7];
+        a20 = a[8]; a21 = a[9]; a22 = a[10]; a23 = a[11];
+
+        out[0] = a00; out[1] = a01; out[2] = a02; out[3] = a03;
+        out[4] = a10; out[5] = a11; out[6] = a12; out[7] = a13;
+        out[8] = a20; out[9] = a21; out[10] = a22; out[11] = a23;
+
+        out[12] = a00 * x + a10 * y + a20 * z + a[12];
+        out[13] = a01 * x + a11 * y + a21 * z + a[13];
+        out[14] = a02 * x + a12 * y + a22 * z + a[14];
+        out[15] = a03 * x + a13 * y + a23 * z + a[15];
+    }
+
+    return out;
+};
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = create;
+
+/**
+ * Creates a new identity mat4
+ *
+ * @returns {mat4} a new 4x4 matrix
+ */
+function create() {
+    var out = new Float32Array(16);
+    out[0] = 1;
+    out[1] = 0;
+    out[2] = 0;
+    out[3] = 0;
+    out[4] = 0;
+    out[5] = 1;
+    out[6] = 0;
+    out[7] = 0;
+    out[8] = 0;
+    out[9] = 0;
+    out[10] = 1;
+    out[11] = 0;
+    out[12] = 0;
+    out[13] = 0;
+    out[14] = 0;
+    out[15] = 1;
+    return out;
+};
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+module.exports = scale;
+
+/**
+ * Scales the mat4 by the dimensions in the given vec3
+ *
+ * @param {mat4} out the receiving matrix
+ * @param {mat4} a the matrix to scale
+ * @param {vec3} v the vec3 to scale the matrix by
+ * @returns {mat4} out
+ **/
+function scale(out, a, v) {
+    var x = v[0], y = v[1], z = v[2];
+
+    out[0] = a[0] * x;
+    out[1] = a[1] * x;
+    out[2] = a[2] * x;
+    out[3] = a[3] * x;
+    out[4] = a[4] * y;
+    out[5] = a[5] * y;
+    out[6] = a[6] * y;
+    out[7] = a[7] * y;
+    out[8] = a[8] * z;
+    out[9] = a[9] * z;
+    out[10] = a[10] * z;
+    out[11] = a[11] * z;
+    out[12] = a[12];
+    out[13] = a[13];
+    out[14] = a[14];
+    out[15] = a[15];
+    return out;
+};
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+module.exports = determinant;
+
+/**
+ * Calculates the determinant of a mat4
+ *
+ * @param {mat4} a the source matrix
+ * @returns {Number} determinant of a
+ */
+function determinant(a) {
+    var a00 = a[0], a01 = a[1], a02 = a[2], a03 = a[3],
+        a10 = a[4], a11 = a[5], a12 = a[6], a13 = a[7],
+        a20 = a[8], a21 = a[9], a22 = a[10], a23 = a[11],
+        a30 = a[12], a31 = a[13], a32 = a[14], a33 = a[15],
+
+        b00 = a00 * a11 - a01 * a10,
+        b01 = a00 * a12 - a02 * a10,
+        b02 = a00 * a13 - a03 * a10,
+        b03 = a01 * a12 - a02 * a11,
+        b04 = a01 * a13 - a03 * a11,
+        b05 = a02 * a13 - a03 * a12,
+        b06 = a20 * a31 - a21 * a30,
+        b07 = a20 * a32 - a22 * a30,
+        b08 = a20 * a33 - a23 * a30,
+        b09 = a21 * a32 - a22 * a31,
+        b10 = a21 * a33 - a23 * a31,
+        b11 = a22 * a33 - a23 * a32;
+
+    // Calculate the determinant
+    return b00 * b11 - b01 * b10 + b02 * b09 + b03 * b08 - b04 * b07 + b05 * b06;
+};
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+module.exports = length;
+
+/**
+ * Calculates the length of a vec3
+ *
+ * @param {vec3} a vector to calculate length of
+ * @returns {Number} length of a
+ */
+function length(a) {
+    var x = a[0],
+        y = a[1],
+        z = a[2]
+    return Math.sqrt(x*x + y*y + z*z)
+}
+
+/***/ }),
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1106,7 +1439,7 @@ var mul = multiply;
 var sub = subtract;
 
 /***/ }),
-/* 6 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3002,7 +3335,7 @@ var mul = multiply;
 var sub = subtract;
 
 /***/ }),
-/* 7 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3042,9 +3375,9 @@ var sub = subtract;
 /* unused harmony export sqlerp */
 /* unused harmony export setAxes */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_js__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mat3_js__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vec3_js__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vec4_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mat3_js__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vec3_js__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__vec4_js__ = __webpack_require__(18);
 
 
 
@@ -3708,7 +4041,7 @@ var setAxes = function () {
 }();
 
 /***/ }),
-/* 8 */
+/* 17 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4550,7 +4883,7 @@ var forEach = function () {
 }();
 
 /***/ }),
-/* 9 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5211,7 +5544,7 @@ var forEach = function () {
 }();
 
 /***/ }),
-/* 10 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5219,8 +5552,8 @@ var forEach = function () {
 
 module.exports = createFilteredVector
 
-var cubicHermite = __webpack_require__(35)
-var bsearch = __webpack_require__(11)
+var cubicHermite = __webpack_require__(56)
+var bsearch = __webpack_require__(20)
 
 function clamp(lo, hi, x) {
   return Math.min(hi, Math.max(lo, x))
@@ -5509,7 +5842,7 @@ function createFilteredVector(initState, initVelocity, initTime) {
 
 
 /***/ }),
-/* 11 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5576,277 +5909,282 @@ module.exports = {
 
 
 /***/ }),
-/* 12 */
+/* 21 */
 /***/ (function(module, exports) {
 
-module.exports = cross;
+module.exports = rotate;
 
 /**
- * Computes the cross product of two vec3's
+ * Rotates a mat4 by the given angle
+ *
+ * @param {mat4} out the receiving matrix
+ * @param {mat4} a the matrix to rotate
+ * @param {Number} rad the angle to rotate the matrix by
+ * @param {vec3} axis the axis to rotate around
+ * @returns {mat4} out
+ */
+function rotate(out, a, rad, axis) {
+    var x = axis[0], y = axis[1], z = axis[2],
+        len = Math.sqrt(x * x + y * y + z * z),
+        s, c, t,
+        a00, a01, a02, a03,
+        a10, a11, a12, a13,
+        a20, a21, a22, a23,
+        b00, b01, b02,
+        b10, b11, b12,
+        b20, b21, b22;
+
+    if (Math.abs(len) < 0.000001) { return null; }
+    
+    len = 1 / len;
+    x *= len;
+    y *= len;
+    z *= len;
+
+    s = Math.sin(rad);
+    c = Math.cos(rad);
+    t = 1 - c;
+
+    a00 = a[0]; a01 = a[1]; a02 = a[2]; a03 = a[3];
+    a10 = a[4]; a11 = a[5]; a12 = a[6]; a13 = a[7];
+    a20 = a[8]; a21 = a[9]; a22 = a[10]; a23 = a[11];
+
+    // Construct the elements of the rotation matrix
+    b00 = x * x * t + c; b01 = y * x * t + z * s; b02 = z * x * t - y * s;
+    b10 = x * y * t - z * s; b11 = y * y * t + c; b12 = z * y * t + x * s;
+    b20 = x * z * t + y * s; b21 = y * z * t - x * s; b22 = z * z * t + c;
+
+    // Perform rotation-specific matrix multiplication
+    out[0] = a00 * b00 + a10 * b01 + a20 * b02;
+    out[1] = a01 * b00 + a11 * b01 + a21 * b02;
+    out[2] = a02 * b00 + a12 * b01 + a22 * b02;
+    out[3] = a03 * b00 + a13 * b01 + a23 * b02;
+    out[4] = a00 * b10 + a10 * b11 + a20 * b12;
+    out[5] = a01 * b10 + a11 * b11 + a21 * b12;
+    out[6] = a02 * b10 + a12 * b11 + a22 * b12;
+    out[7] = a03 * b10 + a13 * b11 + a23 * b12;
+    out[8] = a00 * b20 + a10 * b21 + a20 * b22;
+    out[9] = a01 * b20 + a11 * b21 + a21 * b22;
+    out[10] = a02 * b20 + a12 * b21 + a22 * b22;
+    out[11] = a03 * b20 + a13 * b21 + a23 * b22;
+
+    if (a !== out) { // If the source and destination differ, copy the unchanged last row
+        out[12] = a[12];
+        out[13] = a[13];
+        out[14] = a[14];
+        out[15] = a[15];
+    }
+    return out;
+};
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports) {
+
+module.exports = fromQuat;
+
+/**
+ * Creates a matrix from a quaternion rotation.
+ *
+ * @param {mat4} out mat4 receiving operation result
+ * @param {quat4} q Rotation quaternion
+ * @returns {mat4} out
+ */
+function fromQuat(out, q) {
+    var x = q[0], y = q[1], z = q[2], w = q[3],
+        x2 = x + x,
+        y2 = y + y,
+        z2 = z + z,
+
+        xx = x * x2,
+        yx = y * x2,
+        yy = y * y2,
+        zx = z * x2,
+        zy = z * y2,
+        zz = z * z2,
+        wx = w * x2,
+        wy = w * y2,
+        wz = w * z2;
+
+    out[0] = 1 - yy - zz;
+    out[1] = yx + wz;
+    out[2] = zx - wy;
+    out[3] = 0;
+
+    out[4] = yx - wz;
+    out[5] = 1 - xx - zz;
+    out[6] = zy + wx;
+    out[7] = 0;
+
+    out[8] = zx + wy;
+    out[9] = zy - wx;
+    out[10] = 1 - xx - yy;
+    out[11] = 0;
+
+    out[12] = 0;
+    out[13] = 0;
+    out[14] = 0;
+    out[15] = 1;
+
+    return out;
+};
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+module.exports = lerp;
+
+/**
+ * Performs a linear interpolation between two vec3's
  *
  * @param {vec3} out the receiving vector
  * @param {vec3} a the first operand
  * @param {vec3} b the second operand
+ * @param {Number} t interpolation amount between the two inputs
  * @returns {vec3} out
  */
-function cross(out, a, b) {
-    var ax = a[0], ay = a[1], az = a[2],
-        bx = b[0], by = b[1], bz = b[2]
-
-    out[0] = ay * bz - az * by
-    out[1] = az * bx - ax * bz
-    out[2] = ax * by - ay * bx
+function lerp(out, a, b, t) {
+    var ax = a[0],
+        ay = a[1],
+        az = a[2]
+    out[0] = ax + t * (b[0] - ax)
+    out[1] = ay + t * (b[1] - ay)
+    out[2] = az + t * (b[2] - az)
     return out
 }
 
 /***/ }),
-/* 13 */
+/* 24 */
 /***/ (function(module, exports) {
 
-module.exports = dot;
+module.exports = multiply;
 
 /**
- * Calculates the dot product of two vec3's
- *
- * @param {vec3} a the first operand
- * @param {vec3} b the second operand
- * @returns {Number} dot product of a and b
- */
-function dot(a, b) {
-    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
-}
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var identity = __webpack_require__(15);
-
-module.exports = lookAt;
-
-/**
- * Generates a look-at matrix with the given eye position, focal point, and up axis
- *
- * @param {mat4} out mat4 frustum matrix will be written into
- * @param {vec3} eye Position of the viewer
- * @param {vec3} center Point the viewer is looking at
- * @param {vec3} up vec3 pointing up
- * @returns {mat4} out
- */
-function lookAt(out, eye, center, up) {
-    var x0, x1, x2, y0, y1, y2, z0, z1, z2, len,
-        eyex = eye[0],
-        eyey = eye[1],
-        eyez = eye[2],
-        upx = up[0],
-        upy = up[1],
-        upz = up[2],
-        centerx = center[0],
-        centery = center[1],
-        centerz = center[2];
-
-    if (Math.abs(eyex - centerx) < 0.000001 &&
-        Math.abs(eyey - centery) < 0.000001 &&
-        Math.abs(eyez - centerz) < 0.000001) {
-        return identity(out);
-    }
-
-    z0 = eyex - centerx;
-    z1 = eyey - centery;
-    z2 = eyez - centerz;
-
-    len = 1 / Math.sqrt(z0 * z0 + z1 * z1 + z2 * z2);
-    z0 *= len;
-    z1 *= len;
-    z2 *= len;
-
-    x0 = upy * z2 - upz * z1;
-    x1 = upz * z0 - upx * z2;
-    x2 = upx * z1 - upy * z0;
-    len = Math.sqrt(x0 * x0 + x1 * x1 + x2 * x2);
-    if (!len) {
-        x0 = 0;
-        x1 = 0;
-        x2 = 0;
-    } else {
-        len = 1 / len;
-        x0 *= len;
-        x1 *= len;
-        x2 *= len;
-    }
-
-    y0 = z1 * x2 - z2 * x1;
-    y1 = z2 * x0 - z0 * x2;
-    y2 = z0 * x1 - z1 * x0;
-
-    len = Math.sqrt(y0 * y0 + y1 * y1 + y2 * y2);
-    if (!len) {
-        y0 = 0;
-        y1 = 0;
-        y2 = 0;
-    } else {
-        len = 1 / len;
-        y0 *= len;
-        y1 *= len;
-        y2 *= len;
-    }
-
-    out[0] = x0;
-    out[1] = y0;
-    out[2] = z0;
-    out[3] = 0;
-    out[4] = x1;
-    out[5] = y1;
-    out[6] = z1;
-    out[7] = 0;
-    out[8] = x2;
-    out[9] = y2;
-    out[10] = z2;
-    out[11] = 0;
-    out[12] = -(x0 * eyex + x1 * eyey + x2 * eyez);
-    out[13] = -(y0 * eyex + y1 * eyey + y2 * eyez);
-    out[14] = -(z0 * eyex + z1 * eyey + z2 * eyez);
-    out[15] = 1;
-
-    return out;
-};
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-module.exports = identity;
-
-/**
- * Set a mat4 to the identity matrix
+ * Multiplies two mat4's
  *
  * @param {mat4} out the receiving matrix
+ * @param {mat4} a the first operand
+ * @param {mat4} b the second operand
  * @returns {mat4} out
  */
-function identity(out) {
-    out[0] = 1;
-    out[1] = 0;
-    out[2] = 0;
+function multiply(out, a, b) {
+    var a00 = a[0], a01 = a[1], a02 = a[2], a03 = a[3],
+        a10 = a[4], a11 = a[5], a12 = a[6], a13 = a[7],
+        a20 = a[8], a21 = a[9], a22 = a[10], a23 = a[11],
+        a30 = a[12], a31 = a[13], a32 = a[14], a33 = a[15];
+
+    // Cache only the current line of the second matrix
+    var b0  = b[0], b1 = b[1], b2 = b[2], b3 = b[3];  
+    out[0] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
+    out[1] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
+    out[2] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
+    out[3] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
+
+    b0 = b[4]; b1 = b[5]; b2 = b[6]; b3 = b[7];
+    out[4] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
+    out[5] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
+    out[6] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
+    out[7] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
+
+    b0 = b[8]; b1 = b[9]; b2 = b[10]; b3 = b[11];
+    out[8] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
+    out[9] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
+    out[10] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
+    out[11] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
+
+    b0 = b[12]; b1 = b[13]; b2 = b[14]; b3 = b[15];
+    out[12] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
+    out[13] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
+    out[14] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
+    out[15] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
+    return out;
+};
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports) {
+
+module.exports = fromRotationTranslation;
+
+/**
+ * Creates a matrix from a quaternion rotation and vector translation
+ * This is equivalent to (but much faster than):
+ *
+ *     mat4.identity(dest);
+ *     mat4.translate(dest, vec);
+ *     var quatMat = mat4.create();
+ *     quat4.toMat4(quat, quatMat);
+ *     mat4.multiply(dest, quatMat);
+ *
+ * @param {mat4} out mat4 receiving operation result
+ * @param {quat4} q Rotation quaternion
+ * @param {vec3} v Translation vector
+ * @returns {mat4} out
+ */
+function fromRotationTranslation(out, q, v) {
+    // Quaternion math
+    var x = q[0], y = q[1], z = q[2], w = q[3],
+        x2 = x + x,
+        y2 = y + y,
+        z2 = z + z,
+
+        xx = x * x2,
+        xy = x * y2,
+        xz = x * z2,
+        yy = y * y2,
+        yz = y * z2,
+        zz = z * z2,
+        wx = w * x2,
+        wy = w * y2,
+        wz = w * z2;
+
+    out[0] = 1 - (yy + zz);
+    out[1] = xy + wz;
+    out[2] = xz - wy;
     out[3] = 0;
-    out[4] = 0;
-    out[5] = 1;
-    out[6] = 0;
+    out[4] = xy - wz;
+    out[5] = 1 - (xx + zz);
+    out[6] = yz + wx;
     out[7] = 0;
-    out[8] = 0;
-    out[9] = 0;
-    out[10] = 1;
+    out[8] = xz + wy;
+    out[9] = yz - wx;
+    out[10] = 1 - (xx + yy);
     out[11] = 0;
-    out[12] = 0;
-    out[13] = 0;
-    out[14] = 0;
+    out[12] = v[0];
+    out[13] = v[1];
+    out[14] = v[2];
     out[15] = 1;
+    
     return out;
 };
 
 /***/ }),
-/* 16 */
+/* 26 */
 /***/ (function(module, exports) {
 
-module.exports = translate;
+module.exports = clone;
 
 /**
- * Translate a mat4 by the given vector
+ * Creates a new mat4 initialized with values from an existing matrix
  *
- * @param {mat4} out the receiving matrix
- * @param {mat4} a the matrix to translate
- * @param {vec3} v vector to translate by
- * @returns {mat4} out
- */
-function translate(out, a, v) {
-    var x = v[0], y = v[1], z = v[2],
-        a00, a01, a02, a03,
-        a10, a11, a12, a13,
-        a20, a21, a22, a23;
-
-    if (a === out) {
-        out[12] = a[0] * x + a[4] * y + a[8] * z + a[12];
-        out[13] = a[1] * x + a[5] * y + a[9] * z + a[13];
-        out[14] = a[2] * x + a[6] * y + a[10] * z + a[14];
-        out[15] = a[3] * x + a[7] * y + a[11] * z + a[15];
-    } else {
-        a00 = a[0]; a01 = a[1]; a02 = a[2]; a03 = a[3];
-        a10 = a[4]; a11 = a[5]; a12 = a[6]; a13 = a[7];
-        a20 = a[8]; a21 = a[9]; a22 = a[10]; a23 = a[11];
-
-        out[0] = a00; out[1] = a01; out[2] = a02; out[3] = a03;
-        out[4] = a10; out[5] = a11; out[6] = a12; out[7] = a13;
-        out[8] = a20; out[9] = a21; out[10] = a22; out[11] = a23;
-
-        out[12] = a00 * x + a10 * y + a20 * z + a[12];
-        out[13] = a01 * x + a11 * y + a21 * z + a[13];
-        out[14] = a02 * x + a12 * y + a22 * z + a[14];
-        out[15] = a03 * x + a13 * y + a23 * z + a[15];
-    }
-
-    return out;
-};
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-module.exports = create;
-
-/**
- * Creates a new identity mat4
- *
+ * @param {mat4} a matrix to clone
  * @returns {mat4} a new 4x4 matrix
  */
-function create() {
+function clone(a) {
     var out = new Float32Array(16);
-    out[0] = 1;
-    out[1] = 0;
-    out[2] = 0;
-    out[3] = 0;
-    out[4] = 0;
-    out[5] = 1;
-    out[6] = 0;
-    out[7] = 0;
-    out[8] = 0;
-    out[9] = 0;
-    out[10] = 1;
-    out[11] = 0;
-    out[12] = 0;
-    out[13] = 0;
-    out[14] = 0;
-    out[15] = 1;
-    return out;
-};
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-module.exports = scale;
-
-/**
- * Scales the mat4 by the dimensions in the given vec3
- *
- * @param {mat4} out the receiving matrix
- * @param {mat4} a the matrix to scale
- * @param {vec3} v the vec3 to scale the matrix by
- * @returns {mat4} out
- **/
-function scale(out, a, v) {
-    var x = v[0], y = v[1], z = v[2];
-
-    out[0] = a[0] * x;
-    out[1] = a[1] * x;
-    out[2] = a[2] * x;
-    out[3] = a[3] * x;
-    out[4] = a[4] * y;
-    out[5] = a[5] * y;
-    out[6] = a[6] * y;
-    out[7] = a[7] * y;
-    out[8] = a[8] * z;
-    out[9] = a[9] * z;
-    out[10] = a[10] * z;
-    out[11] = a[11] * z;
+    out[0] = a[0];
+    out[1] = a[1];
+    out[2] = a[2];
+    out[3] = a[3];
+    out[4] = a[4];
+    out[5] = a[5];
+    out[6] = a[6];
+    out[7] = a[7];
+    out[8] = a[8];
+    out[9] = a[9];
+    out[10] = a[10];
+    out[11] = a[11];
     out[12] = a[12];
     out[13] = a[13];
     out[14] = a[14];
@@ -5855,55 +6193,452 @@ function scale(out, a, v) {
 };
 
 /***/ }),
-/* 19 */
+/* 27 */
 /***/ (function(module, exports) {
 
-module.exports = determinant;
+module.exports = transpose;
 
 /**
- * Calculates the determinant of a mat4
+ * Transpose the values of a mat4
  *
+ * @param {mat4} out the receiving matrix
  * @param {mat4} a the source matrix
- * @returns {Number} determinant of a
+ * @returns {mat4} out
  */
-function determinant(a) {
-    var a00 = a[0], a01 = a[1], a02 = a[2], a03 = a[3],
-        a10 = a[4], a11 = a[5], a12 = a[6], a13 = a[7],
-        a20 = a[8], a21 = a[9], a22 = a[10], a23 = a[11],
-        a30 = a[12], a31 = a[13], a32 = a[14], a33 = a[15],
+function transpose(out, a) {
+    // If we are transposing ourselves we can skip a few steps but have to cache some values
+    if (out === a) {
+        var a01 = a[1], a02 = a[2], a03 = a[3],
+            a12 = a[6], a13 = a[7],
+            a23 = a[11];
 
-        b00 = a00 * a11 - a01 * a10,
-        b01 = a00 * a12 - a02 * a10,
-        b02 = a00 * a13 - a03 * a10,
-        b03 = a01 * a12 - a02 * a11,
-        b04 = a01 * a13 - a03 * a11,
-        b05 = a02 * a13 - a03 * a12,
-        b06 = a20 * a31 - a21 * a30,
-        b07 = a20 * a32 - a22 * a30,
-        b08 = a20 * a33 - a23 * a30,
-        b09 = a21 * a32 - a22 * a31,
-        b10 = a21 * a33 - a23 * a31,
-        b11 = a22 * a33 - a23 * a32;
-
-    // Calculate the determinant
-    return b00 * b11 - b01 * b10 + b02 * b09 + b03 * b08 - b04 * b07 + b05 * b06;
+        out[1] = a[4];
+        out[2] = a[8];
+        out[3] = a[12];
+        out[4] = a01;
+        out[6] = a[9];
+        out[7] = a[13];
+        out[8] = a02;
+        out[9] = a12;
+        out[11] = a[14];
+        out[12] = a03;
+        out[13] = a13;
+        out[14] = a23;
+    } else {
+        out[0] = a[0];
+        out[1] = a[4];
+        out[2] = a[8];
+        out[3] = a[12];
+        out[4] = a[1];
+        out[5] = a[5];
+        out[6] = a[9];
+        out[7] = a[13];
+        out[8] = a[2];
+        out[9] = a[6];
+        out[10] = a[10];
+        out[11] = a[14];
+        out[12] = a[3];
+        out[13] = a[7];
+        out[14] = a[11];
+        out[15] = a[15];
+    }
+    
+    return out;
 };
 
 /***/ }),
-/* 20 */
+/* 28 */
+/***/ (function(module, exports) {
+
+module.exports = rotateX;
+
+/**
+ * Rotates a matrix by the given angle around the X axis
+ *
+ * @param {mat4} out the receiving matrix
+ * @param {mat4} a the matrix to rotate
+ * @param {Number} rad the angle to rotate the matrix by
+ * @returns {mat4} out
+ */
+function rotateX(out, a, rad) {
+    var s = Math.sin(rad),
+        c = Math.cos(rad),
+        a10 = a[4],
+        a11 = a[5],
+        a12 = a[6],
+        a13 = a[7],
+        a20 = a[8],
+        a21 = a[9],
+        a22 = a[10],
+        a23 = a[11];
+
+    if (a !== out) { // If the source and destination differ, copy the unchanged rows
+        out[0]  = a[0];
+        out[1]  = a[1];
+        out[2]  = a[2];
+        out[3]  = a[3];
+        out[12] = a[12];
+        out[13] = a[13];
+        out[14] = a[14];
+        out[15] = a[15];
+    }
+
+    // Perform axis-specific matrix multiplication
+    out[4] = a10 * c + a20 * s;
+    out[5] = a11 * c + a21 * s;
+    out[6] = a12 * c + a22 * s;
+    out[7] = a13 * c + a23 * s;
+    out[8] = a20 * c - a10 * s;
+    out[9] = a21 * c - a11 * s;
+    out[10] = a22 * c - a12 * s;
+    out[11] = a23 * c - a13 * s;
+    return out;
+};
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
+
+module.exports = rotateY;
+
+/**
+ * Rotates a matrix by the given angle around the Y axis
+ *
+ * @param {mat4} out the receiving matrix
+ * @param {mat4} a the matrix to rotate
+ * @param {Number} rad the angle to rotate the matrix by
+ * @returns {mat4} out
+ */
+function rotateY(out, a, rad) {
+    var s = Math.sin(rad),
+        c = Math.cos(rad),
+        a00 = a[0],
+        a01 = a[1],
+        a02 = a[2],
+        a03 = a[3],
+        a20 = a[8],
+        a21 = a[9],
+        a22 = a[10],
+        a23 = a[11];
+
+    if (a !== out) { // If the source and destination differ, copy the unchanged rows
+        out[4]  = a[4];
+        out[5]  = a[5];
+        out[6]  = a[6];
+        out[7]  = a[7];
+        out[12] = a[12];
+        out[13] = a[13];
+        out[14] = a[14];
+        out[15] = a[15];
+    }
+
+    // Perform axis-specific matrix multiplication
+    out[0] = a00 * c - a20 * s;
+    out[1] = a01 * c - a21 * s;
+    out[2] = a02 * c - a22 * s;
+    out[3] = a03 * c - a23 * s;
+    out[8] = a00 * s + a20 * c;
+    out[9] = a01 * s + a21 * c;
+    out[10] = a02 * s + a22 * c;
+    out[11] = a03 * s + a23 * c;
+    return out;
+};
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+module.exports = rotateZ;
+
+/**
+ * Rotates a matrix by the given angle around the Z axis
+ *
+ * @param {mat4} out the receiving matrix
+ * @param {mat4} a the matrix to rotate
+ * @param {Number} rad the angle to rotate the matrix by
+ * @returns {mat4} out
+ */
+function rotateZ(out, a, rad) {
+    var s = Math.sin(rad),
+        c = Math.cos(rad),
+        a00 = a[0],
+        a01 = a[1],
+        a02 = a[2],
+        a03 = a[3],
+        a10 = a[4],
+        a11 = a[5],
+        a12 = a[6],
+        a13 = a[7];
+
+    if (a !== out) { // If the source and destination differ, copy the unchanged last row
+        out[8]  = a[8];
+        out[9]  = a[9];
+        out[10] = a[10];
+        out[11] = a[11];
+        out[12] = a[12];
+        out[13] = a[13];
+        out[14] = a[14];
+        out[15] = a[15];
+    }
+
+    // Perform axis-specific matrix multiplication
+    out[0] = a00 * c + a10 * s;
+    out[1] = a01 * c + a11 * s;
+    out[2] = a02 * c + a12 * s;
+    out[3] = a03 * c + a13 * s;
+    out[4] = a10 * c - a00 * s;
+    out[5] = a11 * c - a01 * s;
+    out[6] = a12 * c - a02 * s;
+    out[7] = a13 * c - a03 * s;
+    return out;
+};
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var vec3 = __webpack_require__(74)
+var mat4 = __webpack_require__(106)
+
+function FirstPersonCamera(opts) {
+  if (!(this instanceof FirstPersonCamera)) return new FirstPersonCamera(opts)
+  opts = opts || {}
+  this.position = opts.position || vec3.create()
+  this.rotation = opts.rotation || vec3.create()
+  this.positionSpeed = opts.positionSpeed || 10
+  this.rotationSpeed = opts.rotationSpeed || .01
+}
+module.exports = FirstPersonCamera
+
+FirstPersonCamera.prototype.view = function(out) {
+  if (!out) out = mat4.create()
+  mat4.rotateX(out, out, this.rotation[0])
+  mat4.rotateY(out, out, this.rotation[1])
+  mat4.rotateZ(out, out, this.rotation[2] - Math.PI)
+  mat4.translate(out, out, [-this.position[0], -this.position[1], -this.position[2]])
+  return out
+}
+
+FirstPersonCamera.prototype.control = function(dt, move, mouse, prevMouse) {
+  var speed = (this.positionSpeed / 1000) * dt
+  var dir = [0,0,0]
+  if (move[0]) dir[2] -= speed
+  else if (move[1]) dir[2] += speed
+  if (move[2]) dir[0] += speed
+  else if (move[3]) dir[0] -= speed
+  if (move[4]) dir[1] -= speed
+  else if (move[5]) dir[1] += speed
+  this.move(dir)
+  this.pointer(mouse, prevMouse)
+}
+
+FirstPersonCamera.prototype.move = function(dir) {
+  if (dir[0] !== 0 || dir[1] !== 0 || dir[2] !== 0) {
+    var cam = mat4.create()
+    //mat4.rotateX(cam, cam, this.rotation[0])
+    mat4.rotateY(cam, cam, this.rotation[1])
+    vec3.transformMat4(dir, dir, cam)
+    vec3.add(this.position, this.position, dir)
+  }
+}
+
+FirstPersonCamera.prototype.pointer = function(da, db) {
+  var dt = [da[0] - db[0], da[1]- db[1]]
+  var rot = this.rotation
+  rot[1] += dt[0] * this.rotationSpeed
+  if (rot[1] < 0) rot[1] += Math.PI * 2
+  if (rot[1] >= Math.PI * 2) rot[1] -= Math.PI * 2
+  rot[0] += dt[1] * this.rotationSpeed
+  if (rot[0] < -Math.PI * .5) rot[0] = -Math.PI*0.5
+  if (rot[0] > Math.PI * .5) rot[0] = Math.PI*0.5
+}
+
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports) {
+
+module.exports = 0.000001
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports) {
+
+module.exports = create;
+
+/**
+ * Creates a new, empty vec3
+ *
+ * @returns {vec3} a new 3D vector
+ */
+function create() {
+    var out = new Float32Array(3)
+    out[0] = 0
+    out[1] = 0
+    out[2] = 0
+    return out
+}
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
+
+module.exports = fromValues;
+
+/**
+ * Creates a new vec3 initialized with the given values
+ *
+ * @param {Number} x X component
+ * @param {Number} y Y component
+ * @param {Number} z Z component
+ * @returns {vec3} a new 3D vector
+ */
+function fromValues(x, y, z) {
+    var out = new Float32Array(3)
+    out[0] = x
+    out[1] = y
+    out[2] = z
+    return out
+}
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports) {
+
+module.exports = subtract;
+
+/**
+ * Subtracts vector b from vector a
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the first operand
+ * @param {vec3} b the second operand
+ * @returns {vec3} out
+ */
+function subtract(out, a, b) {
+    out[0] = a[0] - b[0]
+    out[1] = a[1] - b[1]
+    out[2] = a[2] - b[2]
+    return out
+}
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+
+module.exports = multiply;
+
+/**
+ * Multiplies two vec3's
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the first operand
+ * @param {vec3} b the second operand
+ * @returns {vec3} out
+ */
+function multiply(out, a, b) {
+    out[0] = a[0] * b[0]
+    out[1] = a[1] * b[1]
+    out[2] = a[2] * b[2]
+    return out
+}
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+module.exports = divide;
+
+/**
+ * Divides two vec3's
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the first operand
+ * @param {vec3} b the second operand
+ * @returns {vec3} out
+ */
+function divide(out, a, b) {
+    out[0] = a[0] / b[0]
+    out[1] = a[1] / b[1]
+    out[2] = a[2] / b[2]
+    return out
+}
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+module.exports = distance;
+
+/**
+ * Calculates the euclidian distance between two vec3's
+ *
+ * @param {vec3} a the first operand
+ * @param {vec3} b the second operand
+ * @returns {Number} distance between a and b
+ */
+function distance(a, b) {
+    var x = b[0] - a[0],
+        y = b[1] - a[1],
+        z = b[2] - a[2]
+    return Math.sqrt(x*x + y*y + z*z)
+}
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports) {
+
+module.exports = squaredDistance;
+
+/**
+ * Calculates the squared euclidian distance between two vec3's
+ *
+ * @param {vec3} a the first operand
+ * @param {vec3} b the second operand
+ * @returns {Number} squared distance between a and b
+ */
+function squaredDistance(a, b) {
+    var x = b[0] - a[0],
+        y = b[1] - a[1],
+        z = b[2] - a[2]
+    return x*x + y*y + z*z
+}
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports) {
+
+module.exports = squaredLength;
+
+/**
+ * Calculates the squared length of a vec3
+ *
+ * @param {vec3} a vector to calculate squared length of
+ * @returns {Number} squared length of a
+ */
+function squaredLength(a) {
+    var x = a[0],
+        y = a[1],
+        z = a[2]
+    return x*x + y*y + z*z
+}
+
+/***/ }),
+/* 41 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_stats_js__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_stats_js__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_stats_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_stats_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_dat_gui__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_dat_gui__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_dat_gui___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_dat_gui__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Camera__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__globals__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__geometry_Square__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__ = __webpack_require__(66);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Camera__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__globals__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__geometry_Square__ = __webpack_require__(120);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__ = __webpack_require__(122);
 
 
 
@@ -5913,6 +6648,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+var createCamera = __webpack_require__(31);
 const controls = {
     particles_per_bullet: 40000,
     num_particles: 50000,
@@ -5939,6 +6675,13 @@ const controls = {
 let time = 0;
 let square;
 let attrPos;
+let wPressed;
+let aPressed;
+let sPressed;
+let dPressed;
+let fPressed;
+let prevM;
+let newM;
 function processKeyPresses() {
     // Use this if you wish
 }
@@ -6017,12 +6760,57 @@ function createGLProgram(shader_list, transform_feedback_varyings) {
 function main() {
     window.addEventListener('keypress', function (e) {
         switch (e.key) {
+            case 'w':
+                wPressed = true;
+                break;
+            case 'a':
+                aPressed = true;
+                break;
+            case 's':
+                sPressed = true;
+                break;
+            case 'd':
+                dPressed = true;
+                break;
         }
     }, false);
     window.addEventListener('keyup', function (e) {
         switch (e.key) {
+            case 'f':
+                fPressed = !fPressed;
+                if (fPressed == true) {
+                    prevM = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec2 */].fromValues(0, 0);
+                    newM = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec2 */].fromValues(0, 0);
+                    //fcamera.rotation = vec3.fromValues(0, 0, 0);
+                    //fcamera.position = vec3.fromValues(0, 0, 0);
+                }
+            case 'w':
+                wPressed = false;
+                break;
+            case 'a':
+                aPressed = false;
+                break;
+            case 's':
+                sPressed = false;
+                break;
+            case 'd':
+                dPressed = false;
+                break;
         }
     }, false);
+    window.addEventListener('mousemove', function (e) {
+        if (fPressed) {
+            prevM = newM;
+            newM = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec2 */].fromValues(e.screenX, e.screenY);
+        }
+    });
+    wPressed = false;
+    aPressed = false;
+    sPressed = false;
+    dPressed = false;
+    fPressed = false;
+    prevM = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec2 */].fromValues(0, 0);
+    newM = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec2 */].fromValues(0, 0);
     // Initial display for framerate
     const stats = __WEBPACK_IMPORTED_MODULE_1_stats_js__();
     stats.setMode(0);
@@ -6170,20 +6958,26 @@ function main() {
     }
     Object(__WEBPACK_IMPORTED_MODULE_4__globals__["b" /* setGL */])(gl);
     // create a square
-    square = new __WEBPACK_IMPORTED_MODULE_5__geometry_Square__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 0));
+    square = new __WEBPACK_IMPORTED_MODULE_5__geometry_Square__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].fromValues(0, 0, 0));
     square.create();
     // initialize camera
-    const camera = new __WEBPACK_IMPORTED_MODULE_3__Camera__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, -1), __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(0, 0, 0));
-    camera.setAspectRatio(canvas.width / canvas.height);
-    camera.updateProjectionMatrix();
+    const camera = new __WEBPACK_IMPORTED_MODULE_3__Camera__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].fromValues(0, 0, -1), __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].fromValues(0, 0, 0));
+    //camera.position = vec3.fromValues(0, 0, -100);
+    //camera.controls.eye = vec3.fromValues(0, 0, -100);
+    // camera.setAspectRatio(canvas.width / canvas.height);
+    // camera.updateProjectionMatrix();
+    const fcamera = createCamera();
+    fcamera.position = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].fromValues(0, 0, -10);
+    fcamera.rotation = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].fromValues(-3.12, 3.12, 0);
+    fcamera.control(0.000001, [wPressed, sPressed, aPressed, dPressed, false, false,], newM, prevM);
     // call render loop
     window.requestAnimationFrame(function (ts) { render(gl, state, ts); });
     gl.clearColor(0.0 / 255.0, 0.0 / 255.0, 0.0 / 255.0, 1);
     gl.enable(gl.DEPTH_TEST);
     /* Create programs for updating and rendering the particle system. */
     var update_program = createGLProgram([
-        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(67)).shader,
-        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(68)).shader
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(123)).shader,
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(124)).shader
     ], [
         "v_Position",
         "v_Age",
@@ -6191,12 +6985,12 @@ function main() {
         "v_Velocity",
     ]);
     var render_program = createGLProgram([
-        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(69)).shader,
-        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(70)).shader
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(125)).shader,
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(126)).shader
     ], null);
     var raycast_program = createGLProgram([
-        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(71)).shader,
-        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(72)).shader
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.VERTEX_SHADER, __webpack_require__(127)).shader,
+        new __WEBPACK_IMPORTED_MODULE_6__rendering_gl_ShaderProgram__["a" /* Shader */](gl.FRAGMENT_SHADER, __webpack_require__(128)).shader
     ], null);
     attrPos = gl.getAttribLocation(raycast_program, "vs_Pos");
     /* Capture attribute locations from program objects. */
@@ -6328,9 +7122,53 @@ function main() {
             origin: [0.0, 0.0, 0.0]
         };
     }
+    function processKeyPresses() {
+        let velocity = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec2 */].fromValues(0, 0);
+        if (wPressed) {
+            //console.log("pressing w!");
+            velocity[1] -= 1.0;
+        }
+        if (aPressed) {
+            velocity[0] += 1.0;
+        }
+        if (sPressed) {
+            velocity[1] += 1.0;
+        }
+        if (dPressed) {
+            velocity[0] -= 1.0;
+        }
+        // let newPos: vec3 = vec3.fromValues(0,0,0);
+        // console.log(velocity);
+        // // console.log(camera.controls.eye);
+        // if (velocity != vec2.fromValues(0, 0)){
+        // // vec3.add(newPos, vec3.fromValues(velocity[0], 0, velocity[1]), camera.controls.eye);
+        // // camera.controls.eye = newPos;
+        //   console.log(newPos);
+        // }
+        //camera.controls.eye = newPos;
+        //let newPos: vec2 = vec2.fromValues(0,0);
+        // vec2.add(newPos, velocity, planePos);
+        // lambert.setPlanePos(newPos);
+        // planePos = newPos;
+    }
     /* render (tick) loop */
     function render(gl, state, timestamp_millis) {
+        //console.log(fPressed);
+        if (!fPressed) {
+            newM = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec2 */].fromValues(0, 0);
+            prevM = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec2 */].fromValues(0, 0);
+        }
+        //processKeyPresses();
+        fcamera.control(10, [wPressed, sPressed, aPressed, dPressed, false, false,], newM, prevM);
+        prevM = newM;
+        if (fPressed) {
+            //fcamera.controls.eye = fcamera.position;
+        }
         camera.update();
+        camera.setAspectRatio(canvas.width / canvas.height);
+        camera.updateProjectionMatrix();
+        //console.log(fcamera.rotation);
+        //console.log(camera.controls.eye);
         stats.begin();
         var num_part = state.born_particles;
         /* Calculate time delta. */
@@ -6359,7 +7197,12 @@ function main() {
             gl.disableVertexAttribArray(attrPos);
         }
         /* camera position */
-        gl.uniform3f(gl.getUniformLocation(state.raycast_flat_program, "u_CamPos"), camera.position[0], camera.position[1], camera.position[2]);
+        if (fPressed) {
+            gl.uniform3f(gl.getUniformLocation(state.raycast_flat_program, "u_CamPos"), fcamera.position[0], fcamera.position[1], fcamera.position[2]);
+        }
+        else {
+            gl.uniform3f(gl.getUniformLocation(state.raycast_flat_program, "u_CamPos"), camera.position[0], camera.position[1], camera.position[2]);
+        }
         /* camera up vector */
         gl.uniform3f(gl.getUniformLocation(state.raycast_flat_program, "u_Up"), camera.controls.up[0], camera.controls.up[1], camera.controls.up[2]);
         /* camera ref vector */
@@ -6379,10 +7222,18 @@ function main() {
         */
         /* camera projection */
         let viewProj = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].create();
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].multiply(viewProj, camera.projectionMatrix, camera.viewMatrix);
+        //console.log(fcamera.rotation);
+        //console.log(fcamera.view());
+        //console.log(fcamera.projection())
+        if (fPressed) {
+            __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].multiply(viewProj, camera.projectionMatrix, fcamera.view());
+        }
+        else {
+            __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].multiply(viewProj, camera.projectionMatrix, camera.viewMatrix);
+        }
         gl.uniformMatrix4fv(gl.getUniformLocation(state.particle_render_program, "u_ViewProj"), false, viewProj);
         /* camera position */
-        gl.uniform3f(gl.getUniformLocation(state.particle_render_program, "u_CamPos"), camera.position[0], camera.position[1], camera.position[2]);
+        gl.uniform3f(gl.getUniformLocation(state.particle_render_program, "u_CamPos"), fcamera.position[0], fcamera.position[1], fcamera.position[2]);
         /* camera up vector */
         gl.uniform3f(gl.getUniformLocation(state.particle_render_program, "u_Up"), camera.controls.up[0], camera.controls.up[1], camera.controls.up[2]);
         /* camera ref vector */
@@ -6436,7 +7287,7 @@ main();
 
 
 /***/ }),
-/* 21 */
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6903,7 +7754,7 @@ var mul = multiply;
 var sub = subtract;
 
 /***/ }),
-/* 22 */
+/* 43 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7419,7 +8270,7 @@ var mul = multiply;
 var sub = subtract;
 
 /***/ }),
-/* 23 */
+/* 44 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7463,8 +8314,8 @@ var sub = subtract;
 /* unused harmony export exactEquals */
 /* unused harmony export equals */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_js__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__quat_js__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mat4_js__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__quat_js__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mat4_js__ = __webpack_require__(15);
 
 
 
@@ -8311,54 +9162,55 @@ function equals(a, b) {
 }
 
 /***/ }),
-/* 24 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export create */
-/* unused harmony export clone */
-/* unused harmony export fromValues */
-/* unused harmony export copy */
-/* unused harmony export set */
-/* unused harmony export add */
-/* unused harmony export subtract */
-/* unused harmony export multiply */
-/* unused harmony export divide */
-/* unused harmony export ceil */
-/* unused harmony export floor */
-/* unused harmony export min */
-/* unused harmony export max */
-/* unused harmony export round */
-/* unused harmony export scale */
-/* unused harmony export scaleAndAdd */
-/* unused harmony export distance */
-/* unused harmony export squaredDistance */
-/* unused harmony export length */
-/* unused harmony export squaredLength */
-/* unused harmony export negate */
-/* unused harmony export inverse */
-/* unused harmony export normalize */
-/* unused harmony export dot */
-/* unused harmony export cross */
-/* unused harmony export lerp */
-/* unused harmony export random */
-/* unused harmony export transformMat2 */
-/* unused harmony export transformMat2d */
-/* unused harmony export transformMat3 */
-/* unused harmony export transformMat4 */
-/* unused harmony export rotate */
-/* unused harmony export angle */
-/* unused harmony export str */
-/* unused harmony export exactEquals */
-/* unused harmony export equals */
-/* unused harmony export len */
-/* unused harmony export sub */
-/* unused harmony export mul */
-/* unused harmony export div */
-/* unused harmony export dist */
-/* unused harmony export sqrDist */
-/* unused harmony export sqrLen */
-/* unused harmony export forEach */
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (immutable) */ __webpack_exports__["create"] = create;
+/* harmony export (immutable) */ __webpack_exports__["clone"] = clone;
+/* harmony export (immutable) */ __webpack_exports__["fromValues"] = fromValues;
+/* harmony export (immutable) */ __webpack_exports__["copy"] = copy;
+/* harmony export (immutable) */ __webpack_exports__["set"] = set;
+/* harmony export (immutable) */ __webpack_exports__["add"] = add;
+/* harmony export (immutable) */ __webpack_exports__["subtract"] = subtract;
+/* harmony export (immutable) */ __webpack_exports__["multiply"] = multiply;
+/* harmony export (immutable) */ __webpack_exports__["divide"] = divide;
+/* harmony export (immutable) */ __webpack_exports__["ceil"] = ceil;
+/* harmony export (immutable) */ __webpack_exports__["floor"] = floor;
+/* harmony export (immutable) */ __webpack_exports__["min"] = min;
+/* harmony export (immutable) */ __webpack_exports__["max"] = max;
+/* harmony export (immutable) */ __webpack_exports__["round"] = round;
+/* harmony export (immutable) */ __webpack_exports__["scale"] = scale;
+/* harmony export (immutable) */ __webpack_exports__["scaleAndAdd"] = scaleAndAdd;
+/* harmony export (immutable) */ __webpack_exports__["distance"] = distance;
+/* harmony export (immutable) */ __webpack_exports__["squaredDistance"] = squaredDistance;
+/* harmony export (immutable) */ __webpack_exports__["length"] = length;
+/* harmony export (immutable) */ __webpack_exports__["squaredLength"] = squaredLength;
+/* harmony export (immutable) */ __webpack_exports__["negate"] = negate;
+/* harmony export (immutable) */ __webpack_exports__["inverse"] = inverse;
+/* harmony export (immutable) */ __webpack_exports__["normalize"] = normalize;
+/* harmony export (immutable) */ __webpack_exports__["dot"] = dot;
+/* harmony export (immutable) */ __webpack_exports__["cross"] = cross;
+/* harmony export (immutable) */ __webpack_exports__["lerp"] = lerp;
+/* harmony export (immutable) */ __webpack_exports__["random"] = random;
+/* harmony export (immutable) */ __webpack_exports__["transformMat2"] = transformMat2;
+/* harmony export (immutable) */ __webpack_exports__["transformMat2d"] = transformMat2d;
+/* harmony export (immutable) */ __webpack_exports__["transformMat3"] = transformMat3;
+/* harmony export (immutable) */ __webpack_exports__["transformMat4"] = transformMat4;
+/* harmony export (immutable) */ __webpack_exports__["rotate"] = rotate;
+/* harmony export (immutable) */ __webpack_exports__["angle"] = angle;
+/* harmony export (immutable) */ __webpack_exports__["str"] = str;
+/* harmony export (immutable) */ __webpack_exports__["exactEquals"] = exactEquals;
+/* harmony export (immutable) */ __webpack_exports__["equals"] = equals;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "len", function() { return len; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sub", function() { return sub; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mul", function() { return mul; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "div", function() { return div; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dist", function() { return dist; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sqrDist", function() { return sqrDist; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sqrLen", function() { return sqrLen; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "forEach", function() { return forEach; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__common_js__ = __webpack_require__(0);
 
 
@@ -8987,21 +9839,21 @@ var forEach = function () {
 }();
 
 /***/ }),
-/* 25 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 !function(e,t){ true?module.exports=t():"function"==typeof define&&define.amd?define(t):e.Stats=t()}(this,function(){"use strict";var c=function(){var n=0,l=document.createElement("div");function e(e){return l.appendChild(e.dom),e}function t(e){for(var t=0;t<l.children.length;t++)l.children[t].style.display=t===e?"block":"none";n=e}l.style.cssText="position:fixed;top:0;left:0;cursor:pointer;opacity:0.9;z-index:10000",l.addEventListener("click",function(e){e.preventDefault(),t(++n%l.children.length)},!1);var i=(performance||Date).now(),a=i,o=0,f=e(new c.Panel("FPS","#0ff","#002")),r=e(new c.Panel("MS","#0f0","#020"));if(self.performance&&self.performance.memory)var d=e(new c.Panel("MB","#f08","#201"));return t(0),{REVISION:16,dom:l,addPanel:e,showPanel:t,begin:function(){i=(performance||Date).now()},end:function(){o++;var e=(performance||Date).now();if(r.update(e-i,200),a+1e3<=e&&(f.update(1e3*o/(e-a),100),a=e,o=0,d)){var t=performance.memory;d.update(t.usedJSHeapSize/1048576,t.jsHeapSizeLimit/1048576)}return e},update:function(){i=this.end()},domElement:l,setMode:t}};return c.Panel=function(n,l,i){var a=1/0,o=0,f=Math.round,r=f(window.devicePixelRatio||1),d=80*r,e=48*r,c=3*r,p=2*r,u=3*r,s=15*r,m=74*r,h=30*r,y=document.createElement("canvas");y.width=d,y.height=e,y.style.cssText="width:80px;height:48px";var v=y.getContext("2d");return v.font="bold "+9*r+"px Helvetica,Arial,sans-serif",v.textBaseline="top",v.fillStyle=i,v.fillRect(0,0,d,e),v.fillStyle=l,v.fillText(n,c,p),v.fillRect(u,s,m,h),v.fillStyle=i,v.globalAlpha=.9,v.fillRect(u,s,m,h),{dom:y,update:function(e,t){a=Math.min(a,e),o=Math.max(o,e),v.fillStyle=i,v.globalAlpha=1,v.fillRect(0,0,d,s),v.fillStyle=l,v.fillText(f(e)+" "+n+" ("+f(a)+"-"+f(o)+")",c,p),v.drawImage(y,u+r,s,m-r,h,u,s,m-r,h),v.fillRect(u+m-r,s,r,h),v.fillStyle=i,v.globalAlpha=.9,v.fillRect(u+m-r,s,r,f((1-e/t)*h))}}},c});
 
 
 /***/ }),
-/* 26 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(27)
-module.exports.color = __webpack_require__(28)
+module.exports = __webpack_require__(48)
+module.exports.color = __webpack_require__(49)
 
 /***/ }),
-/* 27 */
+/* 48 */
 /***/ (function(module, exports) {
 
 /**
@@ -12674,7 +13526,7 @@ dat.dom.dom,
 dat.utils.common);
 
 /***/ }),
-/* 28 */
+/* 49 */
 /***/ (function(module, exports) {
 
 /**
@@ -13434,12 +14286,13 @@ dat.color.toString,
 dat.utils.common);
 
 /***/ }),
-/* 29 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(2);
-var CameraControls = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(4);
+var CameraControls = __webpack_require__(51);
+var createCamera = __webpack_require__(31);
 
 class Camera {
     constructor(position, target) {
@@ -13449,25 +14302,25 @@ class Camera {
         this.aspectRatio = 1;
         this.near = 0.1;
         this.far = 1000;
-        this.position = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].create();
-        this.direction = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].create();
-        this.target = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].create();
-        this.up = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].create();
-        this.right = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].create();
-        this.forward = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].create();
+        this.position = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].create();
+        this.direction = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].create();
+        this.target = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].create();
+        this.up = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].create();
+        this.right = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].create();
+        this.forward = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].create();
         const canvas = document.getElementById('canvas');
         this.controls = CameraControls(canvas, {
             position: position,
             center: target,
         });
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].add(this.target, this.position, this.direction);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].add(this.target, this.position, this.direction);
         __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].lookAt(this.viewMatrix, this.controls.eye, this.controls.center, this.controls.up);
         this.position = this.controls.eye;
         this.up = this.controls.up;
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].subtract(this.forward, this.target, this.position);
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].normalize(this.forward, this.forward);
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].cross(this.right, this.forward, this.up);
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].normalize(this.right, this.right);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].subtract(this.forward, this.target, this.position);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].normalize(this.forward, this.forward);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].cross(this.right, this.forward, this.up);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].normalize(this.right, this.right);
     }
     setAspectRatio(aspectRatio) {
         this.aspectRatio = aspectRatio;
@@ -13477,19 +14330,19 @@ class Camera {
     }
     update() {
         this.controls.tick();
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].add(this.target, this.position, this.direction);
-        this.position = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(this.controls.eye[0], this.controls.eye[1], this.controls.eye[2]);
-        this.target = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(this.controls.center[0], this.controls.center[1], this.controls.center[2]);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].add(this.target, this.position, this.direction);
+        this.position = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].fromValues(this.controls.eye[0], this.controls.eye[1], this.controls.eye[2]);
+        this.target = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].fromValues(this.controls.center[0], this.controls.center[1], this.controls.center[2]);
         __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["a" /* mat4 */].lookAt(this.viewMatrix, this.controls.eye, this.controls.center, this.controls.up);
         this.position = this.controls.eye;
-        this.up = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].fromValues(this.controls.up[0], this.controls.up[1], this.controls.up[2]);
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].normalize(this.up, this.up);
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].subtract(this.forward, this.target, this.position);
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].normalize(this.forward, this.forward);
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].cross(this.right, this.forward, this.up);
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].normalize(this.right, this.right);
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].cross(this.up, this.right, this.forward);
-        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["b" /* vec3 */].normalize(this.up, this.up);
+        this.up = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].fromValues(this.controls.up[0], this.controls.up[1], this.controls.up[2]);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].normalize(this.up, this.up);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].subtract(this.forward, this.target, this.position);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].normalize(this.forward, this.forward);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].cross(this.right, this.forward, this.up);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].normalize(this.right, this.right);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].cross(this.up, this.right, this.forward);
+        __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec3 */].normalize(this.up, this.up);
     }
 }
 ;
@@ -13497,20 +14350,21 @@ class Camera {
 
 
 /***/ }),
-/* 30 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+
 module.exports = createCamera
 
-var now         = __webpack_require__(31)
-var createView  = __webpack_require__(33)
-var mouseChange = __webpack_require__(56)
-var mouseWheel  = __webpack_require__(58)
-var mouseOffset = __webpack_require__(61)
-var hasPassive  = __webpack_require__(62)
+var now         = __webpack_require__(52)
+var createView  = __webpack_require__(54)
+var mouseChange = __webpack_require__(66)
+var mouseWheel  = __webpack_require__(68)
+var mouseOffset = __webpack_require__(71)
+var hasPassive  = __webpack_require__(72)
 
 function createCamera(element, options) {
   element = element || document.body
@@ -13740,7 +14594,7 @@ function createCamera(element, options) {
 
 
 /***/ }),
-/* 31 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {module.exports =
@@ -13751,10 +14605,10 @@ function createCamera(element, options) {
     return +new Date
   }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(53)))
 
 /***/ }),
-/* 32 */
+/* 53 */
 /***/ (function(module, exports) {
 
 var g;
@@ -13781,7 +14635,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 33 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13789,9 +14643,9 @@ module.exports = g;
 
 module.exports = createViewController
 
-var createTurntable = __webpack_require__(34)
-var createOrbit     = __webpack_require__(37)
-var createMatrix    = __webpack_require__(40)
+var createTurntable = __webpack_require__(55)
+var createOrbit     = __webpack_require__(57)
+var createMatrix    = __webpack_require__(59)
 
 function ViewController(controllers, mode) {
   this._controllerNames = Object.keys(controllers)
@@ -13909,7 +14763,7 @@ function createViewController(options) {
 }
 
 /***/ }),
-/* 34 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13917,12 +14771,12 @@ function createViewController(options) {
 
 module.exports = createTurntableController
 
-var filterVector = __webpack_require__(10)
-var invert44     = __webpack_require__(3)
-var rotateM      = __webpack_require__(36)
-var cross        = __webpack_require__(12)
-var normalize3   = __webpack_require__(4)
-var dot3         = __webpack_require__(13)
+var filterVector = __webpack_require__(19)
+var invert44     = __webpack_require__(1)
+var rotateM      = __webpack_require__(21)
+var cross        = __webpack_require__(6)
+var normalize3   = __webpack_require__(2)
+var dot3         = __webpack_require__(5)
 
 function len3(x, y, z) {
   return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2))
@@ -14487,7 +15341,7 @@ function createTurntableController(options) {
 }
 
 /***/ }),
-/* 35 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14532,76 +15386,7 @@ module.exports = cubicHermite
 module.exports.derivative = dcubicHermite
 
 /***/ }),
-/* 36 */
-/***/ (function(module, exports) {
-
-module.exports = rotate;
-
-/**
- * Rotates a mat4 by the given angle
- *
- * @param {mat4} out the receiving matrix
- * @param {mat4} a the matrix to rotate
- * @param {Number} rad the angle to rotate the matrix by
- * @param {vec3} axis the axis to rotate around
- * @returns {mat4} out
- */
-function rotate(out, a, rad, axis) {
-    var x = axis[0], y = axis[1], z = axis[2],
-        len = Math.sqrt(x * x + y * y + z * z),
-        s, c, t,
-        a00, a01, a02, a03,
-        a10, a11, a12, a13,
-        a20, a21, a22, a23,
-        b00, b01, b02,
-        b10, b11, b12,
-        b20, b21, b22;
-
-    if (Math.abs(len) < 0.000001) { return null; }
-    
-    len = 1 / len;
-    x *= len;
-    y *= len;
-    z *= len;
-
-    s = Math.sin(rad);
-    c = Math.cos(rad);
-    t = 1 - c;
-
-    a00 = a[0]; a01 = a[1]; a02 = a[2]; a03 = a[3];
-    a10 = a[4]; a11 = a[5]; a12 = a[6]; a13 = a[7];
-    a20 = a[8]; a21 = a[9]; a22 = a[10]; a23 = a[11];
-
-    // Construct the elements of the rotation matrix
-    b00 = x * x * t + c; b01 = y * x * t + z * s; b02 = z * x * t - y * s;
-    b10 = x * y * t - z * s; b11 = y * y * t + c; b12 = z * y * t + x * s;
-    b20 = x * z * t + y * s; b21 = y * z * t - x * s; b22 = z * z * t + c;
-
-    // Perform rotation-specific matrix multiplication
-    out[0] = a00 * b00 + a10 * b01 + a20 * b02;
-    out[1] = a01 * b00 + a11 * b01 + a21 * b02;
-    out[2] = a02 * b00 + a12 * b01 + a22 * b02;
-    out[3] = a03 * b00 + a13 * b01 + a23 * b02;
-    out[4] = a00 * b10 + a10 * b11 + a20 * b12;
-    out[5] = a01 * b10 + a11 * b11 + a21 * b12;
-    out[6] = a02 * b10 + a12 * b11 + a22 * b12;
-    out[7] = a03 * b10 + a13 * b11 + a23 * b12;
-    out[8] = a00 * b20 + a10 * b21 + a20 * b22;
-    out[9] = a01 * b20 + a11 * b21 + a21 * b22;
-    out[10] = a02 * b20 + a12 * b21 + a22 * b22;
-    out[11] = a03 * b20 + a13 * b21 + a23 * b22;
-
-    if (a !== out) { // If the source and destination differ, copy the unchanged last row
-        out[12] = a[12];
-        out[13] = a[13];
-        out[14] = a[14];
-        out[15] = a[15];
-    }
-    return out;
-};
-
-/***/ }),
-/* 37 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14609,11 +15394,11 @@ function rotate(out, a, rad, axis) {
 
 module.exports = createOrbitController
 
-var filterVector  = __webpack_require__(10)
-var lookAt        = __webpack_require__(14)
-var mat4FromQuat  = __webpack_require__(38)
-var invert44      = __webpack_require__(3)
-var quatFromFrame = __webpack_require__(39)
+var filterVector  = __webpack_require__(19)
+var lookAt        = __webpack_require__(7)
+var mat4FromQuat  = __webpack_require__(22)
+var invert44      = __webpack_require__(1)
+var quatFromFrame = __webpack_require__(58)
 
 function len3(x,y,z) {
   return Math.sqrt(Math.pow(x,2) + Math.pow(y,2) + Math.pow(z,2))
@@ -15000,59 +15785,7 @@ function createOrbitController(options) {
 }
 
 /***/ }),
-/* 38 */
-/***/ (function(module, exports) {
-
-module.exports = fromQuat;
-
-/**
- * Creates a matrix from a quaternion rotation.
- *
- * @param {mat4} out mat4 receiving operation result
- * @param {quat4} q Rotation quaternion
- * @returns {mat4} out
- */
-function fromQuat(out, q) {
-    var x = q[0], y = q[1], z = q[2], w = q[3],
-        x2 = x + x,
-        y2 = y + y,
-        z2 = z + z,
-
-        xx = x * x2,
-        yx = y * x2,
-        yy = y * y2,
-        zx = z * x2,
-        zy = z * y2,
-        zz = z * z2,
-        wx = w * x2,
-        wy = w * y2,
-        wz = w * z2;
-
-    out[0] = 1 - yy - zz;
-    out[1] = yx + wz;
-    out[2] = zx - wy;
-    out[3] = 0;
-
-    out[4] = yx - wz;
-    out[5] = 1 - xx - zz;
-    out[6] = zy + wx;
-    out[7] = 0;
-
-    out[8] = zx + wy;
-    out[9] = zy - wx;
-    out[10] = 1 - xx - yy;
-    out[11] = 0;
-
-    out[12] = 0;
-    out[13] = 0;
-    out[14] = 0;
-    out[15] = 1;
-
-    return out;
-};
-
-/***/ }),
-/* 39 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15099,22 +15832,22 @@ function quatFromFrame(
 }
 
 /***/ }),
-/* 40 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var bsearch   = __webpack_require__(11)
-var m4interp  = __webpack_require__(41)
-var invert44  = __webpack_require__(3)
-var rotateX   = __webpack_require__(53)
-var rotateY   = __webpack_require__(54)
-var rotateZ   = __webpack_require__(55)
-var lookAt    = __webpack_require__(14)
-var translate = __webpack_require__(16)
-var scale     = __webpack_require__(18)
-var normalize = __webpack_require__(4)
+var bsearch   = __webpack_require__(20)
+var m4interp  = __webpack_require__(60)
+var invert44  = __webpack_require__(1)
+var rotateX   = __webpack_require__(28)
+var rotateY   = __webpack_require__(29)
+var rotateZ   = __webpack_require__(30)
+var lookAt    = __webpack_require__(7)
+var translate = __webpack_require__(9)
+var scale     = __webpack_require__(11)
+var normalize = __webpack_require__(2)
 
 var DEFAULT_CENTER = [0,0,0]
 
@@ -15304,15 +16037,15 @@ function createMatrixCameraController(options) {
 
 
 /***/ }),
-/* 41 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var lerp = __webpack_require__(42)
+var lerp = __webpack_require__(23)
 
-var recompose = __webpack_require__(43)
-var decompose = __webpack_require__(46)
-var determinant = __webpack_require__(19)
-var slerp = __webpack_require__(51)
+var recompose = __webpack_require__(61)
+var decompose = __webpack_require__(62)
+var determinant = __webpack_require__(12)
+var slerp = __webpack_require__(64)
 
 var state0 = state()
 var state1 = state()
@@ -15361,32 +16094,7 @@ function vec4() {
 }
 
 /***/ }),
-/* 42 */
-/***/ (function(module, exports) {
-
-module.exports = lerp;
-
-/**
- * Performs a linear interpolation between two vec3's
- *
- * @param {vec3} out the receiving vector
- * @param {vec3} a the first operand
- * @param {vec3} b the second operand
- * @param {Number} t interpolation amount between the two inputs
- * @returns {vec3} out
- */
-function lerp(out, a, b, t) {
-    var ax = a[0],
-        ay = a[1],
-        az = a[2]
-    out[0] = ax + t * (b[0] - ax)
-    out[1] = ay + t * (b[1] - ay)
-    out[2] = az + t * (b[2] - az)
-    return out
-}
-
-/***/ }),
-/* 43 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -15401,12 +16109,12 @@ From: http://www.w3.org/TR/css3-transforms/#recomposing-to-a-3d-matrix
 */
 
 var mat4 = {
-    identity: __webpack_require__(15),
-    translate: __webpack_require__(16),
-    multiply: __webpack_require__(44),
-    create: __webpack_require__(17),
-    scale: __webpack_require__(18),
-    fromRotationTranslation: __webpack_require__(45)
+    identity: __webpack_require__(8),
+    translate: __webpack_require__(9),
+    multiply: __webpack_require__(24),
+    create: __webpack_require__(10),
+    scale: __webpack_require__(11),
+    fromRotationTranslation: __webpack_require__(25)
 }
 
 var rotationMatrix = mat4.create()
@@ -15451,112 +16159,7 @@ module.exports = function recomposeMat4(matrix, translation, scale, skew, perspe
 }
 
 /***/ }),
-/* 44 */
-/***/ (function(module, exports) {
-
-module.exports = multiply;
-
-/**
- * Multiplies two mat4's
- *
- * @param {mat4} out the receiving matrix
- * @param {mat4} a the first operand
- * @param {mat4} b the second operand
- * @returns {mat4} out
- */
-function multiply(out, a, b) {
-    var a00 = a[0], a01 = a[1], a02 = a[2], a03 = a[3],
-        a10 = a[4], a11 = a[5], a12 = a[6], a13 = a[7],
-        a20 = a[8], a21 = a[9], a22 = a[10], a23 = a[11],
-        a30 = a[12], a31 = a[13], a32 = a[14], a33 = a[15];
-
-    // Cache only the current line of the second matrix
-    var b0  = b[0], b1 = b[1], b2 = b[2], b3 = b[3];  
-    out[0] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
-    out[1] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
-    out[2] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
-    out[3] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
-
-    b0 = b[4]; b1 = b[5]; b2 = b[6]; b3 = b[7];
-    out[4] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
-    out[5] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
-    out[6] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
-    out[7] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
-
-    b0 = b[8]; b1 = b[9]; b2 = b[10]; b3 = b[11];
-    out[8] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
-    out[9] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
-    out[10] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
-    out[11] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
-
-    b0 = b[12]; b1 = b[13]; b2 = b[14]; b3 = b[15];
-    out[12] = b0*a00 + b1*a10 + b2*a20 + b3*a30;
-    out[13] = b0*a01 + b1*a11 + b2*a21 + b3*a31;
-    out[14] = b0*a02 + b1*a12 + b2*a22 + b3*a32;
-    out[15] = b0*a03 + b1*a13 + b2*a23 + b3*a33;
-    return out;
-};
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports) {
-
-module.exports = fromRotationTranslation;
-
-/**
- * Creates a matrix from a quaternion rotation and vector translation
- * This is equivalent to (but much faster than):
- *
- *     mat4.identity(dest);
- *     mat4.translate(dest, vec);
- *     var quatMat = mat4.create();
- *     quat4.toMat4(quat, quatMat);
- *     mat4.multiply(dest, quatMat);
- *
- * @param {mat4} out mat4 receiving operation result
- * @param {quat4} q Rotation quaternion
- * @param {vec3} v Translation vector
- * @returns {mat4} out
- */
-function fromRotationTranslation(out, q, v) {
-    // Quaternion math
-    var x = q[0], y = q[1], z = q[2], w = q[3],
-        x2 = x + x,
-        y2 = y + y,
-        z2 = z + z,
-
-        xx = x * x2,
-        xy = x * y2,
-        xz = x * z2,
-        yy = y * y2,
-        yz = y * z2,
-        zz = z * z2,
-        wx = w * x2,
-        wy = w * y2,
-        wz = w * z2;
-
-    out[0] = 1 - (yy + zz);
-    out[1] = xy + wz;
-    out[2] = xz - wy;
-    out[3] = 0;
-    out[4] = xy - wz;
-    out[5] = 1 - (xx + zz);
-    out[6] = yz + wx;
-    out[7] = 0;
-    out[8] = xz + wy;
-    out[9] = yz - wx;
-    out[10] = 1 - (xx + yy);
-    out[11] = 0;
-    out[12] = v[0];
-    out[13] = v[1];
-    out[14] = v[2];
-    out[15] = 1;
-    
-    return out;
-};
-
-/***/ }),
-/* 46 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*jshint unused:true*/
@@ -15576,18 +16179,18 @@ https://github.com/ChromiumWebApps/chromium/blob/master/ui/gfx/transform_util.cc
 http://www.w3.org/TR/css3-transforms/#decomposing-a-3d-matrix
 */
 
-var normalize = __webpack_require__(47)
+var normalize = __webpack_require__(63)
 
-var create = __webpack_require__(17)
-var clone = __webpack_require__(48)
-var determinant = __webpack_require__(19)
-var invert = __webpack_require__(3)
-var transpose = __webpack_require__(49)
+var create = __webpack_require__(10)
+var clone = __webpack_require__(26)
+var determinant = __webpack_require__(12)
+var invert = __webpack_require__(1)
+var transpose = __webpack_require__(27)
 var vec3 = {
-    length: __webpack_require__(50),
-    normalize: __webpack_require__(4),
-    dot: __webpack_require__(13),
-    cross: __webpack_require__(12)
+    length: __webpack_require__(13),
+    normalize: __webpack_require__(2),
+    dot: __webpack_require__(5),
+    cross: __webpack_require__(6)
 }
 
 var tmp = create()
@@ -15740,7 +16343,7 @@ function combine(out, a, b, scale1, scale2) {
 }
 
 /***/ }),
-/* 47 */
+/* 63 */
 /***/ (function(module, exports) {
 
 module.exports = function normalize(out, mat) {
@@ -15755,119 +16358,13 @@ module.exports = function normalize(out, mat) {
 }
 
 /***/ }),
-/* 48 */
-/***/ (function(module, exports) {
-
-module.exports = clone;
-
-/**
- * Creates a new mat4 initialized with values from an existing matrix
- *
- * @param {mat4} a matrix to clone
- * @returns {mat4} a new 4x4 matrix
- */
-function clone(a) {
-    var out = new Float32Array(16);
-    out[0] = a[0];
-    out[1] = a[1];
-    out[2] = a[2];
-    out[3] = a[3];
-    out[4] = a[4];
-    out[5] = a[5];
-    out[6] = a[6];
-    out[7] = a[7];
-    out[8] = a[8];
-    out[9] = a[9];
-    out[10] = a[10];
-    out[11] = a[11];
-    out[12] = a[12];
-    out[13] = a[13];
-    out[14] = a[14];
-    out[15] = a[15];
-    return out;
-};
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports) {
-
-module.exports = transpose;
-
-/**
- * Transpose the values of a mat4
- *
- * @param {mat4} out the receiving matrix
- * @param {mat4} a the source matrix
- * @returns {mat4} out
- */
-function transpose(out, a) {
-    // If we are transposing ourselves we can skip a few steps but have to cache some values
-    if (out === a) {
-        var a01 = a[1], a02 = a[2], a03 = a[3],
-            a12 = a[6], a13 = a[7],
-            a23 = a[11];
-
-        out[1] = a[4];
-        out[2] = a[8];
-        out[3] = a[12];
-        out[4] = a01;
-        out[6] = a[9];
-        out[7] = a[13];
-        out[8] = a02;
-        out[9] = a12;
-        out[11] = a[14];
-        out[12] = a03;
-        out[13] = a13;
-        out[14] = a23;
-    } else {
-        out[0] = a[0];
-        out[1] = a[4];
-        out[2] = a[8];
-        out[3] = a[12];
-        out[4] = a[1];
-        out[5] = a[5];
-        out[6] = a[9];
-        out[7] = a[13];
-        out[8] = a[2];
-        out[9] = a[6];
-        out[10] = a[10];
-        out[11] = a[14];
-        out[12] = a[3];
-        out[13] = a[7];
-        out[14] = a[11];
-        out[15] = a[15];
-    }
-    
-    return out;
-};
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports) {
-
-module.exports = length;
-
-/**
- * Calculates the length of a vec3
- *
- * @param {vec3} a vector to calculate length of
- * @returns {Number} length of a
- */
-function length(a) {
-    var x = a[0],
-        y = a[1],
-        z = a[2]
-    return Math.sqrt(x*x + y*y + z*z)
-}
-
-/***/ }),
-/* 51 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(52)
+module.exports = __webpack_require__(65)
 
 /***/ }),
-/* 52 */
+/* 65 */
 /***/ (function(module, exports) {
 
 module.exports = slerp
@@ -15924,154 +16421,7 @@ function slerp (out, a, b, t) {
 
 
 /***/ }),
-/* 53 */
-/***/ (function(module, exports) {
-
-module.exports = rotateX;
-
-/**
- * Rotates a matrix by the given angle around the X axis
- *
- * @param {mat4} out the receiving matrix
- * @param {mat4} a the matrix to rotate
- * @param {Number} rad the angle to rotate the matrix by
- * @returns {mat4} out
- */
-function rotateX(out, a, rad) {
-    var s = Math.sin(rad),
-        c = Math.cos(rad),
-        a10 = a[4],
-        a11 = a[5],
-        a12 = a[6],
-        a13 = a[7],
-        a20 = a[8],
-        a21 = a[9],
-        a22 = a[10],
-        a23 = a[11];
-
-    if (a !== out) { // If the source and destination differ, copy the unchanged rows
-        out[0]  = a[0];
-        out[1]  = a[1];
-        out[2]  = a[2];
-        out[3]  = a[3];
-        out[12] = a[12];
-        out[13] = a[13];
-        out[14] = a[14];
-        out[15] = a[15];
-    }
-
-    // Perform axis-specific matrix multiplication
-    out[4] = a10 * c + a20 * s;
-    out[5] = a11 * c + a21 * s;
-    out[6] = a12 * c + a22 * s;
-    out[7] = a13 * c + a23 * s;
-    out[8] = a20 * c - a10 * s;
-    out[9] = a21 * c - a11 * s;
-    out[10] = a22 * c - a12 * s;
-    out[11] = a23 * c - a13 * s;
-    return out;
-};
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports) {
-
-module.exports = rotateY;
-
-/**
- * Rotates a matrix by the given angle around the Y axis
- *
- * @param {mat4} out the receiving matrix
- * @param {mat4} a the matrix to rotate
- * @param {Number} rad the angle to rotate the matrix by
- * @returns {mat4} out
- */
-function rotateY(out, a, rad) {
-    var s = Math.sin(rad),
-        c = Math.cos(rad),
-        a00 = a[0],
-        a01 = a[1],
-        a02 = a[2],
-        a03 = a[3],
-        a20 = a[8],
-        a21 = a[9],
-        a22 = a[10],
-        a23 = a[11];
-
-    if (a !== out) { // If the source and destination differ, copy the unchanged rows
-        out[4]  = a[4];
-        out[5]  = a[5];
-        out[6]  = a[6];
-        out[7]  = a[7];
-        out[12] = a[12];
-        out[13] = a[13];
-        out[14] = a[14];
-        out[15] = a[15];
-    }
-
-    // Perform axis-specific matrix multiplication
-    out[0] = a00 * c - a20 * s;
-    out[1] = a01 * c - a21 * s;
-    out[2] = a02 * c - a22 * s;
-    out[3] = a03 * c - a23 * s;
-    out[8] = a00 * s + a20 * c;
-    out[9] = a01 * s + a21 * c;
-    out[10] = a02 * s + a22 * c;
-    out[11] = a03 * s + a23 * c;
-    return out;
-};
-
-/***/ }),
-/* 55 */
-/***/ (function(module, exports) {
-
-module.exports = rotateZ;
-
-/**
- * Rotates a matrix by the given angle around the Z axis
- *
- * @param {mat4} out the receiving matrix
- * @param {mat4} a the matrix to rotate
- * @param {Number} rad the angle to rotate the matrix by
- * @returns {mat4} out
- */
-function rotateZ(out, a, rad) {
-    var s = Math.sin(rad),
-        c = Math.cos(rad),
-        a00 = a[0],
-        a01 = a[1],
-        a02 = a[2],
-        a03 = a[3],
-        a10 = a[4],
-        a11 = a[5],
-        a12 = a[6],
-        a13 = a[7];
-
-    if (a !== out) { // If the source and destination differ, copy the unchanged last row
-        out[8]  = a[8];
-        out[9]  = a[9];
-        out[10] = a[10];
-        out[11] = a[11];
-        out[12] = a[12];
-        out[13] = a[13];
-        out[14] = a[14];
-        out[15] = a[15];
-    }
-
-    // Perform axis-specific matrix multiplication
-    out[0] = a00 * c + a10 * s;
-    out[1] = a01 * c + a11 * s;
-    out[2] = a02 * c + a12 * s;
-    out[3] = a03 * c + a13 * s;
-    out[4] = a10 * c - a00 * s;
-    out[5] = a11 * c - a01 * s;
-    out[6] = a12 * c - a02 * s;
-    out[7] = a13 * c - a03 * s;
-    return out;
-};
-
-/***/ }),
-/* 56 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16079,7 +16429,7 @@ function rotateZ(out, a, rad) {
 
 module.exports = mouseListen
 
-var mouse = __webpack_require__(57)
+var mouse = __webpack_require__(67)
 
 function mouseListen (element, callback) {
   if (!callback) {
@@ -16283,7 +16633,7 @@ function mouseListen (element, callback) {
 
 
 /***/ }),
-/* 57 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16350,13 +16700,13 @@ exports.y = mouseRelativeY
 
 
 /***/ }),
-/* 58 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var toPX = __webpack_require__(59)
+var toPX = __webpack_require__(69)
 
 module.exports = mouseWheelListen
 
@@ -16397,13 +16747,13 @@ function mouseWheelListen(element, callback, noScroll) {
 
 
 /***/ }),
-/* 59 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var parseUnit = __webpack_require__(60)
+var parseUnit = __webpack_require__(70)
 
 module.exports = toPX
 
@@ -16478,7 +16828,7 @@ function toPX(str, element) {
 
 
 /***/ }),
-/* 60 */
+/* 70 */
 /***/ (function(module, exports) {
 
 module.exports = function parseUnit(str, out) {
@@ -16493,7 +16843,7 @@ module.exports = function parseUnit(str, out) {
 }
 
 /***/ }),
-/* 61 */
+/* 71 */
 /***/ (function(module, exports) {
 
 var rootPosition = { left: 0, top: 0 }
@@ -16524,13 +16874,13 @@ function getBoundingClientOffset (element) {
 
 
 /***/ }),
-/* 62 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var isBrowser = __webpack_require__(63)
+var isBrowser = __webpack_require__(73)
 
 function detect() {
 	var supported = false
@@ -16555,26 +16905,1286 @@ module.exports = isBrowser && detect()
 
 
 /***/ }),
-/* 63 */
+/* 73 */
 /***/ (function(module, exports) {
 
 module.exports = true;
 
 /***/ }),
-/* 64 */
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+  EPSILON: __webpack_require__(32)
+  , create: __webpack_require__(33)
+  , clone: __webpack_require__(75)
+  , angle: __webpack_require__(76)
+  , fromValues: __webpack_require__(34)
+  , copy: __webpack_require__(77)
+  , set: __webpack_require__(78)
+  , equals: __webpack_require__(79)
+  , exactEquals: __webpack_require__(80)
+  , add: __webpack_require__(81)
+  , subtract: __webpack_require__(35)
+  , sub: __webpack_require__(82)
+  , multiply: __webpack_require__(36)
+  , mul: __webpack_require__(83)
+  , divide: __webpack_require__(37)
+  , div: __webpack_require__(84)
+  , min: __webpack_require__(85)
+  , max: __webpack_require__(86)
+  , floor: __webpack_require__(87)
+  , ceil: __webpack_require__(88)
+  , round: __webpack_require__(89)
+  , scale: __webpack_require__(90)
+  , scaleAndAdd: __webpack_require__(91)
+  , distance: __webpack_require__(38)
+  , dist: __webpack_require__(92)
+  , squaredDistance: __webpack_require__(39)
+  , sqrDist: __webpack_require__(93)
+  , length: __webpack_require__(13)
+  , len: __webpack_require__(94)
+  , squaredLength: __webpack_require__(40)
+  , sqrLen: __webpack_require__(95)
+  , negate: __webpack_require__(96)
+  , inverse: __webpack_require__(97)
+  , normalize: __webpack_require__(2)
+  , dot: __webpack_require__(5)
+  , cross: __webpack_require__(6)
+  , lerp: __webpack_require__(23)
+  , random: __webpack_require__(98)
+  , transformMat4: __webpack_require__(99)
+  , transformMat3: __webpack_require__(100)
+  , transformQuat: __webpack_require__(101)
+  , rotateX: __webpack_require__(102)
+  , rotateY: __webpack_require__(103)
+  , rotateZ: __webpack_require__(104)
+  , forEach: __webpack_require__(105)
+}
+
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports) {
+
+module.exports = clone;
+
+/**
+ * Creates a new vec3 initialized with values from an existing vector
+ *
+ * @param {vec3} a vector to clone
+ * @returns {vec3} a new 3D vector
+ */
+function clone(a) {
+    var out = new Float32Array(3)
+    out[0] = a[0]
+    out[1] = a[1]
+    out[2] = a[2]
+    return out
+}
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = angle
+
+var fromValues = __webpack_require__(34)
+var normalize = __webpack_require__(2)
+var dot = __webpack_require__(5)
+
+/**
+ * Get the angle between two 3D vectors
+ * @param {vec3} a The first operand
+ * @param {vec3} b The second operand
+ * @returns {Number} The angle in radians
+ */
+function angle(a, b) {
+    var tempA = fromValues(a[0], a[1], a[2])
+    var tempB = fromValues(b[0], b[1], b[2])
+ 
+    normalize(tempA, tempA)
+    normalize(tempB, tempB)
+ 
+    var cosine = dot(tempA, tempB)
+
+    if(cosine > 1.0){
+        return 0
+    } else {
+        return Math.acos(cosine)
+    }     
+}
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports) {
+
+module.exports = copy;
+
+/**
+ * Copy the values from one vec3 to another
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the source vector
+ * @returns {vec3} out
+ */
+function copy(out, a) {
+    out[0] = a[0]
+    out[1] = a[1]
+    out[2] = a[2]
+    return out
+}
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports) {
+
+module.exports = set;
+
+/**
+ * Set the components of a vec3 to the given values
+ *
+ * @param {vec3} out the receiving vector
+ * @param {Number} x X component
+ * @param {Number} y Y component
+ * @param {Number} z Z component
+ * @returns {vec3} out
+ */
+function set(out, x, y, z) {
+    out[0] = x
+    out[1] = y
+    out[2] = z
+    return out
+}
+
+/***/ }),
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = equals
+
+var EPSILON = __webpack_require__(32)
+
+/**
+ * Returns whether or not the vectors have approximately the same elements in the same position.
+ *
+ * @param {vec3} a The first vector.
+ * @param {vec3} b The second vector.
+ * @returns {Boolean} True if the vectors are equal, false otherwise.
+ */
+function equals(a, b) {
+  var a0 = a[0]
+  var a1 = a[1]
+  var a2 = a[2]
+  var b0 = b[0]
+  var b1 = b[1]
+  var b2 = b[2]
+  return (Math.abs(a0 - b0) <= EPSILON * Math.max(1.0, Math.abs(a0), Math.abs(b0)) &&
+          Math.abs(a1 - b1) <= EPSILON * Math.max(1.0, Math.abs(a1), Math.abs(b1)) &&
+          Math.abs(a2 - b2) <= EPSILON * Math.max(1.0, Math.abs(a2), Math.abs(b2)))
+}
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports) {
+
+module.exports = exactEquals
+
+/**
+ * Returns whether or not the vectors exactly have the same elements in the same position (when compared with ===)
+ *
+ * @param {vec3} a The first vector.
+ * @param {vec3} b The second vector.
+ * @returns {Boolean} True if the vectors are equal, false otherwise.
+ */
+function exactEquals(a, b) {
+  return a[0] === b[0] && a[1] === b[1] && a[2] === b[2]
+}
+
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports) {
+
+module.exports = add;
+
+/**
+ * Adds two vec3's
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the first operand
+ * @param {vec3} b the second operand
+ * @returns {vec3} out
+ */
+function add(out, a, b) {
+    out[0] = a[0] + b[0]
+    out[1] = a[1] + b[1]
+    out[2] = a[2] + b[2]
+    return out
+}
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(35)
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(36)
+
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(37)
+
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports) {
+
+module.exports = min;
+
+/**
+ * Returns the minimum of two vec3's
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the first operand
+ * @param {vec3} b the second operand
+ * @returns {vec3} out
+ */
+function min(out, a, b) {
+    out[0] = Math.min(a[0], b[0])
+    out[1] = Math.min(a[1], b[1])
+    out[2] = Math.min(a[2], b[2])
+    return out
+}
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports) {
+
+module.exports = max;
+
+/**
+ * Returns the maximum of two vec3's
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the first operand
+ * @param {vec3} b the second operand
+ * @returns {vec3} out
+ */
+function max(out, a, b) {
+    out[0] = Math.max(a[0], b[0])
+    out[1] = Math.max(a[1], b[1])
+    out[2] = Math.max(a[2], b[2])
+    return out
+}
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports) {
+
+module.exports = floor
+
+/**
+ * Math.floor the components of a vec3
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a vector to floor
+ * @returns {vec3} out
+ */
+function floor(out, a) {
+  out[0] = Math.floor(a[0])
+  out[1] = Math.floor(a[1])
+  out[2] = Math.floor(a[2])
+  return out
+}
+
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports) {
+
+module.exports = ceil
+
+/**
+ * Math.ceil the components of a vec3
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a vector to ceil
+ * @returns {vec3} out
+ */
+function ceil(out, a) {
+  out[0] = Math.ceil(a[0])
+  out[1] = Math.ceil(a[1])
+  out[2] = Math.ceil(a[2])
+  return out
+}
+
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports) {
+
+module.exports = round
+
+/**
+ * Math.round the components of a vec3
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a vector to round
+ * @returns {vec3} out
+ */
+function round(out, a) {
+  out[0] = Math.round(a[0])
+  out[1] = Math.round(a[1])
+  out[2] = Math.round(a[2])
+  return out
+}
+
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports) {
+
+module.exports = scale;
+
+/**
+ * Scales a vec3 by a scalar number
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the vector to scale
+ * @param {Number} b amount to scale the vector by
+ * @returns {vec3} out
+ */
+function scale(out, a, b) {
+    out[0] = a[0] * b
+    out[1] = a[1] * b
+    out[2] = a[2] * b
+    return out
+}
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports) {
+
+module.exports = scaleAndAdd;
+
+/**
+ * Adds two vec3's after scaling the second operand by a scalar value
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the first operand
+ * @param {vec3} b the second operand
+ * @param {Number} scale the amount to scale b by before adding
+ * @returns {vec3} out
+ */
+function scaleAndAdd(out, a, b, scale) {
+    out[0] = a[0] + (b[0] * scale)
+    out[1] = a[1] + (b[1] * scale)
+    out[2] = a[2] + (b[2] * scale)
+    return out
+}
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(38)
+
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(39)
+
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(13)
+
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(40)
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports) {
+
+module.exports = negate;
+
+/**
+ * Negates the components of a vec3
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a vector to negate
+ * @returns {vec3} out
+ */
+function negate(out, a) {
+    out[0] = -a[0]
+    out[1] = -a[1]
+    out[2] = -a[2]
+    return out
+}
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports) {
+
+module.exports = inverse;
+
+/**
+ * Returns the inverse of the components of a vec3
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a vector to invert
+ * @returns {vec3} out
+ */
+function inverse(out, a) {
+  out[0] = 1.0 / a[0]
+  out[1] = 1.0 / a[1]
+  out[2] = 1.0 / a[2]
+  return out
+}
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports) {
+
+module.exports = random;
+
+/**
+ * Generates a random vector with the given scale
+ *
+ * @param {vec3} out the receiving vector
+ * @param {Number} [scale] Length of the resulting vector. If ommitted, a unit vector will be returned
+ * @returns {vec3} out
+ */
+function random(out, scale) {
+    scale = scale || 1.0
+
+    var r = Math.random() * 2.0 * Math.PI
+    var z = (Math.random() * 2.0) - 1.0
+    var zScale = Math.sqrt(1.0-z*z) * scale
+
+    out[0] = Math.cos(r) * zScale
+    out[1] = Math.sin(r) * zScale
+    out[2] = z * scale
+    return out
+}
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports) {
+
+module.exports = transformMat4;
+
+/**
+ * Transforms the vec3 with a mat4.
+ * 4th vector component is implicitly '1'
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the vector to transform
+ * @param {mat4} m matrix to transform with
+ * @returns {vec3} out
+ */
+function transformMat4(out, a, m) {
+    var x = a[0], y = a[1], z = a[2],
+        w = m[3] * x + m[7] * y + m[11] * z + m[15]
+    w = w || 1.0
+    out[0] = (m[0] * x + m[4] * y + m[8] * z + m[12]) / w
+    out[1] = (m[1] * x + m[5] * y + m[9] * z + m[13]) / w
+    out[2] = (m[2] * x + m[6] * y + m[10] * z + m[14]) / w
+    return out
+}
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports) {
+
+module.exports = transformMat3;
+
+/**
+ * Transforms the vec3 with a mat3.
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the vector to transform
+ * @param {mat4} m the 3x3 matrix to transform with
+ * @returns {vec3} out
+ */
+function transformMat3(out, a, m) {
+    var x = a[0], y = a[1], z = a[2]
+    out[0] = x * m[0] + y * m[3] + z * m[6]
+    out[1] = x * m[1] + y * m[4] + z * m[7]
+    out[2] = x * m[2] + y * m[5] + z * m[8]
+    return out
+}
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports) {
+
+module.exports = transformQuat;
+
+/**
+ * Transforms the vec3 with a quat
+ *
+ * @param {vec3} out the receiving vector
+ * @param {vec3} a the vector to transform
+ * @param {quat} q quaternion to transform with
+ * @returns {vec3} out
+ */
+function transformQuat(out, a, q) {
+    // benchmarks: http://jsperf.com/quaternion-transform-vec3-implementations
+
+    var x = a[0], y = a[1], z = a[2],
+        qx = q[0], qy = q[1], qz = q[2], qw = q[3],
+
+        // calculate quat * vec
+        ix = qw * x + qy * z - qz * y,
+        iy = qw * y + qz * x - qx * z,
+        iz = qw * z + qx * y - qy * x,
+        iw = -qx * x - qy * y - qz * z
+
+    // calculate result * inverse quat
+    out[0] = ix * qw + iw * -qx + iy * -qz - iz * -qy
+    out[1] = iy * qw + iw * -qy + iz * -qx - ix * -qz
+    out[2] = iz * qw + iw * -qz + ix * -qy - iy * -qx
+    return out
+}
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports) {
+
+module.exports = rotateX;
+
+/**
+ * Rotate a 3D vector around the x-axis
+ * @param {vec3} out The receiving vec3
+ * @param {vec3} a The vec3 point to rotate
+ * @param {vec3} b The origin of the rotation
+ * @param {Number} c The angle of rotation
+ * @returns {vec3} out
+ */
+function rotateX(out, a, b, c){
+    var by = b[1]
+    var bz = b[2]
+
+    // Translate point to the origin
+    var py = a[1] - by
+    var pz = a[2] - bz
+
+    var sc = Math.sin(c)
+    var cc = Math.cos(c)
+
+    // perform rotation and translate to correct position
+    out[0] = a[0]
+    out[1] = by + py * cc - pz * sc
+    out[2] = bz + py * sc + pz * cc
+
+    return out
+}
+
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports) {
+
+module.exports = rotateY;
+
+/**
+ * Rotate a 3D vector around the y-axis
+ * @param {vec3} out The receiving vec3
+ * @param {vec3} a The vec3 point to rotate
+ * @param {vec3} b The origin of the rotation
+ * @param {Number} c The angle of rotation
+ * @returns {vec3} out
+ */
+function rotateY(out, a, b, c){
+    var bx = b[0]
+    var bz = b[2]
+
+    // translate point to the origin
+    var px = a[0] - bx
+    var pz = a[2] - bz
+    
+    var sc = Math.sin(c)
+    var cc = Math.cos(c)
+  
+    // perform rotation and translate to correct position
+    out[0] = bx + pz * sc + px * cc
+    out[1] = a[1]
+    out[2] = bz + pz * cc - px * sc
+  
+    return out
+}
+
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports) {
+
+module.exports = rotateZ;
+
+/**
+ * Rotate a 3D vector around the z-axis
+ * @param {vec3} out The receiving vec3
+ * @param {vec3} a The vec3 point to rotate
+ * @param {vec3} b The origin of the rotation
+ * @param {Number} c The angle of rotation
+ * @returns {vec3} out
+ */
+function rotateZ(out, a, b, c){
+    var bx = b[0]
+    var by = b[1]
+
+    //Translate point to the origin
+    var px = a[0] - bx
+    var py = a[1] - by
+  
+    var sc = Math.sin(c)
+    var cc = Math.cos(c)
+
+    // perform rotation and translate to correct position
+    out[0] = bx + px * cc - py * sc
+    out[1] = by + px * sc + py * cc
+    out[2] = a[2]
+  
+    return out
+}
+
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = forEach;
+
+var vec = __webpack_require__(33)()
+
+/**
+ * Perform some operation over an array of vec3s.
+ *
+ * @param {Array} a the array of vectors to iterate over
+ * @param {Number} stride Number of elements between the start of each vec3. If 0 assumes tightly packed
+ * @param {Number} offset Number of elements to skip at the beginning of the array
+ * @param {Number} count Number of vec3s to iterate over. If 0 iterates over entire array
+ * @param {Function} fn Function to call for each vector in the array
+ * @param {Object} [arg] additional argument to pass to fn
+ * @returns {Array} a
+ * @function
+ */
+function forEach(a, stride, offset, count, fn, arg) {
+        var i, l
+        if(!stride) {
+            stride = 3
+        }
+
+        if(!offset) {
+            offset = 0
+        }
+        
+        if(count) {
+            l = Math.min((count * stride) + offset, a.length)
+        } else {
+            l = a.length
+        }
+
+        for(i = offset; i < l; i += stride) {
+            vec[0] = a[i] 
+            vec[1] = a[i+1] 
+            vec[2] = a[i+2]
+            fn(vec, vec, arg)
+            a[i] = vec[0] 
+            a[i+1] = vec[1] 
+            a[i+2] = vec[2]
+        }
+        
+        return a
+}
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = {
+  create: __webpack_require__(10)
+  , clone: __webpack_require__(26)
+  , copy: __webpack_require__(107)
+  , identity: __webpack_require__(8)
+  , transpose: __webpack_require__(27)
+  , invert: __webpack_require__(1)
+  , adjoint: __webpack_require__(108)
+  , determinant: __webpack_require__(12)
+  , multiply: __webpack_require__(24)
+  , translate: __webpack_require__(9)
+  , scale: __webpack_require__(11)
+  , rotate: __webpack_require__(21)
+  , rotateX: __webpack_require__(28)
+  , rotateY: __webpack_require__(29)
+  , rotateZ: __webpack_require__(30)
+  , fromRotation: __webpack_require__(109)
+  , fromRotationTranslation: __webpack_require__(25)
+  , fromScaling: __webpack_require__(110)
+  , fromTranslation: __webpack_require__(111)
+  , fromXRotation: __webpack_require__(112)
+  , fromYRotation: __webpack_require__(113)
+  , fromZRotation: __webpack_require__(114)
+  , fromQuat: __webpack_require__(22)
+  , frustum: __webpack_require__(115)
+  , perspective: __webpack_require__(116)
+  , perspectiveFromFieldOfView: __webpack_require__(117)
+  , ortho: __webpack_require__(118)
+  , lookAt: __webpack_require__(7)
+  , str: __webpack_require__(119)
+}
+
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports) {
+
+module.exports = copy;
+
+/**
+ * Copy the values from one mat4 to another
+ *
+ * @param {mat4} out the receiving matrix
+ * @param {mat4} a the source matrix
+ * @returns {mat4} out
+ */
+function copy(out, a) {
+    out[0] = a[0];
+    out[1] = a[1];
+    out[2] = a[2];
+    out[3] = a[3];
+    out[4] = a[4];
+    out[5] = a[5];
+    out[6] = a[6];
+    out[7] = a[7];
+    out[8] = a[8];
+    out[9] = a[9];
+    out[10] = a[10];
+    out[11] = a[11];
+    out[12] = a[12];
+    out[13] = a[13];
+    out[14] = a[14];
+    out[15] = a[15];
+    return out;
+};
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports) {
+
+module.exports = adjoint;
+
+/**
+ * Calculates the adjugate of a mat4
+ *
+ * @param {mat4} out the receiving matrix
+ * @param {mat4} a the source matrix
+ * @returns {mat4} out
+ */
+function adjoint(out, a) {
+    var a00 = a[0], a01 = a[1], a02 = a[2], a03 = a[3],
+        a10 = a[4], a11 = a[5], a12 = a[6], a13 = a[7],
+        a20 = a[8], a21 = a[9], a22 = a[10], a23 = a[11],
+        a30 = a[12], a31 = a[13], a32 = a[14], a33 = a[15];
+
+    out[0]  =  (a11 * (a22 * a33 - a23 * a32) - a21 * (a12 * a33 - a13 * a32) + a31 * (a12 * a23 - a13 * a22));
+    out[1]  = -(a01 * (a22 * a33 - a23 * a32) - a21 * (a02 * a33 - a03 * a32) + a31 * (a02 * a23 - a03 * a22));
+    out[2]  =  (a01 * (a12 * a33 - a13 * a32) - a11 * (a02 * a33 - a03 * a32) + a31 * (a02 * a13 - a03 * a12));
+    out[3]  = -(a01 * (a12 * a23 - a13 * a22) - a11 * (a02 * a23 - a03 * a22) + a21 * (a02 * a13 - a03 * a12));
+    out[4]  = -(a10 * (a22 * a33 - a23 * a32) - a20 * (a12 * a33 - a13 * a32) + a30 * (a12 * a23 - a13 * a22));
+    out[5]  =  (a00 * (a22 * a33 - a23 * a32) - a20 * (a02 * a33 - a03 * a32) + a30 * (a02 * a23 - a03 * a22));
+    out[6]  = -(a00 * (a12 * a33 - a13 * a32) - a10 * (a02 * a33 - a03 * a32) + a30 * (a02 * a13 - a03 * a12));
+    out[7]  =  (a00 * (a12 * a23 - a13 * a22) - a10 * (a02 * a23 - a03 * a22) + a20 * (a02 * a13 - a03 * a12));
+    out[8]  =  (a10 * (a21 * a33 - a23 * a31) - a20 * (a11 * a33 - a13 * a31) + a30 * (a11 * a23 - a13 * a21));
+    out[9]  = -(a00 * (a21 * a33 - a23 * a31) - a20 * (a01 * a33 - a03 * a31) + a30 * (a01 * a23 - a03 * a21));
+    out[10] =  (a00 * (a11 * a33 - a13 * a31) - a10 * (a01 * a33 - a03 * a31) + a30 * (a01 * a13 - a03 * a11));
+    out[11] = -(a00 * (a11 * a23 - a13 * a21) - a10 * (a01 * a23 - a03 * a21) + a20 * (a01 * a13 - a03 * a11));
+    out[12] = -(a10 * (a21 * a32 - a22 * a31) - a20 * (a11 * a32 - a12 * a31) + a30 * (a11 * a22 - a12 * a21));
+    out[13] =  (a00 * (a21 * a32 - a22 * a31) - a20 * (a01 * a32 - a02 * a31) + a30 * (a01 * a22 - a02 * a21));
+    out[14] = -(a00 * (a11 * a32 - a12 * a31) - a10 * (a01 * a32 - a02 * a31) + a30 * (a01 * a12 - a02 * a11));
+    out[15] =  (a00 * (a11 * a22 - a12 * a21) - a10 * (a01 * a22 - a02 * a21) + a20 * (a01 * a12 - a02 * a11));
+    return out;
+};
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports) {
+
+module.exports = fromRotation
+
+/**
+ * Creates a matrix from a given angle around a given axis
+ * This is equivalent to (but much faster than):
+ *
+ *     mat4.identity(dest)
+ *     mat4.rotate(dest, dest, rad, axis)
+ *
+ * @param {mat4} out mat4 receiving operation result
+ * @param {Number} rad the angle to rotate the matrix by
+ * @param {vec3} axis the axis to rotate around
+ * @returns {mat4} out
+ */
+function fromRotation(out, rad, axis) {
+  var s, c, t
+  var x = axis[0]
+  var y = axis[1]
+  var z = axis[2]
+  var len = Math.sqrt(x * x + y * y + z * z)
+
+  if (Math.abs(len) < 0.000001) {
+    return null
+  }
+
+  len = 1 / len
+  x *= len
+  y *= len
+  z *= len
+
+  s = Math.sin(rad)
+  c = Math.cos(rad)
+  t = 1 - c
+
+  // Perform rotation-specific matrix multiplication
+  out[0] = x * x * t + c
+  out[1] = y * x * t + z * s
+  out[2] = z * x * t - y * s
+  out[3] = 0
+  out[4] = x * y * t - z * s
+  out[5] = y * y * t + c
+  out[6] = z * y * t + x * s
+  out[7] = 0
+  out[8] = x * z * t + y * s
+  out[9] = y * z * t - x * s
+  out[10] = z * z * t + c
+  out[11] = 0
+  out[12] = 0
+  out[13] = 0
+  out[14] = 0
+  out[15] = 1
+  return out
+}
+
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports) {
+
+module.exports = fromScaling
+
+/**
+ * Creates a matrix from a vector scaling
+ * This is equivalent to (but much faster than):
+ *
+ *     mat4.identity(dest)
+ *     mat4.scale(dest, dest, vec)
+ *
+ * @param {mat4} out mat4 receiving operation result
+ * @param {vec3} v Scaling vector
+ * @returns {mat4} out
+ */
+function fromScaling(out, v) {
+  out[0] = v[0]
+  out[1] = 0
+  out[2] = 0
+  out[3] = 0
+  out[4] = 0
+  out[5] = v[1]
+  out[6] = 0
+  out[7] = 0
+  out[8] = 0
+  out[9] = 0
+  out[10] = v[2]
+  out[11] = 0
+  out[12] = 0
+  out[13] = 0
+  out[14] = 0
+  out[15] = 1
+  return out
+}
+
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports) {
+
+module.exports = fromTranslation
+
+/**
+ * Creates a matrix from a vector translation
+ * This is equivalent to (but much faster than):
+ *
+ *     mat4.identity(dest)
+ *     mat4.translate(dest, dest, vec)
+ *
+ * @param {mat4} out mat4 receiving operation result
+ * @param {vec3} v Translation vector
+ * @returns {mat4} out
+ */
+function fromTranslation(out, v) {
+  out[0] = 1
+  out[1] = 0
+  out[2] = 0
+  out[3] = 0
+  out[4] = 0
+  out[5] = 1
+  out[6] = 0
+  out[7] = 0
+  out[8] = 0
+  out[9] = 0
+  out[10] = 1
+  out[11] = 0
+  out[12] = v[0]
+  out[13] = v[1]
+  out[14] = v[2]
+  out[15] = 1
+  return out
+}
+
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports) {
+
+module.exports = fromXRotation
+
+/**
+ * Creates a matrix from the given angle around the X axis
+ * This is equivalent to (but much faster than):
+ *
+ *     mat4.identity(dest)
+ *     mat4.rotateX(dest, dest, rad)
+ *
+ * @param {mat4} out mat4 receiving operation result
+ * @param {Number} rad the angle to rotate the matrix by
+ * @returns {mat4} out
+ */
+function fromXRotation(out, rad) {
+    var s = Math.sin(rad),
+        c = Math.cos(rad)
+
+    // Perform axis-specific matrix multiplication
+    out[0] = 1
+    out[1] = 0
+    out[2] = 0
+    out[3] = 0
+    out[4] = 0
+    out[5] = c
+    out[6] = s
+    out[7] = 0
+    out[8] = 0
+    out[9] = -s
+    out[10] = c
+    out[11] = 0
+    out[12] = 0
+    out[13] = 0
+    out[14] = 0
+    out[15] = 1
+    return out
+}
+
+/***/ }),
+/* 113 */
+/***/ (function(module, exports) {
+
+module.exports = fromYRotation
+
+/**
+ * Creates a matrix from the given angle around the Y axis
+ * This is equivalent to (but much faster than):
+ *
+ *     mat4.identity(dest)
+ *     mat4.rotateY(dest, dest, rad)
+ *
+ * @param {mat4} out mat4 receiving operation result
+ * @param {Number} rad the angle to rotate the matrix by
+ * @returns {mat4} out
+ */
+function fromYRotation(out, rad) {
+    var s = Math.sin(rad),
+        c = Math.cos(rad)
+
+    // Perform axis-specific matrix multiplication
+    out[0] = c
+    out[1] = 0
+    out[2] = -s
+    out[3] = 0
+    out[4] = 0
+    out[5] = 1
+    out[6] = 0
+    out[7] = 0
+    out[8] = s
+    out[9] = 0
+    out[10] = c
+    out[11] = 0
+    out[12] = 0
+    out[13] = 0
+    out[14] = 0
+    out[15] = 1
+    return out
+}
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports) {
+
+module.exports = fromZRotation
+
+/**
+ * Creates a matrix from the given angle around the Z axis
+ * This is equivalent to (but much faster than):
+ *
+ *     mat4.identity(dest)
+ *     mat4.rotateZ(dest, dest, rad)
+ *
+ * @param {mat4} out mat4 receiving operation result
+ * @param {Number} rad the angle to rotate the matrix by
+ * @returns {mat4} out
+ */
+function fromZRotation(out, rad) {
+    var s = Math.sin(rad),
+        c = Math.cos(rad)
+
+    // Perform axis-specific matrix multiplication
+    out[0] = c
+    out[1] = s
+    out[2] = 0
+    out[3] = 0
+    out[4] = -s
+    out[5] = c
+    out[6] = 0
+    out[7] = 0
+    out[8] = 0
+    out[9] = 0
+    out[10] = 1
+    out[11] = 0
+    out[12] = 0
+    out[13] = 0
+    out[14] = 0
+    out[15] = 1
+    return out
+}
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports) {
+
+module.exports = frustum;
+
+/**
+ * Generates a frustum matrix with the given bounds
+ *
+ * @param {mat4} out mat4 frustum matrix will be written into
+ * @param {Number} left Left bound of the frustum
+ * @param {Number} right Right bound of the frustum
+ * @param {Number} bottom Bottom bound of the frustum
+ * @param {Number} top Top bound of the frustum
+ * @param {Number} near Near bound of the frustum
+ * @param {Number} far Far bound of the frustum
+ * @returns {mat4} out
+ */
+function frustum(out, left, right, bottom, top, near, far) {
+    var rl = 1 / (right - left),
+        tb = 1 / (top - bottom),
+        nf = 1 / (near - far);
+    out[0] = (near * 2) * rl;
+    out[1] = 0;
+    out[2] = 0;
+    out[3] = 0;
+    out[4] = 0;
+    out[5] = (near * 2) * tb;
+    out[6] = 0;
+    out[7] = 0;
+    out[8] = (right + left) * rl;
+    out[9] = (top + bottom) * tb;
+    out[10] = (far + near) * nf;
+    out[11] = -1;
+    out[12] = 0;
+    out[13] = 0;
+    out[14] = (far * near * 2) * nf;
+    out[15] = 0;
+    return out;
+};
+
+/***/ }),
+/* 116 */
+/***/ (function(module, exports) {
+
+module.exports = perspective;
+
+/**
+ * Generates a perspective projection matrix with the given bounds
+ *
+ * @param {mat4} out mat4 frustum matrix will be written into
+ * @param {number} fovy Vertical field of view in radians
+ * @param {number} aspect Aspect ratio. typically viewport width/height
+ * @param {number} near Near bound of the frustum
+ * @param {number} far Far bound of the frustum
+ * @returns {mat4} out
+ */
+function perspective(out, fovy, aspect, near, far) {
+    var f = 1.0 / Math.tan(fovy / 2),
+        nf = 1 / (near - far);
+    out[0] = f / aspect;
+    out[1] = 0;
+    out[2] = 0;
+    out[3] = 0;
+    out[4] = 0;
+    out[5] = f;
+    out[6] = 0;
+    out[7] = 0;
+    out[8] = 0;
+    out[9] = 0;
+    out[10] = (far + near) * nf;
+    out[11] = -1;
+    out[12] = 0;
+    out[13] = 0;
+    out[14] = (2 * far * near) * nf;
+    out[15] = 0;
+    return out;
+};
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports) {
+
+module.exports = perspectiveFromFieldOfView;
+
+/**
+ * Generates a perspective projection matrix with the given field of view.
+ * This is primarily useful for generating projection matrices to be used
+ * with the still experiemental WebVR API.
+ *
+ * @param {mat4} out mat4 frustum matrix will be written into
+ * @param {number} fov Object containing the following values: upDegrees, downDegrees, leftDegrees, rightDegrees
+ * @param {number} near Near bound of the frustum
+ * @param {number} far Far bound of the frustum
+ * @returns {mat4} out
+ */
+function perspectiveFromFieldOfView(out, fov, near, far) {
+    var upTan = Math.tan(fov.upDegrees * Math.PI/180.0),
+        downTan = Math.tan(fov.downDegrees * Math.PI/180.0),
+        leftTan = Math.tan(fov.leftDegrees * Math.PI/180.0),
+        rightTan = Math.tan(fov.rightDegrees * Math.PI/180.0),
+        xScale = 2.0 / (leftTan + rightTan),
+        yScale = 2.0 / (upTan + downTan);
+
+    out[0] = xScale;
+    out[1] = 0.0;
+    out[2] = 0.0;
+    out[3] = 0.0;
+    out[4] = 0.0;
+    out[5] = yScale;
+    out[6] = 0.0;
+    out[7] = 0.0;
+    out[8] = -((leftTan - rightTan) * xScale * 0.5);
+    out[9] = ((upTan - downTan) * yScale * 0.5);
+    out[10] = far / (near - far);
+    out[11] = -1.0;
+    out[12] = 0.0;
+    out[13] = 0.0;
+    out[14] = (far * near) / (near - far);
+    out[15] = 0.0;
+    return out;
+}
+
+
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports) {
+
+module.exports = ortho;
+
+/**
+ * Generates a orthogonal projection matrix with the given bounds
+ *
+ * @param {mat4} out mat4 frustum matrix will be written into
+ * @param {number} left Left bound of the frustum
+ * @param {number} right Right bound of the frustum
+ * @param {number} bottom Bottom bound of the frustum
+ * @param {number} top Top bound of the frustum
+ * @param {number} near Near bound of the frustum
+ * @param {number} far Far bound of the frustum
+ * @returns {mat4} out
+ */
+function ortho(out, left, right, bottom, top, near, far) {
+    var lr = 1 / (left - right),
+        bt = 1 / (bottom - top),
+        nf = 1 / (near - far);
+    out[0] = -2 * lr;
+    out[1] = 0;
+    out[2] = 0;
+    out[3] = 0;
+    out[4] = 0;
+    out[5] = -2 * bt;
+    out[6] = 0;
+    out[7] = 0;
+    out[8] = 0;
+    out[9] = 0;
+    out[10] = 2 * nf;
+    out[11] = 0;
+    out[12] = (left + right) * lr;
+    out[13] = (top + bottom) * bt;
+    out[14] = (far + near) * nf;
+    out[15] = 1;
+    return out;
+};
+
+/***/ }),
+/* 119 */
+/***/ (function(module, exports) {
+
+module.exports = str;
+
+/**
+ * Returns a string representation of a mat4
+ *
+ * @param {mat4} mat matrix to represent as a string
+ * @returns {String} string representation of the matrix
+ */
+function str(a) {
+    return 'mat4(' + a[0] + ', ' + a[1] + ', ' + a[2] + ', ' + a[3] + ', ' +
+                    a[4] + ', ' + a[5] + ', ' + a[6] + ', ' + a[7] + ', ' +
+                    a[8] + ', ' + a[9] + ', ' + a[10] + ', ' + a[11] + ', ' + 
+                    a[12] + ', ' + a[13] + ', ' + a[14] + ', ' + a[15] + ')';
+};
+
+/***/ }),
+/* 120 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globals__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_gl_matrix__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__ = __webpack_require__(121);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__globals__ = __webpack_require__(3);
 
 
 
 class Square extends __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__["a" /* default */] {
     constructor(center) {
         super(); // Call the constructor of the super class. This is required.
-        this.center = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["c" /* vec4 */].fromValues(center[0], center[1], center[2], 1);
+        this.center = __WEBPACK_IMPORTED_MODULE_0_gl_matrix__["d" /* vec4 */].fromValues(center[0], center[1], center[2], 1);
     }
     create() {
         this.indices = new Uint32Array([0, 1, 2,
@@ -16598,11 +18208,11 @@ class Square extends __WEBPACK_IMPORTED_MODULE_1__rendering_gl_Drawable__["a" /*
 
 
 /***/ }),
-/* 65 */
+/* 121 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(3);
 
 class Drawable {
     constructor() {
@@ -16646,11 +18256,11 @@ class Drawable {
 
 
 /***/ }),
-/* 66 */
+/* 122 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__globals__ = __webpack_require__(3);
 //import Drawable from './Drawable';
 
 var activeProgram = null;
@@ -16722,40 +18332,40 @@ class ShaderProgram {
 
 
 /***/ }),
-/* 67 */
+/* 123 */
 /***/ (function(module, exports) {
 
-module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\n#define M_PI 3.1415926535897932384626433832795\r\n\r\nuniform mat4 u_ViewProj;\r\n\r\nuniform float u_TimeDelta;\r\nuniform float u_TotalTime;\r\n\r\nuniform float u_SphereCollider;\r\nuniform vec4 u_SphereColliderPos;\r\n\r\n\r\nuniform vec4 u_Emission;\r\nuniform float u_BulletNum;\r\n\r\nuniform float u_SpreadSeed;\r\nuniform float u_Spread;\r\n\r\nuniform float u_BulletSize;\r\n\r\nuniform vec3 u_Gravity;\r\nuniform vec3 u_Origin;\r\n\r\nuniform vec4 u_Spray_Constants;\r\n\r\n\r\nin vec3 i_Position;\r\nin float i_Age; // in seconds\r\nin float i_Life;\r\nin vec3 i_Velocity;\r\n\r\n\r\nout vec3 v_Position;\r\nout vec3 v_Velocity;\r\nout float v_Age;\r\nout float v_Life;\r\n\r\nfloat random( vec3 p , vec3 seed) {\r\n  return fract(sin(dot(p + seed, vec3(987.654, 123.456, 531.975))) * 85734.3545);\r\n}\r\n\r\nvec3 random3D(vec3 p , vec3 seed) {\r\n  return fract(sin(vec3(dot(p + seed, vec3(311.7, 127.1, 135.0)), dot(p + seed, vec3(269.5, 183.3, 10.0)), dot(p + seed, vec3(86.5, 279.3, 103.0)))) * 85734.3545);\r\n}\r\n\r\nvec2 random2D( vec2 p , vec2 seed) {\r\n  return fract(sin(vec2(dot(p + seed, vec2(311.7, 127.1)), dot(p + seed, vec2(269.5, 183.3)))) * 85734.3545);\r\n}\r\n\r\nvec3 squareToSphereUniform(vec2 s)\r\n{\r\n  float z = 1.0 - 2.0 * s.x;\r\n  float x = cos(2.0 * M_PI * s.y) * sqrt(1.0 - z * z);\r\n  float y = sin(2.0 * M_PI * s.y) * sqrt(1.0 - z * z);\r\n  return vec3(x, y, z);\r\n}\r\n\r\nvec3 squareToDiskUniform(vec2 s)\r\n{\r\n    // maps sample x to radius, and sample y to angle\r\n    float x = pow(s.x, 0.5) * cos(radians(s.y * 360.0));\r\n    float y = pow(s.x, 0.5) * sin(radians(s.y * 360.0));\r\n    return vec3(0, x , y);\r\n\r\n  }\r\n\r\n  vec3 squareToDiskConcentric(vec2 s)\r\n  {\r\n    if (s.x == 0.0 && s.y == 0.0) {\r\n      return vec3(0, 0.5, 0);\r\n    }\r\n\r\n    float phi = 0.0;\r\n    float a = 2.0 * s.x - 1.0;\r\n    float b = 2.0 * s.y - 1.0;\r\n    float r;\r\n\r\n    if (a > -b) {\r\n      if (a > b) {\r\n        phi = (M_PI / 4.0) * (b / a);\r\n        r = a;\r\n      }\r\n      else {\r\n        r = b;\r\n        phi = (M_PI / 4.0) * (2.0 - (a / b));\r\n      }\r\n    }\r\n    else {\r\n      if (a < b) {\r\n        r = -a;\r\n        phi = (M_PI / 4.0) * (4.0 + (b / a));\r\n      }\r\n      else {\r\n        r = -b;\r\n        if (b != 0.0) {\r\n          phi = (M_PI / 4.0) * (6.0 - (a / b));\r\n        }\r\n        else {\r\n          phi = 0.0;\r\n        }\r\n      }\r\n    }\r\n\r\n    float u = r * cos(phi);\r\n    float v = r * sin(phi);\r\n    return vec3(u, 0.5, v);\r\n  }\r\n\r\n  vec3 reflection(vec3 incidentVec, vec3 normal)\r\n{\r\n  return incidentVec - 2.0 * dot(incidentVec, normal) * normal;\r\n}\r\n\r\n  void main() {\r\n\r\n    // change the value of gravity depending on whether or not it's turned off\r\n    vec3 gravity = u_Gravity;\r\n    if (u_Emission[3] == 1.0) {\r\n      gravity[1] = 0.0;\r\n    }\r\n\r\n    vec3 sphere_center = vec3(u_SphereColliderPos);\r\n    float sphere_radius = u_SphereColliderPos[3];\r\n\r\n    vec2 rand_sphere = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                          float(gl_VertexID) / 1000.0), \r\n                          vec2(13.0, 13.0));\r\n\r\n    // particle exceed life time. Spawn another one.\r\n    if (i_Age >= i_Life) {\r\n\r\n\r\n  /*\r\n  *\r\n  * INITIALIZE PARTICLE\r\n  *\r\n  *\r\n  */  \r\n\r\n    vec3 seed = vec3(0, 0, 0);\r\n    vec2 seed2 = vec2(0, 0);\r\n    vec2 seed3 = vec2(10, 10);\r\n\r\n    vec2 rand = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                              float(gl_VertexID) / 1000.0), \r\n                             vec2(3.0, 3.0));\r\n\r\n\r\n    vec2 rand2 = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                                seed2);\r\n    vec2 rand_origin_disk = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                                          float(gl_VertexID) / 1000.0), \r\n                                          seed3);\r\n\r\n\r\n    vec3 rand3 = random3D(vec3(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                               seed);\r\n\r\n\r\n\r\n    v_Age = 0.0;\r\n    v_Life = i_Life;\r\n\r\n    // ============ Particle Trajectory =================\r\n\r\n    vec3 velocity = vec3(0, 1, 0);\r\n\r\n    // sphere\r\n    if (u_Emission[0] == 0.0) {\r\n      velocity = normalize(squareToSphereUniform(rand2)) * 3.5;\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        velocity = 2.0 *normalize(squareToSphereUniform(rand2));\r\n      }\r\n    }\r\n\r\n    // cone\r\n    if (u_Emission[0] == 1.0) {\r\n      velocity = normalize(squareToDiskUniform(rand2) + vec3(2.5, 0, 0)) * 3.5;\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        velocity = 2.0 *normalize(squareToDiskUniform(rand2) + vec3(2.5, 0, 0));\r\n      }\r\n    } \r\n\r\n    //straight up\r\n    if (u_Emission[0] == 2.0) {\r\n      velocity = vec3(1, 0, 0) * 3.5;\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        velocity = 2.0 *vec3(1, 0, 0);\r\n      }\r\n    } \r\n\r\n    // square cone\r\n    if (u_Emission[0] == 3.0) {\r\n      velocity = normalize(vec3(1.f, rand3.x * 1.2 - 0.6, rand3.y* 1.2 - 0.6)) * 3.5;\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        velocity = 2.0 *normalize(vec3(1.f, rand3.x * 1.2 - 0.6, rand3.y* 1.2 - 0.6));\r\n      }\r\n    } \r\n\r\n    // outline\r\n    if (u_Emission[0] == 4.0) {\r\n      float theta = radians(rand3.z * 359.0);\r\n      float y = cos (theta);\r\n      float x = 3.0;\r\n      float z = sin (theta);\r\n      velocity = normalize(vec3(x, y, z)) * 3.5;\r\n\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        velocity = 2.0 *normalize(vec3(x, y, z));\r\n      }\r\n    } \r\n\r\n\r\n    // ============ BASE SHAPE EMITTERS ===============\r\n\r\n    v_Position = u_Origin;\r\n\r\n    // sphere emitter \r\n    if (u_Emission[1] == 0.0) {\r\n      v_Position = squareToSphereUniform(rand_origin_disk);\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    //regular/point emitter\r\n    if (u_Emission[1] == 1.0) {\r\n      v_Position = u_Origin;\r\n    }\r\n\r\n    //disk\r\n    if (u_Emission[1] == 2.0) {\r\n      v_Position = squareToDiskUniform(rand_origin_disk);\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    //square\r\n    if (u_Emission[1] == 3.0) {\r\n      v_Position = vec3(0, rand_origin_disk.x, rand_origin_disk.y) * 2.0 - vec3(0.0, 1.0, 1.0);\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    // ============ BULLET GENERATION ===============\r\n    // random value to get different bullets spread\r\n    vec3 velocity_seed = vec3(u_SpreadSeed, u_SpreadSeed, u_SpreadSeed);\r\n    float spread = u_Spread;\r\n\r\n    float random_bullet = random(vec3(float(gl_VertexID) / 1000.0,\r\n                                float(gl_VertexID) / 1000.0,\r\n                                float(gl_VertexID) / 1000.0), \r\n                                vec3(30.0, 30.0, 30.0));\r\n    random_bullet *= u_BulletNum;\r\n    random_bullet = floor(random_bullet);\r\n\r\n\r\n    //vec3 current_bullet_velocity = vec3(2, 2, 0.0);\r\n\r\n    // generates random velocity from spread of bullet\r\n    vec3 random_velocity = random3D(vec3(random_bullet, random_bullet, random_bullet) , \r\n                                    velocity_seed);\r\n\r\n\r\n    random_velocity.x = ((random_velocity.x * spread) + 1.0) * 1.5;\r\n    random_velocity.z = (((random_velocity.z * 2.0 - 1.0) * spread)) * 1.5;\r\n    random_velocity.y = (((random_velocity.y * 2.0 - 1.0) * spread)) * 1.5;\r\n    vec3 current_bullet_velocity = random_velocity;\r\n\r\n\r\n    // ===========================================\r\n    // MAKES A SPHERE\r\n    if (rand_sphere.x > 0.90) {\r\n\r\n          vec2 rand_warp = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                                vec2(13.0, 3.0));\r\n\r\n          v_Position = normalize(squareToSphereUniform(rand_warp)) * sphere_radius + sphere_center;\r\n          v_Velocity = vec3(0, 0, 0);\r\n          v_Life = -0.2; \r\n\r\n          if (u_SphereCollider == 0.0) {\r\n            v_Position = sphere_center;\r\n          }\r\n\r\n    } else {\r\n        /* Generate final velocity vector. */\r\n        v_Velocity = velocity; \r\n\r\n        //========== PROJECTILE GUN MOVEMENT\r\n        if (u_Emission[2] == 1.0) {\r\n          // moves the system in a ballistic projectile \r\n          vec3 original_position = v_Position + vec3(-5, 0, 0);\r\n          float t = mod(u_TotalTime, 3000.0) * 0.002; // will eventually be replaced with collision test\r\n          vec3 center = vec3(4.0, 0.0, 0.0);\r\n          \r\n          vec3 tempPos = v_Position + vec3(-6, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;\r\n          float distanceToSphere = distance(tempPos, sphere_center);\r\n          if (distanceToSphere < sphere_radius) {\r\n\r\n            //tempPos = v_Position + vec3(-6, 0, 0);\r\n            //v_Age = v_Life + 1;\r\n          }\r\n    \r\n          v_Position = tempPos;\r\n\r\n\r\n    \r\n             // if (distanceToSphere < sphere_radius) {\r\n                //vec3 vel = 3.0 * normalize(reflection(current_bullet_velocity, tempPos - center));\r\n                //v_Position += tempPos + (tempPos - center) * t + 0.5 * gravity * t * t;\r\n               //   v_Position = tempPos;\r\n                  //velocity = \r\n              //} \r\n    \r\n        }\r\n\r\n         //========== SPRAY GUN MOVEMENT\r\n        else if (u_Emission[2] == 2.0) {\r\n          // moves the system in a ballistic projectile \r\n          vec3 original_position = v_Position + vec3(-5, 0, 0);\r\n          float t = 0.0;\r\n          if (u_Spray_Constants[0] == 0.0) {\r\n            t = mod(u_TotalTime + (random_bullet * 300.0), 2000.0) * 0.002; // will eventually be replaced with collision test\r\n          }\r\n          else if (u_Spray_Constants[0] == 1.0) {\r\n\r\n            float random_spray = random(vec3(float(random_bullet) / 1000.0,\r\n                                float(random_bullet) / 1000.0,\r\n                                float(random_bullet) / 1000.0), \r\n                                vec3(0.0,\r\n                                     u_Spray_Constants[1], \r\n                                     0.0));\r\n\r\n            t = mod(u_TotalTime + (random_bullet * 300.0) + (random_spray * 300.0), 2000.0) * 0.002;\r\n\r\n          }\r\n          \r\n          vec3 tempPos = v_Position + vec3(-6, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;\r\n          float distanceToSphere = distance(tempPos, sphere_center);\r\n          if (distanceToSphere < sphere_radius && u_SphereCollider == 1.0) {\r\n\r\n            tempPos = vec3(-6, 0, 0);\r\n            v_Velocity = vec3(0, 0, 0); \r\n            //v_Age = i_Life +;\r\n          }\r\n    \r\n          v_Position = tempPos;\r\n\r\n        }\r\n    \r\n    }\r\n\r\n\r\n  } \r\n  else {\r\n  \r\n  /*\r\n  *\r\n  * UPDATE PARTICLE!!!\r\n  *\r\n  *\r\n  */  \r\n  \r\n\r\n  // this is if the particle is forming the sphere\r\n    if (rand_sphere.x > 0.90) {\r\n      v_Age = -0.1;\r\n      gravity = vec3(0.0, 0.0, 0.0);\r\n      v_Velocity = i_Velocity;\r\n      v_Position = i_Position; \r\n      v_Life = -0.2;\r\n    }\r\n\r\n    // this is if particle is part of the beam or projectile\r\n    else {\r\n      v_Life = i_Life;\r\n      v_Age = i_Age + u_TimeDelta;\r\n\r\n      float distanceToSphere = distance(i_Position, sphere_center);\r\n\r\n      // this is if the particle is inside the sphere\r\n      if (distanceToSphere < sphere_radius && u_SphereCollider == 1.0) {\r\n        // this should be the normal of the sphere\r\n        //vec3 vel = length(i_Velocity) * normalize(i_Position - sphere_center);\r\n        vec3 random_reflection_noise_seed = vec3(5.0, 5.0, 5.0);\r\n        vec3 random_reflection_noise = random3D(i_Position * u_TimeDelta, random_reflection_noise_seed);\r\n        random_reflection_noise *= 2.0;\r\n        random_reflection_noise -= vec3(1.0, 1.0, 1.0);\r\n\r\n        vec3 vel = length(i_Velocity) * normalize(random_reflection_noise + normalize(reflect(i_Velocity + gravity * 2.0 * u_TimeDelta, i_Position - sphere_center)));\r\n        //vec3 vel = vec3(-1.0, 1.0, -1.0);\r\n        v_Velocity = vel + gravity * 2.0 * u_TimeDelta;\r\n        v_Position = i_Position  + v_Velocity * u_TimeDelta;\r\n\r\n      }\r\n      else {\r\n        v_Velocity = i_Velocity + gravity * 2.0 * u_TimeDelta;\r\n        v_Position = i_Position  + v_Velocity * u_TimeDelta;\r\n      }\r\n    }\r\n    \r\n\r\n    // random force\r\n    //vec3 rand_force = random3D(vec3(float(gl_VertexID) / 1000.0,\r\n    //                                float(gl_VertexID) / 1000.0,\r\n    //                                float(gl_VertexID) / 1000.0), \r\n    //                                vec3(4.0, 4.0, 4.0));\r\n\r\n\r\n  \r\n\r\n    //if (distanceToSphere < sphere_radius) {\r\n    //   vec3 vel = 1.0 * normalize(reflection(i_Velocity, i_Position - sphere_center));\r\n    //   v_Velocity = vel + gravity * 2.0 * u_TimeDelta;\r\n    //   v_Position = i_Position  + v_Velocity * u_TimeDelta;\r\n      \r\n    // } \r\n  }\r\n}\r\n"
+module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\n#define M_PI 3.1415926535897932384626433832795\r\n\r\nuniform mat4 u_ViewProj;\r\n\r\nuniform float u_TimeDelta;\r\nuniform float u_TotalTime;\r\n\r\nuniform float u_SphereCollider;\r\nuniform vec4 u_SphereColliderPos;\r\n\r\n\r\nuniform vec4 u_Emission;\r\nuniform float u_BulletNum;\r\n\r\nuniform float u_SpreadSeed;\r\nuniform float u_Spread;\r\n\r\nuniform float u_BulletSize;\r\n\r\nuniform vec3 u_Gravity;\r\nuniform vec3 u_Origin;\r\n\r\nuniform vec4 u_Spray_Constants;\r\n\r\n\r\nin vec3 i_Position;\r\nin float i_Age; // in seconds\r\nin float i_Life;\r\nin vec3 i_Velocity;\r\n\r\n\r\nout vec3 v_Position;\r\nout vec3 v_Velocity;\r\nout float v_Age;\r\nout float v_Life;\r\n\r\nfloat random( vec3 p , vec3 seed) {\r\n  return fract(sin(dot(p + seed, vec3(987.654, 123.456, 531.975))) * 85734.3545);\r\n}\r\n\r\nvec3 random3D(vec3 p , vec3 seed) {\r\n  return fract(sin(vec3(dot(p + seed, vec3(311.7, 127.1, 135.0)), dot(p + seed, vec3(269.5, 183.3, 10.0)), dot(p + seed, vec3(86.5, 279.3, 103.0)))) * 85734.3545);\r\n}\r\n\r\nvec2 random2D( vec2 p , vec2 seed) {\r\n  return fract(sin(vec2(dot(p + seed, vec2(311.7, 127.1)), dot(p + seed, vec2(269.5, 183.3)))) * 85734.3545);\r\n}\r\n\r\nvec3 squareToSphereUniform(vec2 s)\r\n{\r\n  float z = 1.0 - 2.0 * s.x;\r\n  float x = cos(2.0 * M_PI * s.y) * sqrt(1.0 - z * z);\r\n  float y = sin(2.0 * M_PI * s.y) * sqrt(1.0 - z * z);\r\n  return vec3(x, y, z);\r\n}\r\n\r\nvec3 squareToDiskUniform(vec2 s)\r\n{\r\n  // maps sample x to radius, and sample y to angle\r\n  float x = pow(s.x, 0.5) * cos(radians(s.y * 360.0));\r\n  float y = pow(s.x, 0.5) * sin(radians(s.y * 360.0));\r\n  return vec3(0, x , y);\r\n\r\n}\r\n\r\nvec3 squareToDiskConcentric(vec2 s)\r\n{\r\n  if (s.x == 0.0 && s.y == 0.0) {\r\n    return vec3(0, 0.5, 0);\r\n  }\r\n\r\n  float phi = 0.0;\r\n  float a = 2.0 * s.x - 1.0;\r\n  float b = 2.0 * s.y - 1.0;\r\n  float r;\r\n\r\n  if (a > -b) {\r\n    if (a > b) {\r\n      phi = (M_PI / 4.0) * (b / a);\r\n      r = a;\r\n    }\r\n    else {\r\n      r = b;\r\n      phi = (M_PI / 4.0) * (2.0 - (a / b));\r\n    }\r\n  }\r\n  else {\r\n    if (a < b) {\r\n      r = -a;\r\n      phi = (M_PI / 4.0) * (4.0 + (b / a));\r\n    }\r\n    else {\r\n      r = -b;\r\n      if (b != 0.0) {\r\n        phi = (M_PI / 4.0) * (6.0 - (a / b));\r\n      }\r\n      else {\r\n        phi = 0.0;\r\n      }\r\n    }\r\n  }\r\n\r\n  float u = r * cos(phi);\r\n  float v = r * sin(phi);\r\n  return vec3(u, 0.5, v);\r\n}\r\n\r\nvec3 reflection(vec3 incidentVec, vec3 normal)\r\n{\r\n  return incidentVec - 2.0 * dot(incidentVec, normal) * normal;\r\n}\r\n\r\nvoid main() {\r\n\r\n    // change the value of gravity depending on whether or not it's turned off\r\n    vec3 gravity = u_Gravity;\r\n    if (u_Emission[3] == 1.0) {\r\n      gravity[1] = 0.0;\r\n    }\r\n\r\n    vec3 sphere_center = vec3(u_SphereColliderPos);\r\n    float sphere_radius = u_SphereColliderPos[3];\r\n\r\n    vec2 rand_sphere = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                          float(gl_VertexID) / 1000.0), \r\n                          vec2(13.0, 13.0));\r\n\r\n    // particle exceed life time. Spawn another one.\r\n    if (i_Age >= i_Life) {\r\n\r\n\r\n  /*\r\n  *\r\n  * INITIALIZE PARTICLE\r\n  *\r\n  *\r\n  */  \r\n\r\n    vec3 seed = vec3(0, 0, 0);\r\n    vec2 seed2 = vec2(0, 0);\r\n    vec2 seed3 = vec2(10, 10);\r\n\r\n    vec2 rand = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                              float(gl_VertexID) / 1000.0), \r\n                             vec2(3.0, 3.0));\r\n\r\n\r\n    vec2 rand2 = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                                seed2);\r\n    vec2 rand_origin_disk = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                                          float(gl_VertexID) / 1000.0), \r\n                                          seed3);\r\n\r\n\r\n    vec3 rand3 = random3D(vec3(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                               seed);\r\n\r\n\r\n\r\n    v_Age = 0.0;\r\n    v_Life = i_Life;\r\n\r\n    // ============ Particle Trajectory =================\r\n\r\n    vec3 velocity = vec3(0, 1, 0);\r\n\r\n    // sphere\r\n    if (u_Emission[0] == 0.0) {\r\n      velocity = normalize(squareToSphereUniform(rand2)) * 3.5;\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        velocity = 2.0 *normalize(squareToSphereUniform(rand2));\r\n      }\r\n    }\r\n\r\n    // cone\r\n    if (u_Emission[0] == 1.0) {\r\n      velocity = normalize(squareToDiskUniform(rand2) + vec3(2.5, 0, 0)) * 3.5;\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        velocity = 2.0 *normalize(squareToDiskUniform(rand2) + vec3(2.5, 0, 0));\r\n      }\r\n    } \r\n\r\n    //straight up\r\n    if (u_Emission[0] == 2.0) {\r\n      velocity = vec3(1, 0, 0) * 3.5;\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        velocity = 2.0 *vec3(1, 0, 0);\r\n      }\r\n    } \r\n\r\n    // square cone\r\n    if (u_Emission[0] == 3.0) {\r\n      velocity = normalize(vec3(1.f, rand3.x * 1.2 - 0.6, rand3.y* 1.2 - 0.6)) * 3.5;\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        velocity = 2.0 *normalize(vec3(1.f, rand3.x * 1.2 - 0.6, rand3.y* 1.2 - 0.6));\r\n      }\r\n    } \r\n\r\n    // outline\r\n    if (u_Emission[0] == 4.0) {\r\n      float theta = radians(rand3.z * 359.0);\r\n      float y = cos (theta);\r\n      float x = 3.0;\r\n      float z = sin (theta);\r\n      velocity = normalize(vec3(x, y, z)) * 3.5;\r\n\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        velocity = 2.0 *normalize(vec3(x, y, z));\r\n      }\r\n    } \r\n\r\n\r\n    // ============ BASE SHAPE EMITTERS ===============\r\n\r\n    v_Position = u_Origin;\r\n\r\n    // sphere emitter \r\n    if (u_Emission[1] == 0.0) {\r\n      v_Position = squareToSphereUniform(rand_origin_disk);\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    //regular/point emitter\r\n    if (u_Emission[1] == 1.0) {\r\n      v_Position = u_Origin;\r\n    }\r\n\r\n    //disk\r\n    if (u_Emission[1] == 2.0) {\r\n      v_Position = squareToDiskUniform(rand_origin_disk);\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    //square\r\n    if (u_Emission[1] == 3.0) {\r\n      v_Position = vec3(0, rand_origin_disk.x, rand_origin_disk.y) * 2.0 - vec3(0.0, 1.0, 1.0);\r\n      if (u_Emission[2] == 1.0 || u_Emission[2] == 2.0) {\r\n        v_Position *= u_BulletSize;\r\n      }\r\n    }\r\n\r\n    // ============ BULLET GENERATION ===============\r\n    // random value to get different bullets spread\r\n    vec3 velocity_seed = vec3(u_SpreadSeed, u_SpreadSeed, u_SpreadSeed);\r\n    float spread = u_Spread;\r\n\r\n    float random_bullet = random(vec3(float(gl_VertexID) / 1000.0,\r\n                                float(gl_VertexID) / 1000.0,\r\n                                float(gl_VertexID) / 1000.0), \r\n                                vec3(30.0, 30.0, 30.0));\r\n    random_bullet *= u_BulletNum;\r\n    random_bullet = floor(random_bullet);\r\n\r\n    // generates random velocity from spread of bullet\r\n    vec3 random_velocity = random3D(vec3(random_bullet, random_bullet, random_bullet) , \r\n                                    velocity_seed);\r\n\r\n\r\n    random_velocity.x = ((random_velocity.x * spread) + 1.0) * 1.5;\r\n    random_velocity.z = (((random_velocity.z * 2.0 - 1.0) * spread)) * 1.5;\r\n    random_velocity.y = (((random_velocity.y * 2.0 - 1.0) * spread)) * 1.5;\r\n    vec3 current_bullet_velocity = random_velocity;\r\n\r\n\r\n    // ===========================================\r\n    // MAKES A SPHERE\r\n    if (rand_sphere.x > 0.85) {\r\n\r\n          vec2 rand_warp = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                                vec2(13.0, 3.0));\r\n\r\n          v_Position = normalize(squareToSphereUniform(rand_warp)) * sphere_radius + sphere_center;\r\n          v_Velocity = vec3(0, 0, 0);\r\n\r\n          if (u_SphereCollider == 0.0) {\r\n            v_Position = sphere_center;\r\n          }\r\n          v_Age = 3.0;\r\n          v_Life = 5.0;\r\n\r\n    } else {\r\n        /* Generate final velocity vector. */\r\n        v_Velocity = velocity; \r\n\r\n        //========== PROJECTILE GUN MOVEMENT\r\n        if (u_Emission[2] == 1.0) {\r\n          // moves the system in a ballistic projectile \r\n          //vec3 original_position = v_Position + vec3(-5, 0, 0);\r\n          float t = mod(u_TotalTime, 3000.0) * 0.002; // will eventually be replaced with collision test\r\n          //vec3 center = vec3(4.0, 0.0, 0.0);\r\n          \r\n          vec3 tempPos = v_Position + vec3(-6, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;\r\n          float distanceToSphere = distance(tempPos, sphere_center);\r\n\r\n          v_Position = tempPos;\r\n\r\n    \r\n        }\r\n\r\n         //========== SPRAY GUN MOVEMENT\r\n        else if (u_Emission[2] == 2.0) {\r\n          // moves the system in a ballistic projectile \r\n          //vec3 original_position = v_Position + vec3(-5, 0, 0);\r\n          float t = 0.0;\r\n          if (u_Spray_Constants[0] == 0.0) {\r\n            t = mod(u_TotalTime + (random_bullet * 300.0), 2000.0) * 0.002; // will eventually be replaced with collision test\r\n          }\r\n          else if (u_Spray_Constants[0] == 1.0) {\r\n\r\n            float random_spray = random(vec3(float(random_bullet) / 1000.0,\r\n                                float(random_bullet) / 1000.0,\r\n                                float(random_bullet) / 1000.0), \r\n                                vec3(0.0,\r\n                                     u_Spray_Constants[1], \r\n                                     0.0));\r\n\r\n            t = mod(u_TotalTime + (random_bullet * 300.0) + (random_spray * 300.0), 2000.0) * 0.002;\r\n\r\n          }\r\n          \r\n          vec3 tempPos = v_Position + vec3(-6, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;\r\n          float distanceToSphere = distance(tempPos, sphere_center);\r\n          if (distanceToSphere < sphere_radius && u_SphereCollider == 1.0) {\r\n\r\n            tempPos = vec3(-6, 0, 0);\r\n            v_Velocity = vec3(0, 0, 0); \r\n          }\r\n    \r\n          v_Position = tempPos;\r\n\r\n        }\r\n    \r\n    }\r\n\r\n\r\n  } \r\n  else {\r\n  \r\n  /*\r\n  *\r\n  * UPDATE PARTICLE!!!\r\n  *\r\n  *\r\n  */  \r\n  \r\n\r\n  // this is if the particle is forming the sphere\r\n    if (rand_sphere.x > 0.85) {\r\n\r\n\r\n\r\n    // ============ BULLET GENERATION ===============\r\n    // random value to get different bullets spread\r\n    vec3 velocity_seed = vec3(u_SpreadSeed, u_SpreadSeed, u_SpreadSeed);\r\n    float spread = u_Spread;\r\n\r\n    float random_bullet = random(vec3(float(gl_VertexID) / 1000.0,\r\n                                float(gl_VertexID) / 1000.0,\r\n                                float(gl_VertexID) / 1000.0), \r\n                                vec3(30.0, 30.0, 30.0));\r\n    random_bullet *= u_BulletNum;\r\n    random_bullet = floor(random_bullet);\r\n\r\n    vec3 random_velocity = random3D(vec3(random_bullet, random_bullet, random_bullet) , \r\n                                    velocity_seed);\r\n\r\n\r\n    random_velocity.x = ((random_velocity.x * spread) + 1.0) * 1.5;\r\n    random_velocity.z = (((random_velocity.z * 2.0 - 1.0) * spread)) * 1.5;\r\n    random_velocity.y = (((random_velocity.y * 2.0 - 1.0) * spread)) * 1.5;\r\n    vec3 current_bullet_velocity = random_velocity;\r\n\r\n\r\n      // test for intersection with center of bullet/beam\r\n      vec3 center = u_Origin;\r\n      if (u_Emission[2] == 1.0) {\r\n        float t = mod(u_TotalTime, 3000.0) * 0.002; // will eventually be replaced with collision test\r\n        center = vec3(-6, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;\r\n      }\r\n      else if (u_Emission[2] == 2.0) {\r\n        float t = 0.0;\r\n        if (u_Spray_Constants[0] == 0.0) {\r\n            t = mod(u_TotalTime + (random_bullet * 300.0), 2000.0) * 0.002; // will eventually be replaced with collision test\r\n          }\r\n          else if (u_Spray_Constants[0] == 1.0) {\r\n\r\n            float random_spray = random(vec3(float(random_bullet) / 1000.0,\r\n                                float(random_bullet) / 1000.0,\r\n                                float(random_bullet) / 1000.0), \r\n                                vec3(0.0,\r\n                                     u_Spray_Constants[1], \r\n                                     0.0));\r\n\r\n            t = mod(u_TotalTime + (random_bullet * 300.0) + (random_spray * 300.0), 2000.0) * 0.002;\r\n\r\n          }\r\n          \r\n          center = vec3(-6, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;\r\n\r\n      }\r\n\r\n     \r\n      //v_Position = i_Position; \r\n\r\n      vec3 pos;\r\n      if (u_SphereCollider == 0.0) {\r\n        pos = sphere_center;\r\n      }\r\n      else {\r\n\r\n\r\n                  vec2 rand_warp = random2D(vec2(float(gl_VertexID) / 1000.0,\r\n                               float(gl_VertexID) / 1000.0), \r\n                                vec2(13.0, 3.0));\r\n\r\n          pos = normalize(squareToSphereUniform(rand_warp)) * sphere_radius + sphere_center;\r\n       \r\n      }\r\n      float distanceToSphereParticle = distance(center, pos);\r\n      if (u_SphereCollider == 1.0 && abs(distanceToSphereParticle) < 0.75) {\r\n        v_Age = 4.0;\r\n      }\r\n      else {\r\n        if (i_Age == 3.0) {\r\n            v_Age = 3.0;\r\n        } else {\r\n            v_Age = 4.0;\r\n        }\r\n      }\r\n      if (u_SphereCollider == 0.0) {\r\n        v_Age = 3.0;\r\n      }\r\n\r\n      v_Velocity = i_Velocity;\r\n\r\n      v_Life = i_Life;\r\n      v_Position = pos;\r\n\r\n    }\r\n\r\n    // this is if particle is part of the beam or projectile\r\n    else {\r\n      v_Life = i_Life;\r\n      v_Age = i_Age + u_TimeDelta;\r\n\r\n      float distanceToSphere = distance(i_Position, sphere_center);\r\n\r\n      // this is if the particle is inside the sphere\r\n      if (distanceToSphere < sphere_radius && u_SphereCollider == 1.0) {\r\n        // this should be the normal of the sphere\r\n        //vec3 vel = length(i_Velocity) * normalize(i_Position - sphere_center);\r\n        vec3 random_reflection_noise_seed = vec3(5.0, 5.0, 5.0);\r\n        vec3 random_reflection_noise = random3D(i_Position * u_TimeDelta, random_reflection_noise_seed);\r\n        random_reflection_noise *= 2.0;\r\n        random_reflection_noise -= vec3(1.0, 1.0, 1.0);\r\n\r\n        vec3 vel = length(i_Velocity) * normalize(random_reflection_noise + normalize(reflect(i_Velocity + gravity * 2.0 * u_TimeDelta, i_Position - sphere_center)));\r\n        v_Velocity = vel + gravity * 2.0 * u_TimeDelta;\r\n        v_Position = i_Position  + v_Velocity * u_TimeDelta;\r\n\r\n      }\r\n      else {\r\n        v_Velocity = i_Velocity + gravity * 2.0 * u_TimeDelta;\r\n        v_Position = i_Position  + v_Velocity * u_TimeDelta;\r\n      }\r\n    }\r\n  }\r\n}\r\n"
 
 /***/ }),
-/* 68 */
+/* 124 */
 /***/ (function(module, exports) {
 
 module.exports = "#version 300 es\r\n\r\nprecision mediump float;\r\n\r\nin float v_Age;\r\n\r\nvoid main() \r\n{ \r\n\tdiscard; \r\n}\r\n    "
 
 /***/ }),
-/* 69 */
+/* 125 */
 /***/ (function(module, exports) {
 
-module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\nuniform mat4 u_ViewProj;\r\nuniform vec3 u_CamPos;\r\n\r\nin vec3 i_Position;\r\nin float i_Age;\r\nin float i_Life;\r\nin vec3 i_Velocity;\r\n\r\n\r\nout vec3 v_Position;\r\nout float v_Age;\r\nout float v_Life;\r\nout vec3 v_Velocity;\r\n\r\n\r\nvoid main() {\r\n  v_Position = i_Position;\r\n\r\n  v_Age = i_Age;\r\n  v_Life = i_Life;\r\n\r\n  gl_Position =  u_ViewProj * vec4(i_Position, 1.0);\r\n\r\n  float distanceToCamera = distance(i_Position, u_CamPos);\r\n  gl_PointSize = (0.5 + 4.0 * (1.0 - 1.6 * i_Age/i_Life)) / ( distanceToCamera / 10.0);\r\n  \r\n  // points on sphere\r\n  if (v_Age == -0.1) {\r\n    gl_PointSize = (0.5 + 4.0 * (1.0 - 1.6 * i_Age/i_Life)) / ( distanceToCamera / 10.0);\r\n  \r\n  }\r\n}"
+module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\nuniform mat4 u_ViewProj;\r\nuniform vec3 u_CamPos;\r\nuniform float u_SphereCollider;\r\n\r\nin vec3 i_Position;\r\nin float i_Age;\r\nin float i_Life;\r\nin vec3 i_Velocity;\r\n\r\n\r\nout vec3 v_Position;\r\nout float v_Age;\r\nout float v_Life;\r\nout vec3 v_Velocity;\r\n\r\n\r\nvoid main() {\r\n  v_Position = i_Position;\r\n\r\n  v_Age = i_Age;\r\n  v_Life = i_Life;\r\n\r\n  gl_Position =  u_ViewProj * vec4(i_Position, 1.0);\r\n\r\n  float distanceToCamera = distance(vec3(u_ViewProj * vec4(i_Position, 1.0)), u_CamPos);\r\n  gl_PointSize = (0.5 + 6.0 * (1.0 - 1.6 * i_Age/i_Life)) / ( distanceToCamera / 10.0);\r\n  \r\n  // // points on sphere\r\n  // if (v_Age == -0.1) {\r\n  //   gl_PointSize = (0.5 + 4.0 * (1.0 - 1.6 * i_Age/i_Life)) / ( distanceToCamera / 10.0);\r\n  \r\n  // }\r\n\r\n  if (v_Age == 3.0) {\r\n        gl_PointSize = (0.5 + 9.0 * (1.0 - 1.6 * 0.1)) / ( distanceToCamera / 10.0);\r\n  }\r\n  if (v_Age == 4.0) {\r\n        gl_PointSize = (0.5 + 9.0 * (1.0 - 1.6 * 0.1)) / ( distanceToCamera / 10.0);\r\n  }\r\n\r\n  if (v_Age > 2.0 && u_SphereCollider == 0.0) {\r\n\r\n\r\n      gl_PointSize = 0.0;\r\n  }\r\n}"
 
 /***/ }),
-/* 70 */
+/* 126 */
 /***/ (function(module, exports) {
 
-module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\nuniform vec3 u_CamPos;\r\n\r\nuniform vec3 u_Ref, u_Up;\r\nuniform vec2 u_Dimensions;\r\nuniform float u_SphereCollider;\r\n\r\nin float v_Age;\r\nin float v_Life;\r\nin vec3 v_Position;\r\nin vec3 v_Velocity;\r\n\r\nout vec4 o_FragColor;\r\n\r\n/* From http://iquilezles.org/www/articles/palettes/palettes.htm */\r\nvec3 palette( in float t, in vec3 a, in vec3 b, in vec3 c, in vec3 d )\r\n{  return a + b*cos( 6.28318*(c*t+d) ); }\r\n\r\n// this is a helper function for raycasting\r\nvec3 getRayDirection() {\r\n\r\n  float fovy = 45.0;\r\n  vec3 look = normalize(u_Ref - u_CamPos);\r\n  vec3 right = normalize(cross(look, u_Up));\r\n  vec3 up = cross(right, look);\r\n\r\n  float tan_fovy = tan(radians(fovy / 2.0));\r\n  float len = length(u_Ref - u_CamPos);\r\n  float aspect = u_Dimensions.x / float(u_Dimensions.y);\r\n\r\n  vec3 v = up * len * tan_fovy;\r\n  vec3 h = right * len * aspect * tan_fovy;\r\n\r\n  vec2 fragCoords = gl_FragCoord.xy / u_Dimensions;\r\n  vec3 p = u_Ref + fragCoords.x * h + fragCoords.y * v;\r\n  vec3 dir = normalize(p - u_CamPos);\r\n\r\n  return dir;\r\n\r\n}\r\n\r\nfloat hit_sphere(vec3 center, float radius, vec3 dir){\r\n    vec3 oc = u_CamPos - center;\r\n    float a = dot(dir, dir);\r\n    float b = 2.0 * dot(oc, dir);\r\n    float c = dot(oc,oc) - radius*radius;\r\n    float discriminant = b*b - 4.0*a*c;\r\n    if(discriminant < 0.0){\r\n        return -1.0;\r\n    }\r\n    else{\r\n        return (-b - sqrt(discriminant)) / (2.0*a);\r\n    }\r\n}\r\n\r\n\r\nvoid main() {\r\n  // vec3 dir = getRayDirection();\r\n  // float x = hit_sphere(vec3(3.0, 0, 0), 1.0, dir);\r\n  // vec3 intersection_point = u_CamPos + x * dir;\r\n\r\n  // float distToSphere = distance(intersection_point, u_CamPos);\r\n  float distanceToCamera = distance(v_Position, u_CamPos);\r\n  // if (distToSphere < distanceToCamera) {\r\n\r\n  // o_FragColor = vec4(0.0, 1.0, 0.0, 1.0);\r\n  // } \r\n  // else {\r\n  \t float t =  v_Age /v_Life;\r\n  \t \r\n  \t o_FragColor = vec4( palette(t,\r\n            vec3(0.5,0.5,0.5),\r\n            vec3(0.5,0.5,0.5),\r\n            vec3(0.5,  0.7,1.0),\r\n            vec3(0.0,0.15,0.20)), (1.0 -  t) / ( distanceToCamera / 10.0));\r\n\r\n      // renders the sphere a different color\r\n      if (v_Age == -0.1 && u_SphereCollider == 1.0) {\r\n        o_FragColor = vec4(0, 1, 0, 1);\r\n      }\r\n      else if (v_Life == -0.2 && u_SphereCollider == 0.0) {\r\n\r\n        o_FragColor = vec4(0, 0, 0, 0);\r\n      }\r\n\r\n  //}\r\n \r\n}"
+module.exports = "#version 300 es\r\nprecision mediump float;\r\n\r\nuniform vec3 u_CamPos;\r\n\r\nuniform vec3 u_Ref, u_Up;\r\nuniform vec2 u_Dimensions;\r\nuniform float u_SphereCollider;\r\n\r\nin float v_Age;\r\nin float v_Life;\r\nin vec3 v_Position;\r\nin vec3 v_Velocity;\r\n\r\nout vec4 o_FragColor;\r\n\r\n/* From http://iquilezles.org/www/articles/palettes/palettes.htm */\r\nvec3 palette( in float t, in vec3 a, in vec3 b, in vec3 c, in vec3 d )\r\n{  return a + b*cos( 6.28318*(c*t+d) ); }\r\n\r\n// this is a helper function for raycasting\r\nvec3 getRayDirection() {\r\n\r\n  float fovy = 45.0;\r\n  vec3 look = normalize(u_Ref - u_CamPos);\r\n  vec3 right = normalize(cross(look, u_Up));\r\n  vec3 up = cross(right, look);\r\n\r\n  float tan_fovy = tan(radians(fovy / 2.0));\r\n  float len = length(u_Ref - u_CamPos);\r\n  float aspect = u_Dimensions.x / float(u_Dimensions.y);\r\n\r\n  vec3 v = up * len * tan_fovy;\r\n  vec3 h = right * len * aspect * tan_fovy;\r\n\r\n  vec2 fragCoords = gl_FragCoord.xy / u_Dimensions;\r\n  vec3 p = u_Ref + fragCoords.x * h + fragCoords.y * v;\r\n  vec3 dir = normalize(p - u_CamPos);\r\n\r\n  return dir;\r\n\r\n}\r\n\r\nfloat hit_sphere(vec3 center, float radius, vec3 dir){\r\n    vec3 oc = u_CamPos - center;\r\n    float a = dot(dir, dir);\r\n    float b = 2.0 * dot(oc, dir);\r\n    float c = dot(oc,oc) - radius*radius;\r\n    float discriminant = b*b - 4.0*a*c;\r\n    if(discriminant < 0.0){\r\n        return -1.0;\r\n    }\r\n    else{\r\n        return (-b - sqrt(discriminant)) / (2.0*a);\r\n    }\r\n}\r\n\r\n\r\nvoid main() {\r\n\r\n  float distanceToCamera = distance(v_Position, u_CamPos);\r\n\r\n  \t float t =  v_Age /v_Life;\r\n  \t \r\n  \t o_FragColor = vec4( palette(t,\r\n            vec3(0.5,0.5,0.5),\r\n            vec3(0.5,0.5,0.5),\r\n            vec3(0.5,  0.7,1.0),\r\n            vec3(0.0,0.15,0.20)), (1.0 -  t) / ( distanceToCamera / 10.0));\r\n\r\n      // renders the sphere a different color\r\n      if (v_Age == 3.0) {\r\n        o_FragColor = vec4(0, 1, 0, 1);\r\n      }\r\n      if (v_Age == 4.0) {\r\n        o_FragColor = vec4(1, 0, 0, 1);\r\n      }\r\n      // else if (v_Age == -0.2 && u_SphereCollider == 1.0) {\r\n      //   o_FragColor = vec4(0, 1, 0, 0);\r\n\r\n      // }\r\n      // else if (v_Life == -0.2 && u_SphereCollider == 0.0) {\r\n\r\n      //   o_FragColor = vec4(0, 0, 0, 0);\r\n      // }\r\n\r\n  //}\r\n \r\n}"
 
 /***/ }),
-/* 71 */
+/* 127 */
 /***/ (function(module, exports) {
 
 module.exports = "#version 300 es\nprecision highp float;\n\n// The vertex shader used to render the background of the scene\nuniform vec3 u_CamPos;\n\nin vec4 vs_Pos;\nout vec2 fs_Pos;\n\nvoid main() {\n  fs_Pos = vs_Pos.xy;\n  gl_Position = vs_Pos;\n}\n"
 
 /***/ }),
-/* 72 */
+/* 128 */
 /***/ (function(module, exports) {
 
-module.exports = "#version 300 es\nprecision highp float;\n\nuniform vec3 u_CamPos;\n\nuniform vec3 u_Ref, u_Up;\nuniform vec2 u_Dimensions;\nuniform float u_Time;\n\nin vec2 fs_Pos;\nout vec4 out_Col;\n\n// this is a helper function for raycasting\nvec3 getRayDirection() {\n\n  float fovy = 45.0;\n  vec3 look = normalize(u_Ref - u_CamPos);\n  vec3 right = normalize(cross(look, u_Up));\n  vec3 up = cross(right, look);\n\n  float tan_fovy = tan(radians(fovy / 2.0));\n  float len = length(u_Ref - u_CamPos);\n  float aspect = u_Dimensions.x / float(u_Dimensions.y);\n\n  vec3 v = up * len * tan_fovy;\n  vec3 h = right * len * aspect * tan_fovy;\n\n  vec3 p = u_Ref + fs_Pos.x * h + fs_Pos.y * v;\n  vec3 dir = normalize(p - u_CamPos);\n\n  return dir;\n\n}\n\nbool hit_sphere(vec3 center, float radius, vec3 dir){\n    vec3 oc = u_CamPos - center;\n    float a = dot(dir, dir);\n    float b = 2.0 * dot(oc, dir);\n    float c = dot(oc,oc) - radius*radius;\n    float discriminant = b*b - 4.0*a*c;\n    return (discriminant>0.0);\n}\n\nvoid main() {\n  vec3 dir = getRayDirection();\n  if (hit_sphere(vec3(3.0, 0, 0), 1.0, dir)){\n    out_Col = vec4(0.0, 0.0, 0.0, 1.0);\n  }\n  else {\n    out_Col = vec4(0.0, 0.0, 0.0, 1.0);\n  }\n  \n  out_Col =  0.4 * vec4((dir + vec3(1.0, 1.0, 1.0)), 1.0);\n  //out_Col = vec4(0.5 * (fs_Pos + vec2(1.0)), 0.5 * (sin(u_Time * 3.14159 * 0.01) + 1.0), 1.0);\n}\n"
+module.exports = "#version 300 es\nprecision highp float;\n\nuniform vec3 u_CamPos;\n\nuniform vec3 u_Ref, u_Up;\nuniform vec2 u_Dimensions;\nuniform float u_Time;\n\nin vec2 fs_Pos;\nout vec4 out_Col;\n\n// this is a helper function for raycasting\nvec3 getRayDirection() {\n\n  float fovy = 45.0;\n  vec3 look = normalize(u_Ref - u_CamPos);\n  vec3 right = normalize(cross(look, u_Up));\n  vec3 up = cross(right, look);\n\n  float tan_fovy = tan(radians(fovy / 2.0));\n  float len = length(u_Ref - u_CamPos);\n  float aspect = u_Dimensions.x / float(u_Dimensions.y);\n\n  vec3 v = up * len * tan_fovy;\n  vec3 h = right * len * aspect * tan_fovy;\n\n  vec3 p = u_Ref + fs_Pos.x * h + fs_Pos.y * v;\n  vec3 dir = normalize(p - u_CamPos);\n\n  return dir;\n\n}\n\nbool hit_sphere(vec3 center, float radius, vec3 dir){\n    vec3 oc = u_CamPos - center;\n    float a = dot(dir, dir);\n    float b = 2.0 * dot(oc, dir);\n    float c = dot(oc,oc) - radius*radius;\n    float discriminant = b*b - 4.0*a*c;\n    return (discriminant>0.0);\n}\n\nvoid main() {\n  vec3 dir = getRayDirection();\n  if (hit_sphere(vec3(3.0, 0, 0), 1.0, dir)){\n    out_Col = vec4(0.0, 0.0, 0.0, 1.0);\n  }\n  else {\n    out_Col = vec4(0.0, 0.0, 0.0, 1.0);\n  }\n  \n  out_Col =  0.4 * vec4((dir + vec3(1.0, 1.0, 1.0)), 1.0);\n  //out_Col = vec4(0, 0, 0, 1);\n\n  //out_Col = vec4(0.5 * (fs_Pos + vec2(1.0)), 0.5 * (sin(u_Time * 3.14159 * 0.01) + 1.0), 1.0);\n}\n"
 
 /***/ })
 /******/ ]);

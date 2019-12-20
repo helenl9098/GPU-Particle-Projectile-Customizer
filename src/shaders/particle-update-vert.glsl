@@ -59,61 +59,61 @@ vec3 squareToSphereUniform(vec2 s)
 
 vec3 squareToDiskUniform(vec2 s)
 {
-    // maps sample x to radius, and sample y to angle
-    float x = pow(s.x, 0.5) * cos(radians(s.y * 360.0));
-    float y = pow(s.x, 0.5) * sin(radians(s.y * 360.0));
-    return vec3(0, x , y);
+  // maps sample x to radius, and sample y to angle
+  float x = pow(s.x, 0.5) * cos(radians(s.y * 360.0));
+  float y = pow(s.x, 0.5) * sin(radians(s.y * 360.0));
+  return vec3(0, x , y);
 
+}
+
+vec3 squareToDiskConcentric(vec2 s)
+{
+  if (s.x == 0.0 && s.y == 0.0) {
+    return vec3(0, 0.5, 0);
   }
 
-  vec3 squareToDiskConcentric(vec2 s)
-  {
-    if (s.x == 0.0 && s.y == 0.0) {
-      return vec3(0, 0.5, 0);
-    }
+  float phi = 0.0;
+  float a = 2.0 * s.x - 1.0;
+  float b = 2.0 * s.y - 1.0;
+  float r;
 
-    float phi = 0.0;
-    float a = 2.0 * s.x - 1.0;
-    float b = 2.0 * s.y - 1.0;
-    float r;
-
-    if (a > -b) {
-      if (a > b) {
-        phi = (M_PI / 4.0) * (b / a);
-        r = a;
-      }
-      else {
-        r = b;
-        phi = (M_PI / 4.0) * (2.0 - (a / b));
-      }
+  if (a > -b) {
+    if (a > b) {
+      phi = (M_PI / 4.0) * (b / a);
+      r = a;
     }
     else {
-      if (a < b) {
-        r = -a;
-        phi = (M_PI / 4.0) * (4.0 + (b / a));
+      r = b;
+      phi = (M_PI / 4.0) * (2.0 - (a / b));
+    }
+  }
+  else {
+    if (a < b) {
+      r = -a;
+      phi = (M_PI / 4.0) * (4.0 + (b / a));
+    }
+    else {
+      r = -b;
+      if (b != 0.0) {
+        phi = (M_PI / 4.0) * (6.0 - (a / b));
       }
       else {
-        r = -b;
-        if (b != 0.0) {
-          phi = (M_PI / 4.0) * (6.0 - (a / b));
-        }
-        else {
-          phi = 0.0;
-        }
+        phi = 0.0;
       }
     }
-
-    float u = r * cos(phi);
-    float v = r * sin(phi);
-    return vec3(u, 0.5, v);
   }
 
-  vec3 reflection(vec3 incidentVec, vec3 normal)
+  float u = r * cos(phi);
+  float v = r * sin(phi);
+  return vec3(u, 0.5, v);
+}
+
+vec3 reflection(vec3 incidentVec, vec3 normal)
 {
   return incidentVec - 2.0 * dot(incidentVec, normal) * normal;
 }
 
-  void main() {
+void main() {
 
     // change the value of gravity depending on whether or not it's turned off
     vec3 gravity = u_Gravity;
@@ -261,9 +261,6 @@ vec3 squareToDiskUniform(vec2 s)
     random_bullet *= u_BulletNum;
     random_bullet = floor(random_bullet);
 
-
-    //vec3 current_bullet_velocity = vec3(2, 2, 0.0);
-
     // generates random velocity from spread of bullet
     vec3 random_velocity = random3D(vec3(random_bullet, random_bullet, random_bullet) , 
                                     velocity_seed);
@@ -277,7 +274,7 @@ vec3 squareToDiskUniform(vec2 s)
 
     // ===========================================
     // MAKES A SPHERE
-    if (rand_sphere.x > 0.90) {
+    if (rand_sphere.x > 0.85) {
 
           vec2 rand_warp = random2D(vec2(float(gl_VertexID) / 1000.0,
                                float(gl_VertexID) / 1000.0), 
@@ -285,11 +282,12 @@ vec3 squareToDiskUniform(vec2 s)
 
           v_Position = normalize(squareToSphereUniform(rand_warp)) * sphere_radius + sphere_center;
           v_Velocity = vec3(0, 0, 0);
-          v_Life = -0.2; 
 
           if (u_SphereCollider == 0.0) {
             v_Position = sphere_center;
           }
+          v_Age = 3.0;
+          v_Life = 5.0;
 
     } else {
         /* Generate final velocity vector. */
@@ -298,35 +296,22 @@ vec3 squareToDiskUniform(vec2 s)
         //========== PROJECTILE GUN MOVEMENT
         if (u_Emission[2] == 1.0) {
           // moves the system in a ballistic projectile 
-          vec3 original_position = v_Position + vec3(-5, 0, 0);
+          //vec3 original_position = v_Position + vec3(-5, 0, 0);
           float t = mod(u_TotalTime, 3000.0) * 0.002; // will eventually be replaced with collision test
-          vec3 center = vec3(4.0, 0.0, 0.0);
+          //vec3 center = vec3(4.0, 0.0, 0.0);
           
           vec3 tempPos = v_Position + vec3(-6, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;
           float distanceToSphere = distance(tempPos, sphere_center);
-          if (distanceToSphere < sphere_radius) {
 
-            //tempPos = v_Position + vec3(-6, 0, 0);
-            //v_Age = v_Life + 1;
-          }
-    
           v_Position = tempPos;
 
-
-    
-             // if (distanceToSphere < sphere_radius) {
-                //vec3 vel = 3.0 * normalize(reflection(current_bullet_velocity, tempPos - center));
-                //v_Position += tempPos + (tempPos - center) * t + 0.5 * gravity * t * t;
-               //   v_Position = tempPos;
-                  //velocity = 
-              //} 
     
         }
 
          //========== SPRAY GUN MOVEMENT
         else if (u_Emission[2] == 2.0) {
           // moves the system in a ballistic projectile 
-          vec3 original_position = v_Position + vec3(-5, 0, 0);
+          //vec3 original_position = v_Position + vec3(-5, 0, 0);
           float t = 0.0;
           if (u_Spray_Constants[0] == 0.0) {
             t = mod(u_TotalTime + (random_bullet * 300.0), 2000.0) * 0.002; // will eventually be replaced with collision test
@@ -350,7 +335,6 @@ vec3 squareToDiskUniform(vec2 s)
 
             tempPos = vec3(-6, 0, 0);
             v_Velocity = vec3(0, 0, 0); 
-            //v_Age = i_Life +;
           }
     
           v_Position = tempPos;
@@ -372,12 +356,97 @@ vec3 squareToDiskUniform(vec2 s)
   
 
   // this is if the particle is forming the sphere
-    if (rand_sphere.x > 0.90) {
-      v_Age = -0.1;
-      gravity = vec3(0.0, 0.0, 0.0);
+    if (rand_sphere.x > 0.85) {
+
+
+
+    // ============ BULLET GENERATION ===============
+    // random value to get different bullets spread
+    vec3 velocity_seed = vec3(u_SpreadSeed, u_SpreadSeed, u_SpreadSeed);
+    float spread = u_Spread;
+
+    float random_bullet = random(vec3(float(gl_VertexID) / 1000.0,
+                                float(gl_VertexID) / 1000.0,
+                                float(gl_VertexID) / 1000.0), 
+                                vec3(30.0, 30.0, 30.0));
+    random_bullet *= u_BulletNum;
+    random_bullet = floor(random_bullet);
+
+    vec3 random_velocity = random3D(vec3(random_bullet, random_bullet, random_bullet) , 
+                                    velocity_seed);
+
+
+    random_velocity.x = ((random_velocity.x * spread) + 1.0) * 1.5;
+    random_velocity.z = (((random_velocity.z * 2.0 - 1.0) * spread)) * 1.5;
+    random_velocity.y = (((random_velocity.y * 2.0 - 1.0) * spread)) * 1.5;
+    vec3 current_bullet_velocity = random_velocity;
+
+
+      // test for intersection with center of bullet/beam
+      vec3 center = u_Origin;
+      if (u_Emission[2] == 1.0) {
+        float t = mod(u_TotalTime, 3000.0) * 0.002; // will eventually be replaced with collision test
+        center = vec3(-6, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;
+      }
+      else if (u_Emission[2] == 2.0) {
+        float t = 0.0;
+        if (u_Spray_Constants[0] == 0.0) {
+            t = mod(u_TotalTime + (random_bullet * 300.0), 2000.0) * 0.002; // will eventually be replaced with collision test
+          }
+          else if (u_Spray_Constants[0] == 1.0) {
+
+            float random_spray = random(vec3(float(random_bullet) / 1000.0,
+                                float(random_bullet) / 1000.0,
+                                float(random_bullet) / 1000.0), 
+                                vec3(0.0,
+                                     u_Spray_Constants[1], 
+                                     0.0));
+
+            t = mod(u_TotalTime + (random_bullet * 300.0) + (random_spray * 300.0), 2000.0) * 0.002;
+
+          }
+          
+          center = vec3(-6, 0, 0) + current_bullet_velocity * t + 0.5 * gravity * t * t;
+
+      }
+
+     
+      //v_Position = i_Position; 
+
+      vec3 pos;
+      if (u_SphereCollider == 0.0) {
+        pos = sphere_center;
+      }
+      else {
+
+
+                  vec2 rand_warp = random2D(vec2(float(gl_VertexID) / 1000.0,
+                               float(gl_VertexID) / 1000.0), 
+                                vec2(13.0, 3.0));
+
+          pos = normalize(squareToSphereUniform(rand_warp)) * sphere_radius + sphere_center;
+       
+      }
+      float distanceToSphereParticle = distance(center, pos);
+      if (u_SphereCollider == 1.0 && abs(distanceToSphereParticle) < 0.75) {
+        v_Age = 4.0;
+      }
+      else {
+        if (i_Age == 3.0) {
+            v_Age = 3.0;
+        } else {
+            v_Age = 4.0;
+        }
+      }
+      if (u_SphereCollider == 0.0) {
+        v_Age = 3.0;
+      }
+
       v_Velocity = i_Velocity;
-      v_Position = i_Position; 
-      v_Life = -0.2;
+
+      v_Life = i_Life;
+      v_Position = pos;
+
     }
 
     // this is if particle is part of the beam or projectile
@@ -397,7 +466,6 @@ vec3 squareToDiskUniform(vec2 s)
         random_reflection_noise -= vec3(1.0, 1.0, 1.0);
 
         vec3 vel = length(i_Velocity) * normalize(random_reflection_noise + normalize(reflect(i_Velocity + gravity * 2.0 * u_TimeDelta, i_Position - sphere_center)));
-        //vec3 vel = vec3(-1.0, 1.0, -1.0);
         v_Velocity = vel + gravity * 2.0 * u_TimeDelta;
         v_Position = i_Position  + v_Velocity * u_TimeDelta;
 
@@ -407,22 +475,5 @@ vec3 squareToDiskUniform(vec2 s)
         v_Position = i_Position  + v_Velocity * u_TimeDelta;
       }
     }
-    
-
-    // random force
-    //vec3 rand_force = random3D(vec3(float(gl_VertexID) / 1000.0,
-    //                                float(gl_VertexID) / 1000.0,
-    //                                float(gl_VertexID) / 1000.0), 
-    //                                vec3(4.0, 4.0, 4.0));
-
-
-  
-
-    //if (distanceToSphere < sphere_radius) {
-    //   vec3 vel = 1.0 * normalize(reflection(i_Velocity, i_Position - sphere_center));
-    //   v_Velocity = vel + gravity * 2.0 * u_TimeDelta;
-    //   v_Position = i_Position  + v_Velocity * u_TimeDelta;
-      
-    // } 
   }
 }

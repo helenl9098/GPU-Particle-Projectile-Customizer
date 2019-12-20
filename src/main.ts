@@ -9,6 +9,8 @@ import Square from './geometry/Square';
 import ShaderProgram, {Shader} from './rendering/gl/ShaderProgram';
 import {gl} from './globals';
 
+var createCamera = require('first-person-camera');
+
 const controls = {
 
   particles_per_bullet : 40000, /* number of particles */
@@ -37,7 +39,14 @@ const controls = {
 
 let time: number = 0;
 let square: Square;
-let attrPos: number;  
+let attrPos: number;
+let wPressed: boolean;
+let aPressed: boolean;
+let sPressed: boolean;
+let dPressed: boolean;
+let fPressed: boolean;
+let prevM: vec2;  
+let newM: vec2;
 
 function processKeyPresses() {
     // Use this if you wish
@@ -141,15 +150,66 @@ gl.bindBuffer(gl.ARRAY_BUFFER, null);
 }
 
 function main() {
-  window.addEventListener('keypress', function (e) {
+   window.addEventListener('keypress', function (e) {
     switch(e.key) {
+      case 'w':
+      wPressed = true;
+      break;
+      case 'a':
+      aPressed = true;
+      break;
+      case 's':
+      sPressed = true;
+      break;
+      case 'd':
+      dPressed = true;
+      break;
     }
   }, false);
 
   window.addEventListener('keyup', function (e) {
     switch(e.key) {
+      case 'f' : 
+      fPressed = !fPressed;
+      if (fPressed == true) {
+
+          prevM = vec2.fromValues(0, 0);
+          newM = vec2.fromValues(0, 0);
+          //fcamera.rotation = vec3.fromValues(0, 0, 0);
+          //fcamera.position = vec3.fromValues(0, 0, 0);
+
+      }
+      case 'w':
+      wPressed = false;
+      break;
+      case 'a':
+      aPressed = false;
+      break;
+      case 's':
+      sPressed = false;
+      break;
+      case 'd':
+      dPressed = false;
+      break;
     }
   }, false);
+
+  window.addEventListener('mousemove', function (e) {
+
+    if (fPressed) {
+        prevM = newM;
+        newM = vec2.fromValues(e.screenX, e.screenY);
+    }
+
+  });
+
+  wPressed = false;
+  aPressed = false;
+  sPressed = false;
+  dPressed = false;
+  fPressed = false;
+  prevM = vec2.fromValues(0, 0);
+  newM = vec2.fromValues(0, 0);
 
   // Initial display for framerate
   const stats = Stats();
@@ -352,8 +412,15 @@ function main() {
 
   // initialize camera
   const camera = new Camera(vec3.fromValues(0, 0, -1), vec3.fromValues(0, 0, 0));
-  camera.setAspectRatio(canvas.width / canvas.height);
-  camera.updateProjectionMatrix();
+  //camera.position = vec3.fromValues(0, 0, -100);
+  //camera.controls.eye = vec3.fromValues(0, 0, -100);
+  // camera.setAspectRatio(canvas.width / canvas.height);
+  // camera.updateProjectionMatrix();
+  const fcamera = createCamera();
+  fcamera.position = vec3.fromValues(0, 0, -10);
+  fcamera.rotation = vec3.fromValues(-3.12, 3.12, 0);
+  fcamera.control(0.000001, [wPressed, sPressed, aPressed, dPressed, false, false,], 
+                 newM, prevM);
 
 
   // call render loop
@@ -546,16 +613,61 @@ function main() {
     };
   }
 
-
-
-
+  function processKeyPresses() {
+    let velocity: vec2 = vec2.fromValues(0,0);
+    if(wPressed) {
+      //console.log("pressing w!");
+      velocity[1] -= 1.0;
+    }
+    if(aPressed) {
+      velocity[0] += 1.0;
+    }
+    if(sPressed) {
+      velocity[1] += 1.0;
+    }
+    if(dPressed) {
+      velocity[0] -= 1.0;
+    }
+    // let newPos: vec3 = vec3.fromValues(0,0,0);
+    // console.log(velocity);
+    // // console.log(camera.controls.eye);
+    // if (velocity != vec2.fromValues(0, 0)){
+    // // vec3.add(newPos, vec3.fromValues(velocity[0], 0, velocity[1]), camera.controls.eye);
+    // // camera.controls.eye = newPos;
+    //   console.log(newPos);
+    // }
+   
+    //camera.controls.eye = newPos;
+    //let newPos: vec2 = vec2.fromValues(0,0);
+    // vec2.add(newPos, velocity, planePos);
+    // lambert.setPlanePos(newPos);
+    // planePos = newPos;
+  }
 
 
   /* render (tick) loop */
   function render(gl, state, timestamp_millis) {
 
 
+    //console.log(fPressed);
+    if (!fPressed ) {
+      newM = vec2.fromValues(0,0);
+      prevM = vec2.fromValues(0,0);
+
+    }
+    //processKeyPresses();
+    fcamera.control(10, [wPressed, sPressed, aPressed, dPressed, false, false,], 
+                 newM, prevM);
+    prevM = newM;
+    if (fPressed) {
+      //fcamera.controls.eye = fcamera.position;
+    }
     camera.update();
+    camera.setAspectRatio(canvas.width / canvas.height);
+    camera.updateProjectionMatrix();
+
+    //console.log(fcamera.rotation);
+    //console.log(camera.controls.eye);
     stats.begin();
     var num_part = state.born_particles;
 
@@ -596,9 +708,17 @@ function main() {
 
 
     /* camera position */
+    if (fPressed) {
     gl.uniform3f(
       gl.getUniformLocation(state.raycast_flat_program, "u_CamPos"),
+      fcamera.position[0], fcamera.position[1], fcamera.position[2]);
+    }
+    else {
+
+      gl.uniform3f(
+      gl.getUniformLocation(state.raycast_flat_program, "u_CamPos"),
       camera.position[0], camera.position[1], camera.position[2]);
+    }
 
     /* camera up vector */
     gl.uniform3f(
@@ -631,7 +751,15 @@ function main() {
 
     /* camera projection */
     let viewProj = mat4.create();
-    mat4.multiply(viewProj, camera.projectionMatrix, camera.viewMatrix);
+    //console.log(fcamera.rotation);
+    //console.log(fcamera.view());
+    //console.log(fcamera.projection())
+    if (fPressed) {
+      mat4.multiply(viewProj, camera.projectionMatrix, fcamera.view());
+    }
+    else {
+       mat4.multiply(viewProj, camera.projectionMatrix, camera.viewMatrix);
+    }
 
     gl.uniformMatrix4fv(
       gl.getUniformLocation(state.particle_render_program, "u_ViewProj"),
@@ -641,7 +769,7 @@ function main() {
     /* camera position */
     gl.uniform3f(
       gl.getUniformLocation(state.particle_render_program, "u_CamPos"),
-      camera.position[0], camera.position[1], camera.position[2]);
+      fcamera.position[0], fcamera.position[1], fcamera.position[2]);
 
     /* camera up vector */
     gl.uniform3f(

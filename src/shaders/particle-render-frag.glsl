@@ -57,17 +57,9 @@ float hit_sphere(vec3 center, float radius, vec3 dir){
 
 
 void main() {
-  // vec3 dir = getRayDirection();
-  // float x = hit_sphere(vec3(3.0, 0, 0), 1.0, dir);
-  // vec3 intersection_point = u_CamPos + x * dir;
 
-  // float distToSphere = distance(intersection_point, u_CamPos);
   float distanceToCamera = distance(v_Position, u_CamPos);
-  // if (distToSphere < distanceToCamera) {
 
-  // o_FragColor = vec4(0.0, 1.0, 0.0, 1.0);
-  // } 
-  // else {
   	 float t =  v_Age /v_Life;
   	 
   	 o_FragColor = vec4( palette(t,
@@ -77,13 +69,20 @@ void main() {
             vec3(0.0,0.15,0.20)), (1.0 -  t) / ( distanceToCamera / 10.0));
 
       // renders the sphere a different color
-      if (v_Age == -0.1 && u_SphereCollider == 1.0) {
+      if (v_Age == 3.0) {
         o_FragColor = vec4(0, 1, 0, 1);
       }
-      else if (v_Life == -0.2 && u_SphereCollider == 0.0) {
-
-        o_FragColor = vec4(0, 0, 0, 0);
+      if (v_Age == 4.0) {
+        o_FragColor = vec4(1, 0, 0, 1);
       }
+      // else if (v_Age == -0.2 && u_SphereCollider == 1.0) {
+      //   o_FragColor = vec4(0, 1, 0, 0);
+
+      // }
+      // else if (v_Life == -0.2 && u_SphereCollider == 0.0) {
+
+      //   o_FragColor = vec4(0, 0, 0, 0);
+      // }
 
   //}
  
