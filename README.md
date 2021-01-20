@@ -3,7 +3,7 @@
 The goal of this project is to make a custom gun creation tool that simulates bullets, projectiles, and other gun-outputs using particles
 that are generated, updated, and rendered using your GPU.
 
-## Demo : https://helenl9098.github.io/GPU-Particle-System/
+## Demo : https://helenl9098.github.io/GPU-Particle-Projectile-Customizer/
 Controls: Drag to rotate the camera around the origin. Right click and drag to translate the camera.
 
 ## Alpha Features & Progress
